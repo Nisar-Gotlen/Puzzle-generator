@@ -1,5 +1,5 @@
 from tkinter import *
-from pole1 import puzzle, puzzleSolved
+from solvingMethods import puzzle, puzzleSolving
 
 pole=int(9)
 size=50
@@ -31,7 +31,7 @@ def print_board(board):
 def click_button():
     btn.place_forget()
     canvas.pack_forget()
-    boardSolved=puzzleSolved
+    boardSolved=puzzleSolving
     print_board(boardSolved)
 
 
@@ -49,4 +49,3 @@ btnExit=Button(window,text="Exit",background="#235",foreground="white",font="Ari
 btnExit.place(x=550,y=100)
 
 window.mainloop()
-

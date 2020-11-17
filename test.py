@@ -30,7 +30,7 @@ k = 10
 Nex = fil.readline()
 puzzle = [[0] * 9 for i in range(9)]
 puzzleAnswers = [[0] * 9 for i in range(9)]
-module_name = 'pole1'
+module_name = 'solvingMethods'
 module = importlib.import_module(module_name)
 
 
