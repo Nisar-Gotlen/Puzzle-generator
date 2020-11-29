@@ -67,6 +67,26 @@ def mixing(board, seedN):
         board=variants[func](board)
     return board
 
+def deletion (board, difficult):
+    deletionB=[[(0) for i in range(n)] for j in range(n)]
+    iterat=0
+    if difficult==1:
+        delCount=int(n*n*0.6)
+    elif difficult==2:
+        delCount=int(n*n*0.65)
+    elif difficult==3:
+        delCount=int(n*n*0.7)
+    
+    while iterat < delCount:
+        i,j=random.randrange(n), random.randrange(n)
+        if deletionB[i][j]==0:
+            iterat+=1
+            deletionB[i][j]=1
+            numDeleted=board[i][j]
+            board[i][j]=0
+    return board
+             
+
 
 def main():
     global seedN
