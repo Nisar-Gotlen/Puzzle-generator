@@ -1,7 +1,7 @@
 import random
 from tkinter import *
 from tkinter import messagebox
-from pole1 import puzzle, puzzleSolved
+from solvingMethods import puzzle, puzzleSolving
 import generation
 
 pole=int(9)
@@ -29,13 +29,17 @@ def printBoard(board):
                 canvas.create_line(x2,y2,x1,y2,width=3)
             if (row==8):
                 canvas.create_line(x2,y2,x2,y1,width=3)
-    canvas.pack(side=LEFT, padx=50,pady=20)
+    canvas.place(x=50,y=50)
 
 def clickBtn():
     btn.place_forget()
     canvas.pack_forget()
-    boardSolved=puzzleSolved
+    boardSolved=puzzleSolving
     printBoard(boardSolved)
+
+def changingSeed(seed):
+    mesEntry.delete("0", "end")
+    seedText.config(text=seed)
 
 def seedBtn():
     global seedMes
@@ -47,19 +51,32 @@ def seedBtn():
             firstBoard=generation.baseBoard()
             board=generation.mixing(firstBoard, int(seedMes))
             printBoard(board)
-            mesEntry.delete("0", "end")
-            seedText.config(text=seedMes)
+            changingSeed(seedMes)
         else:
              messagebox.showinfo("Error","Seed in the wrong range")
     else:
         messagebox.showinfo("Error", "Wrong seed")
 
+def generate(dif):
+    firstBoard,genSeed=generation.main()
+    board=generation.deletion(firstBoard,dif)
+    printBoard(board)
+    changingSeed(genSeed)
+
+def Easy():
+    generate(1)
+
+def Middle():
+    generate(2)
+
+def Hard():
+    generate(3)
 
 
 window=Tk()
 window.title("SUDOKU")
-window.geometry("800x550")
-board,genSeed=generation.main()
+window.geometry("850x650")
+board=[[(0) for i in range(pole)] for j in range(pole)]
 printBoard(board)
 
 btn = Button(window, text="Solve",background="#235",foreground="white",font="Arial 16", width=15, command=clickBtn)
@@ -71,16 +88,25 @@ btnExit.place(x=550,y=100)
 textLabel=Label(text="Your seed:", foreground="black",font="Arial 20",width=15, justify="center")
 textLabel.place(x=525,y=200)
 
-seedText=Label(text=genSeed, foreground="black",font="Arial 20",width=15, justify="center")
+seedText=Label(text=0, foreground="black",font="Arial 20",width=15, justify="center")
 seedText.place(x=525,y=250)
 
 message = StringVar()
-mesEntry = Entry(textvariable=message, background="white",foreground="black",font="Arial 16",width=15, justify="center", bd="3",)
+mesEntry = Entry(textvariable=message, background="white",foreground="black",font="Arial 16",width=16, justify="center", bd="3",)
 mesEntry.insert (0, "Enter seed")
 mesEntry.place (x=550,y=400)
 
 btnOk=Button(window,text="Enter",background="#235",foreground="white",font="Arial 16",width=15, command=seedBtn)
 btnOk.place(x=550,y=450)
+
+btnEasy=Button(window,text="Easy",background="#235",foreground="white",font="Arial 16",width=8, command=Easy)
+btnEasy.place(x=50,y=550)
+
+btnMiddle=Button(window,text="Middle",background="#235",foreground="white",font="Arial 16",width=8, command=Middle)
+btnMiddle.place(x=210,y=550)
+
+btnMiddle=Button(window,text="Hard",background="#235",foreground="white",font="Arial 16",width=8, command=Hard)
+btnMiddle.place(x=370,y=550)
 
 window.mainloop()
 
