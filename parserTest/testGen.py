@@ -49,7 +49,7 @@ def print_test_res(puzzle, filDir1, filDir2):
 
 def pars_test():
 
-    driver = webdriver.Edge('D:\Apps\msedgedriver.exe')
+    driver = webdriver.Edge('parserTest/msedgedriver.exe')
     driver.get(URL)
 
     filDir1 = open('parserTest/testFi.txt', 'w')
