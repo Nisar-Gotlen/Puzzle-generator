@@ -273,7 +273,346 @@
 
 ## Уровни сложности судоку на разных сайтах
 ## Наши судоку
+
+При запуске пользователь видит меню, в котором можно выбрать два режима игры: классический судоку и судоку киллер. В данных играх есть возможность решать поля, а затем проверять их верность. Также можно выбрать игру по сидкоду.
 ### Реализованные методы
+
+Самый простой реализован отчасти за счет того, что при удалении всех неподходящих элементов в множестве в итоге всегда остается одно число, которое соответствует решению в данной ячейке. Реализован методом ```deleteExtraValues()```.  
+```python
+    def deleteExtraValues(self):
+        for i in range(self.totalNumber):
+            for j in range(self.totalNumber):
+                if len(self.numberField[i][j]) == 1:
+                    for k in self.numberField[i][j]:
+                        num = k
+                    for chv in range(self.totalNumber):
+                        self.numberField[i][chv].discard(num)
+                        self.numberField[chv][j].discard(num)
+                    self.numberField[i][j].add(num)
+                    firstIndexRow = 3*(i//3) 
+                    firstIndexColumn = 3*(j//3)
+                    for chvr in range(3):
+                        for chvc in range(3):
+                            self.numberField[firstIndexRow+chvr][firstIndexColumn + chvc].discard(num)
+                    self.numberField[i][j].add(num)
+```
+
+При нахождении ячейки, имеющей только одно значение, весь столбец, строка и блок проверяются и из возможных значений каждой проверяемой ячейки удаляется это число.  
+
+Является самым легким методом решения в игре, с которого и начинается автоматическое прорешивание поля программой для установления уровня сложности.  
+
+Метод ***"последний герой"*** реализован через ```singleCandidates()```.  
+
+```python
+    def singleCandidates(self): #name is taken from https://www.conceptispuzzles.com/ru/
+        for j in range(self.totalNumber):                   #row
+            for k in range(1, self.totalNumber+1):
+                soughtNumber = k
+                for i in range(self.totalNumber):
+                    for cell in self.numberField[i][j]:
+                        if cell == k:
+                            soughtNumber = 0
+                            break 
+                if soughtNumber != 0:
+                    placeCount = 0
+                    for i in range(self.totalNumber):
+                        if placeCount == 2:
+                            break
+                        if soughtNumber in self.numberField[i][j]:
+                            placeCount += 1
+                            indexSoughtRow = i
+                    if placeCount == 1:
+                        self.numberField[indexSoughtRow][j].clear()
+                        self.numberField[indexSoughtRow][j].add(soughtNumber)
+                        self.deleteExtraValues()
+                        self.changes = True
+                        self.isSingleCand = True
+        for i in range(self.totalNumber):                    #column
+            for k in range(1, self.totalNumber+1):
+                soughtNumber = k
+                for j in range(self.totalNumber):
+                    for cell in self.numberField[i][j]:
+                        if cell == k:
+                            soughtNumber = 0
+                            break 
+                if soughtNumber != 0:
+                    placeCount = 0
+                    for j in range(self.totalNumber):
+                        if placeCount == 2:
+                            break
+                        if soughtNumber in self.numberField[i][j]:
+                            placeCount += 1
+                            indexSoughtColumn = j
+                    if placeCount == 1:
+                        self.numberField[i][indexSoughtColumn].clear()
+                        self.numberField[i][indexSoughtColumn].add(soughtNumber)
+                        self.deleteExtraValues()
+                        self.changes = True
+                        self.isSingleCand = True
+        for countBlock in range(self.totalNumber):          #block
+            firstIndexRow = 3*(countBlock // 3)
+            firstIndexColumn = 3*(countBlock % 3)
+            for k in range(1, self.totalNumber+1):
+                soughtNumber = k
+                for i in range(3):
+                    for j in range(3):
+                        row = firstIndexRow+i
+                        col = firstIndexColumn+j
+                        for cell in self.numberField[row][col]:
+                            if cell == k:
+                                soughtNumber = 0
+                                break 
+                if soughtNumber != 0:
+                    placeCount = 0
+                    for i in range(3):
+                        for j in range(3):
+                            row = firstIndexRow+i
+                            col = firstIndexColumn+j
+                            if placeCount == 2:
+                                break
+                            if soughtNumber in self.numberField[row][col]:
+                                placeCount += 1
+                                indexSoughtColumn = col
+                                indexSoughtRow = row
+                    if placeCount == 1:
+                        self.numberField[indexSoughtRow][indexSoughtColumn].clear()
+                        self.numberField[indexSoughtRow][indexSoughtColumn].add(soughtNumber)
+                        self.deleteExtraValues()
+                        self.changes = True
+                        self.isSingleCand = True
+```
+
+При проходе функции по столбцу, строке или блоке подсчитывается количество элементов, встречающихся в одной области, и если число в какой-то момент соответствует двойке, процесс прерывается, если в итоге число равно единице, то все остальные значения удаляются из ячейки и процедура возвращается к самому простому методу решения для удаления этого числа из всех ячеек областей, к которому оно относится.  
+
+Для метода решения ***"Голые пары"*** реализуется метод ```nakedPairs()```. Основан на разности множеств. Если при вычитании множества A из множества B итоговое можество является пустым, и каждое из этих множеств содержит по 2 элемента, то они считаются "голой парой", и эти два числа вычитаются из остальных ячеек области, которая исследовалась.  
+```python
+    def nakedPairs(self):
+        for i in range(self.totalNumber): 
+            for j in range(self.totalNumber-1): 
+                if len(self.numberField[i][j]) == 2:
+                    matchingCells = {} 
+                    matchingCells[j] = self.numberField[i][j]
+                    for nextCol in range(j+1,self.totalNumber): 
+                        if len(self.numberField[i][nextCol]) == 2 and self.numberField[i][nextCol] == self.numberField[i][j]:
+                            matchingCells[nextCol] = self.numberField[i][nextCol]
+                            for key in matchingCells.keys():
+                                if key == j:
+                                    continue
+                            for col in range(self.totalNumber):
+                                    if col != j and col != nextCol:
+                                        changesControl = len(self.numberField[i][col])
+                                        self.numberField[i][col].difference_update(matchingCells[j])
+                                        if len(self.numberField[i][col]) != changesControl:
+                                            self.deleteExtraValues()
+                                            self.changes = True
+                                            self.isNakedPairs = True
+                            break
+                if len(self.numberField[j][i]) == 2:
+                    matchingCells = {} 
+                    matchingCells[j] = self.numberField[j][i]
+                    for nextRow in range(j+1,self.totalNumber): 
+                        if len(self.numberField[nextRow][i]) == 2 and self.numberField[nextRow][i] == self.numberField[j][i]: 
+                            matchingCells[nextRow] = self.numberField[nextRow][i]
+                            for key in matchingCells.keys():
+                                if key == j:
+                                    continue
+                                for row in range(self.totalNumber):
+                                    if row != j and row != nextRow:
+                                        changesControl = len(self.numberField[row][i])
+                                        self.numberField[row][i].difference_update(matchingCells[j])
+                                        if len(self.numberField[row][i]) != changesControl:
+                                            self.deleteExtraValues()
+                                            self.changes = True
+                                            self.isNakedPairs = True
+                            break
+        for countBlock in range(self.totalNumber):
+            fIndexRow = 3*(countBlock // 3)
+            fIndexColumn = 3*(countBlock % 3)
+            for index in range(self.totalNumber):
+                if len(self.numberField[fIndexRow + (index // 3)][fIndexColumn + (index % 3)]) == 2:
+                    matchingCells = {}
+                    matchingCells[index] = self.numberField[fIndexRow + (index // 3)][fIndexColumn + (index % 3)]
+                    for nextCell in range(index+1,self.totalNumber):
+                        if len(self.numberField[fIndexRow + (nextCell // 3)][fIndexColumn + (nextCell % 3)]) == 2 and len(self.numberField[fIndexRow+nextCell // 3][fIndexColumn+nextCell % 3].difference(matchingCells[index])) == 0:
+                            matchingCells[nextCell] = self.numberField[fIndexRow+nextCell // 3][fIndexColumn+nextCell % 3]
+                            for key in matchingCells.keys():
+                                if key == index:
+                                    continue
+                                for cell in range(self.totalNumber):
+                                    if cell != index and cell != nextCell:
+                                        changesControl = len(self.numberField[fIndexRow+cell // 3][fIndexColumn+cell % 3])
+                                        self.numberField[fIndexRow+cell // 3][fIndexColumn+cell % 3].difference_update(matchingCells[index])
+                                        if len(self.numberField[fIndexRow+cell // 3][fIndexColumn+cell % 3]) != changesControl:
+                                            self.deleteExtraValues()
+                                            self.changes = True
+                                            self.isNakedPairs = True
+                            break
+```
+
+После окончания процесса происходит возврат к ```deleteExtraValues().
+
+Метод ***"Голые тройки"*** реализован частично на основе механики из метода "Голых пар" лишь с той разницей, что при разнице множеств допускается один избыточный элемент, вместо двух чисел ищется три, а также вместо проверки двух ячеек проверяются три. В каждой из трех ячеек должно находиться два или три числа из избранной тройки.
+
+```python
+    def nakedTreesome(self):
+        for i in range(self.totalNumber):
+            count = 0
+            for j in range(self.totalNumber):
+                if len(self.numberField[i][j]) > 1:
+                    count +=1
+            if count > 3:
+                for j in range(self.totalNumber-1):
+                    if len(self.numberField[i][j]) == 3:
+                        matchingCells = {}
+                        matchingCells[j] = self.numberField[i][j]
+                        for nextCol in range(j+1, self.totalNumber):
+                            if self.numberField[i][nextCol].difference(self.numberField[i][j]) == 0:
+                                matchingCells[j] = self.numberField[i][nextCol]
+                        if len(matchingCells) == 3:
+                            for col in range(self.totalNumber):
+                                if not col in matchingCells.keys():
+                                    controlChanges = self.numberField[i][col]
+                                    self.numberField[i][col].difference_update(matchingCells[j])
+                                    if self.numberField[i][col] != changesControl:
+
+                                        self.changes = True
+                                        self.isNakedThreesome = True
+```
+
+Метод "Скрытые пары" также близок по своей идее с методом "Голых пар", но вместо разности используется пересечение множеств. Если при пересечении множеств возможных чисел двух ячеек одной области образуется множество с двумя элементами, то запускается процесс поиска в этой же области наличия хотя бы одного из чисел множества-пересечения в остальных, кроме уже взятых ранее двух, ячейках. При обнаружении их, процесс прерывается, если же ни одно число не было обнаружено, что в исходных двух ячейках удаляются все остальные значения кроме тех двух, что являются для них общими.
+
+```python
+    def hiddenPiars(self):
+        for i in range(self.totalNumber): 
+            for j in range(self.totalNumber-1): 
+                if len(self.numberField[i][j]) > 1:
+                    matchingCells = {} 
+                    matchingCells[j] = self.numberField[i][j]
+                    for nextCol in range(j+1, self.totalNumber):
+                        intersect = self.numberField[i][j].intersection(self.numberField[i][nextCol])
+                        if len(intersect) == 2:
+                            for chAllCol in range(self.totalNumber):
+                                if chAllCol == nextCol or chAllCol == j:
+                                    continue
+                                if len(self.numberField[i][chAllCol].intersection(intersect)) > 0:
+                                    intersect.clear()
+                                    break
+                        if len(intersect) == 2:
+                            matchingCells[nextCol] = self.numberField[i][nextCol]
+                    if len(matchingCells) == 2 and len(intersect) == 2:
+                        for k in matchingCells.keys():
+                            changesControl = len(self.numberField[i][k])
+                            self.numberField[i][k].intersection_update(intersect)
+                            if len(self.numberField[i][k]) != changesControl:
+                                self.deleteExtraValues()
+                                self.changes = True
+                                self.isHidPair = True
+            for j in range(self.totalNumber-1): 
+                if len(self.numberField[j][i]) > 1:
+                    matchingCells = {} 
+                    matchingCells[j] = self.numberField[j][i]
+                    for nextRow in range(j+1, self.totalNumber):
+                        intersect = self.numberField[j][i].intersection(self.numberField[nextRow][i])
+                        if len(intersect) == 2:
+                            for chAllRow in range(self.totalNumber):
+                                if chAllRow == nextRow or chAllRow == j:
+                                    continue
+                                if len(self.numberField[chAllRow][i].intersection(intersect)) > 0:
+                                    intersect.clear()
+                                    break
+                        if len(intersect) == 2:
+                            matchingCells[nextRow] = self.numberField[nextRow][i]
+                    if len(matchingCells) == 2 and len(intersect) == 2:
+                        for k in matchingCells.keys():
+                            changesControl = len(self.numberField[k][i])
+                            self.numberField[k][i].intersection_update(intersect)
+                            if len(self.numberField[k][i]) != changesControl:
+                                self.deleteExtraValues()
+                                self.changes = True
+                                self.isHidPair = True                                                                 
+        for countBlock in range(self.totalNumber):
+            fIndexRow = 3*(countBlock // 3)
+            fIndexColumn = 3*(countBlock % 3)
+            for index in range(self.totalNumber):
+                if len(self.numberField[fIndexRow + (index // 3)][fIndexColumn + (index % 3)]) > 1:
+                    matchingCells = {}
+                    matchingCells[index] = self.numberField[fIndexRow + (index // 3)][fIndexColumn + (index % 3)]
+                    for nextCell in range(index+1,self.totalNumber):
+                        intersect = self.numberField[fIndexRow + (index // 3)][fIndexColumn + (index % 3)].intersection(self.numberField[fIndexRow + (nextCell // 3)][fIndexColumn + (nextCell % 3)])
+                        if len(intersect) == 2:
+                            for chAllCell in range(self.totalNumber):
+                                if chAllCell == nextCell or chAllCell == index:
+                                    continue
+                                if len(self.numberField[fIndexRow + (chAllCell // 3)][fIndexColumn + (chAllCell % 3)].intersection(intersect)) > 0:
+                                    intersect.clear()
+                                    break
+                        if len(intersect) == 2:
+                            matchingCells[nextCell] = self.numberField[fIndexRow + (nextCell // 3)][fIndexColumn + (nextCell % 3)]
+                    if len(matchingCells) == 2 and len(intersect) == 2:
+                        for k in matchingCells.keys():
+                            changesControl = len(self.numberField[fIndexRow + (k // 3)][fIndexColumn + (k % 3)])
+                            self.numberField[fIndexRow + (k // 3)][fIndexColumn + (k % 3)].intersection_update(intersect)
+                            if len(self.numberField[fIndexRow + (k // 3)][fIndexColumn + (k % 3)]) != changesControl:
+                                self.deleteExtraValues()
+                                self.changes = True
+                                self.isHidPair = True
+```
+
+Метод "Скрытые тройки" использует тактику двух предыдущих. Как и в "Скрытых парах", вместо разницы множеств используется их пересечения. Как и в "Голых тройках", благодаря созданию нового множества через пересечение, выбирается три числа, поиск которых происходит во всех остальных ячейках области. При обнаружении реализуется логика метода "Скрытые пары"
+
+```python
+    def hiddenTriples(self):
+        for i in range(self.totalNumber): 
+            for j in range(self.totalNumber-1):  
+                if len(self.numberField[i][j]) > 1:
+                    for nextCol in range(j+1, self.totalNumber):
+                        commonNums = self.numberField[i][j].intersection(self.numberField[i][nextCol])
+                        if len(commonNums) == 3:
+                            matchingCells = {} 
+                            matchingCells[j] = self.numberField[i][j]
+                            matchingCells[nextCol] = self.numberField[i][nextCol]
+                            for chAllCol in range(self.totalNumber):
+                                if chAllCol == nextCol or chAllCol == j:
+                                    continue
+                                if len(self.numberField[i][chAllCol].intersection(commonNums)) == 1:
+                                    commonNums.clear()
+                                    break
+                                if len(self.numberField[i][chAllCol].intersection(commonNums)) == 2 or len(self.numberField[i][chAllCol].intersection(commonNums)) == 3:
+                                    matchingCells[chAllCol] = self.numberField[i][chAllCol]
+                            if len(matchingCells) == 3 and len(commonNums) !=0:
+                                for k in matchingCells.keys():
+                                    changesControl = len(self.numberField[i][k])
+                                    self.numberField[i][k].intersection_update(commonNums)
+                                    if len(self.numberField[i][k]) != changesControl:
+                                        self.deleteExtraValues()
+                                        self.changes = True
+                                        self.isHidPair = True
+        for j in range(self.totalNumber-1):  
+                if len(self.numberField[j][i]) > 1:
+                    for nextRow in range(j+1, self.totalNumber):
+                        commonNums = self.numberField[j][i].intersection(self.numberField[nextRow][i])
+                        if len(commonNums) == 3:
+                            matchingCells = {} 
+                            matchingCells[j] = self.numberField[j][i]
+                            matchingCells[nextRow] = self.numberField[nextRow][i]
+                            for chAllRows in range(self.totalNumber):
+                                if chAllRows == nextRow or chAllRows == j:
+                                    continue
+                                if len(self.numberField[chAllRows][i].intersection(commonNums)) == 1:
+                                    commonNums.clear()
+                                    break
+                                if len(self.numberField[chAllRows][i].intersection(commonNums)) == 2 or len(self.numberField[chAllRows][i].intersection(commonNums)) == 3:
+                                    matchingCells[chAllRows] = self.numberField[chAllRows][i]
+                            if len(matchingCells) == 3 and len(commonNums) !=0:
+                                for k in matchingCells.keys():
+                                    changesControl = len(self.numberField[k][i])
+                                    self.numberField[k][i].intersection_update(commonNums)
+                                    if len(self.numberField[k][i]) != changesControl:
+                                        self.deleteExtraValues()
+                                        self.changes = True
+                                        self.isHidPair = True
+```
+
 ## Структура проекта  
 
 |  Название файла           |      Описание    |
