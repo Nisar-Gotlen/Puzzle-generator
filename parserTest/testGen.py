@@ -5,6 +5,7 @@ import numpy as np
 import inspect
 import copy
 
+
 URL = 'https://sudoku.org.ua/'
 
 EASY_RB_ID = 'enhe0'        # Easy Radio Button id
@@ -29,6 +30,7 @@ def print_test_res(puzzle, filDir1, filDir2):
     sys.path.insert(0, parentdir)
 
     import solvingMethods
+    from solvingMethods import SolvingMethods
 
     filDir1.write(str(puzzle))
     filDir1.write("\n")
@@ -36,8 +38,8 @@ def print_test_res(puzzle, filDir1, filDir2):
     filDir1.write("\n")
 
     puzzle = np.array(puzzle).tolist()
-    puzzleSolving = copy.deepcopy(puzzle)
-    puzzleSolving = solvingMethods.Solve(puzzleSolving)
+    solving = SolvingMethods(puzzle)
+    puzzleSolving = solving.Solve()
     puzzleSolving = np.array(puzzleSolving)
     puzzleSolving = np.reshape(puzzleSolving, (9, 9))
     filDir2.write(str(puzzleSolving))

@@ -46,9 +46,11 @@ for i in range(int(Nex)):
     parentdir = os.path.dirname(currentdir)
     sys.path.insert(0, parentdir)
 
-    import solvingMethods
+    from solvingMethods import SolvingMethods
 
-    puzzleSolved = solvingMethods.Solve(res)
+    solving = SolvingMethods(res)
+    puzzleSolved = solving.Solve()
+  #  puzzleSolved = solvingMethods.Solve(res)
 
     for l in range(len(puzzle)):
         for j in range(len(puzzle)):
