@@ -7,7 +7,6 @@ import math
 
 pole=int(9)
 size=50
-copyBoard=0
 genSeed=0
 
 def createBoard():
@@ -37,6 +36,7 @@ def createBoard():
         killerSudoku()
 
 def classicSudoku():
+    global copyBoard
     firstBoard,genSeed=generation.main()
     seedText.config(text=genSeed)
     copyBoard=copy.deepcopy(firstBoard)
@@ -69,6 +69,7 @@ def searchingForBlocks(x,y,blockBoard):
     
 
 def killerSudoku():
+    global copyBoard
     firstBoard,genSeed=generation.main()
     seedText.config(text=genSeed)
     blockBoard,maxNum=generation.sudokuKiller()
@@ -107,12 +108,13 @@ def checkBoard():
         for j in range(pole):
             if (entries[i][j].get().isdigit()) or (entries[i][j].get()==''):
                 if entries[i][j].get()=='':
-                    items[i][j]=0
+                    items[j][i]=0
                 else:
-                    items[i][j]=int(entries[i][j].get())
+                    items[j][i]=int(entries[i][j].get())
             else:
-                items[i][j]=-1
+                items[j][i]=-1
                 c=1
+
 
     if items==copyBoard:
         messagebox.showinfo("Correct answer","You win")
@@ -152,7 +154,6 @@ def startGame():
     global frameMain
     frameMain = Frame(window, width=850, height=650)
     board=[[(0) for i in range(pole)] for j in range(pole)]
-    #createBoard()
 
     btnCheck = Button(frameMain, text="Check",background="#235",foreground="white",font="Arial 16", width=15, command=checkBoard)
     btnCheck.place(x=550,y=20)
@@ -180,10 +181,6 @@ def startGame():
 
     frameMain.pack()
 
-def comm():
-    startGame()
-    btext=event.widget.cget('text')
-    frameMenu.pack_forget()
 
 def on_click(event):
     global buttonText
