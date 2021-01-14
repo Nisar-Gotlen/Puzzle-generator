@@ -132,7 +132,7 @@ def seedChange():
     seedMes=message.get()
     if seedMes.isdigit():
         if int(seedMes)>0:
-            canvas.pack_forget()
+            frame.place_forget()
             random.seed(seedMes)
             firstBoard=generation.baseBoard()
             board=generation.mixing(firstBoard, int(seedMes))
