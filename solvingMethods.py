@@ -1,224 +1,352 @@
 import copy
 
-totalNumber = 9
+class SolvingMethods(object):
 
-def prepareToPossibleValues(possibleValues):
-    for i in range(totalNumber):
-        for j in range(totalNumber):
-            for k in range(2, totalNumber+1):
-                possibleValues[i][j].add(k)
+    def __init__(self, startField):
+        self.totalNumber = 9
+        self.startField = startField
+        self.numberField = self.prepareField()
+        self.solvedField = [[0 for i in range(self.totalNumber)] for j in range(self.totalNumber)]
+        self.done = False
+        self.changes = False
+        self.difficult = 0
+        self.isSingleCand = False
+        self.isNakedPairs = False
+        self.isNakedThree= False
+        self.isHidPair = False
+        self.solvingProcces()
 
-def deleteExtraValues(puzzleSolving, possibleValues):
-    for i in range(totalNumber):
-        for j in range(totalNumber):
-            if puzzleSolving[i][j] != 0:
-                possibleValues[i][j].clear()
-                for chv in range(totalNumber):
-                        possibleValues[i][chv].discard(puzzleSolving[i][j])
-                        possibleValues[chv][j].discard(puzzleSolving[i][j])
-                firstIndexRow = 3*(i//3) 
-                firstIndexColumn = 3*(j//3)
-                for chvr in range(3):
-                    for chvc in range(3):
-                            possibleValues[firstIndexRow+chvr][firstIndexColumn +
-                                                               chvc].discard(puzzleSolving[i][j])
+    def isPossible(self):
+        return self.done
 
+    def Solve(self):
+        for i in range(self.totalNumber):
+            for j in range(self.totalNumber):
+                if len(self.numberField[i][j]) == 1:
+                    for k in self.numberField[i][j]:
+                        self.solvedField[i][j] = k
+                else:
+                    self.solvedField[i][j] = 0
+        return self.solvedField
 
-def singleCandidates(puzzleSolving, possibleValues): #name is taken from https://www.conceptispuzzles.com/ru/index.aspx?uri=puzzle/sudoku/techniques
-    global continueSolving
-    isSmthChange = False
-    for j in range(totalNumber):
-        for k in range(1, totalNumber+1):
-            soughtNumber = k
-            for i in range(totalNumber):
-                if puzzleSolving[i][j] == k:
-                    soughtNumber = 0
-            if soughtNumber != 0:
-                placeCount = 0
-                for i in range(totalNumber):
-                    if placeCount < 2:
-                        if soughtNumber in possibleValues[i][j]:
+    def checksolving(self):
+        for i in range(self.totalNumber):
+            for j in range(self.totalNumber):
+                if len(self.numberField[i][j])==1:
+                    self.done = True
+                elif len(self.numberField[i][j])>1:
+                    self.done = False
+                    break
+            if self.done == False:
+                break
+        if self.done:
+            self.addSolution()
+        return self.done
+
+    def solvingProcces(self):
+        while not self.done:
+            self.deleteExtraValues()
+            self.singleCandidates()
+            if self.checksolving():
+                break
+            if self.changes:
+                self.deleteExtraValues()
+                self.changes = False
+                continue
+            self.nakedPairs()
+            if self.checksolving():
+                break
+            if self.changes:
+                self.deleteExtraValues()
+                self.changes = False
+                continue
+            self.nakedTreesome()
+            if self.checksolving():
+                break
+            if self.changes:
+                self.deleteExtraValues()
+                self.changes = False
+                continue
+            self.hiddenPiars()
+            if self.checksolving():
+                break
+            if self.changes:
+                self.deleteExtraValues()
+                self.changes = False
+                continue
+            if not self.changes:
+                break
+
+    def addSolution(self):
+        for i in range(self.totalNumber):
+            for j in range(self.totalNumber):
+                for k in self.numberField[i][j]:
+                    self.solvedField[i][j] = k
+
+    def prepareField(self):
+        numberField = [[{1} for i in range(self.totalNumber)] for j in range(self.totalNumber)]
+        for i in range(self.totalNumber):
+            for j in range(self.totalNumber):
+                if self.startField[i][j] != 0:
+                    numberField[i][j].clear()
+                    numberField[i][j].add(self.startField[i][j])
+                    continue
+                for k in range(2, self.totalNumber+1):
+                    numberField[i][j].add(k)
+        return numberField
+
+    def deleteExtraValues(self):
+        for i in range(self.totalNumber):
+            for j in range(self.totalNumber):
+                if len(self.numberField[i][j]) == 1:
+                    for k in self.numberField[i][j]:
+                        num = k
+                    for chv in range(self.totalNumber):
+                        self.numberField[i][chv].discard(num)
+                        self.numberField[chv][j].discard(num)
+                    self.numberField[i][j].add(num)
+                    firstIndexRow = 3*(i//3) 
+                    firstIndexColumn = 3*(j//3)
+                    for chvr in range(3):
+                        for chvc in range(3):
+                            self.numberField[firstIndexRow+chvr][firstIndexColumn + chvc].discard(num)
+                    self.numberField[i][j].add(num)
+
+    def singleCandidates(self): #name is taken from https://www.conceptispuzzles.com/ru/index.aspx?uri=puzzle/sudoku/techniques
+        for j in range(self.totalNumber):                   #row
+            for k in range(1, self.totalNumber+1):
+                soughtNumber = k
+                for i in range(self.totalNumber):
+                    for cell in self.numberField[i][j]:
+                        if cell == k:
+                            soughtNumber = 0
+                            break 
+                if soughtNumber != 0:
+                    placeCount = 0
+                    for i in range(self.totalNumber):
+                        if placeCount == 2:
+                            break
+                        if soughtNumber in self.numberField[i][j]:
                             placeCount += 1
                             indexSoughtRow = i
-                    else: 
-                        break
-                if placeCount == 1:
-                    puzzleSolving[indexSoughtRow][j] = k
-                    deleteExtraValues(puzzleSolving, possibleValues)
-                    isSmthChange = True
-    for i in range(totalNumber):
-        for k in range(1, totalNumber+1):
-            soughtNumber = k
-            for j in range(totalNumber):
-                if puzzleSolving[i][j] == k:
-                    soughtNumber = 0
-            if soughtNumber != 0:
-                placeCount = 0
-                for j in range(totalNumber):
-                    if placeCount < 2:
-                        if soughtNumber in possibleValues[i][j]:
+                    if placeCount == 1:
+                        self.numberField[indexSoughtRow][j].clear()
+                        self.numberField[indexSoughtRow][j].add(soughtNumber)
+                        self.deleteExtraValues()
+                        self.changes = True
+                        self.isSingleCand = True
+        for i in range(self.totalNumber):                    #column
+            for k in range(1, self.totalNumber+1):
+                soughtNumber = k
+                for j in range(self.totalNumber):
+                    for cell in self.numberField[i][j]:
+                        if cell == k:
+                            soughtNumber = 0
+                            break 
+                if soughtNumber != 0:
+                    placeCount = 0
+                    for j in range(self.totalNumber):
+                        if placeCount == 2:
+                            break
+                        if soughtNumber in self.numberField[i][j]:
                             placeCount += 1
                             indexSoughtColumn = j
-                    else: 
-                        break
-                if placeCount == 1:
-                    puzzleSolving[i][indexSoughtColumn] = k
-                    deleteExtraValues(puzzleSolving, possibleValues)
-                    isSmthChange = True
-
-    for countBlock in range(totalNumber):
-        firstIndexRow = 3*(countBlock // 3)
-        firstIndexColumn = 3*(countBlock % 3)
-        for k in range(1, totalNumber+1):
-            soughtNumber = k
-            for i in range(3):
-                for j in range(3):
-                    row = firstIndexRow+i
-                    col = firstIndexColumn+j
-                    if puzzleSolving[row][col] == k:
-                        soughtNumber = 0
-            if soughtNumber != 0:
-                placeCount = 0
+                    if placeCount == 1:
+                        self.numberField[i][indexSoughtColumn].clear()
+                        self.numberField[i][indexSoughtColumn].add(soughtNumber)
+                        self.deleteExtraValues()
+                        self.changes = True
+                        self.isSingleCand = True
+        for countBlock in range(self.totalNumber):          #block
+            firstIndexRow = 3*(countBlock // 3)
+            firstIndexColumn = 3*(countBlock % 3)
+            for k in range(1, self.totalNumber+1):
+                soughtNumber = k
                 for i in range(3):
                     for j in range(3):
                         row = firstIndexRow+i
                         col = firstIndexColumn+j
-                        if placeCount < 2:
-                            if soughtNumber in possibleValues[row][col]:
+                        for cell in self.numberField[row][col]:
+                            if cell == k:
+                                soughtNumber = 0
+                                break 
+                if soughtNumber != 0:
+                    placeCount = 0
+                    for i in range(3):
+                        for j in range(3):
+                            row = firstIndexRow+i
+                            col = firstIndexColumn+j
+                            if placeCount == 2:
+                                break
+                            if soughtNumber in self.numberField[row][col]:
                                 placeCount += 1
-                                indexSoughtColumn = row
-                                indexSoughtRow = col
-                        else: 
+                                indexSoughtColumn = col
+                                indexSoughtRow = row
+                    if placeCount == 1:
+                        self.numberField[indexSoughtRow][indexSoughtColumn].clear()
+                        self.numberField[indexSoughtRow][indexSoughtColumn].add(soughtNumber)
+                        self.deleteExtraValues()
+                        self.changes = True
+                        self.isSingleCand = True
+
+    def nakedPairs(self):
+        for i in range(self.totalNumber): 
+            for j in range(self.totalNumber-1): 
+                if len(self.numberField[i][j]) == 2:
+                    matchingCells = {} 
+                    matchingCells[j] = self.numberField[i][j]
+                    for nextCol in range(j+1,self.totalNumber): 
+                        if len(self.numberField[i][nextCol]) == 2 and self.numberField[i][nextCol] == self.numberField[i][j]: 
+                            matchingCells[nextCol] = self.numberField[i][nextCol]
+                            for key in matchingCells.keys():
+                                if key == j:
+                                    continue
+                            for col in range(self.totalNumber):
+                                    if col != j and col != nextCol:
+                                        changesControl = len(self.numberField[i][col])
+                                        self.numberField[i][col].difference_update(matchingCells[j])
+                                        if len(self.numberField[i][col]) != changesControl:
+                                            self.deleteExtraValues()
+                                            self.changes = True
+                                            self.isNakedPairs = True
                             break
-                if placeCount == 1:
-                    puzzleSolving[indexSoughtColumn][indexSoughtRow] = soughtNumber
-                    deleteExtraValues(puzzleSolving, possibleValues)
-                    isSmthChange = True
-    if not isSmthChange:
-        continueSolving = False
-    else:
-        continueSolving = True
+                if len(self.numberField[j][i]) == 2:
+                    matchingCells = {} 
+                    matchingCells[j] = self.numberField[j][i]
+                    for nextRow in range(j+1,self.totalNumber): 
+                        if len(self.numberField[nextRow][i]) == 2 and self.numberField[nextRow][i] == self.numberField[j][i]: 
+                            matchingCells[nextRow] = self.numberField[nextRow][i]
+                            for key in matchingCells.keys():
+                                if key == j:
+                                    continue
+                                for row in range(self.totalNumber):
+                                    if row != j and row != nextRow:
+                                        changesControl = len(self.numberField[row][i])
+                                        self.numberField[row][i].difference_update(matchingCells[j])
+                                        if len(self.numberField[row][i]) != changesControl:
+                                            self.deleteExtraValues()
+                                            self.changes = True
+                                            self.isNakedPairs = True
+                            break
+        for countBlock in range(self.totalNumber):
+            fIndexRow = 3*(countBlock // 3)
+            fIndexColumn = 3*(countBlock % 3)
+            for index in range(self.totalNumber):
+                if len(self.numberField[fIndexRow + (index // 3)][fIndexColumn + (index % 3)]) == 2:
+                    matchingCells = {}
+                    matchingCells[index] = self.numberField[fIndexRow + (index // 3)][fIndexColumn + (index % 3)]
+                    for nextCell in range(index+1,self.totalNumber):
+                        if len(self.numberField[fIndexRow + (nextCell // 3)][fIndexColumn + (nextCell % 3)]) == 2 and len(self.numberField[fIndexRow+nextCell // 3][fIndexColumn+nextCell % 3].difference(matchingCells[index])) == 0:
+                            matchingCells[nextCell] = self.numberField[fIndexRow+nextCell // 3][fIndexColumn+nextCell % 3]
+                            for key in matchingCells.keys():
+                                if key == index:
+                                    continue
+                                for cell in range(self.totalNumber):
+                                    if cell != index and cell != nextCell:
+                                        changesControl = len(self.numberField[fIndexRow+cell // 3][fIndexColumn+cell % 3])
+                                        self.numberField[fIndexRow+cell // 3][fIndexColumn+cell % 3].difference_update(matchingCells[index])
+                                        if len(self.numberField[fIndexRow+cell // 3][fIndexColumn+cell % 3]) != changesControl:
+                                            self.deleteExtraValues()
+                                            self.changes = True
+                                            self.isNakedPairs = True
+                            break
 
-def missingNumbers(possibleValues, puzzleSolving): #name is taken from https://www.conceptispuzzles.com/ru/index.aspx?uri=puzzle/sudoku/techniques
-    global continueSolving
-    isSmhchanged = True
-    while isSmhchanged:
-        isSmhchanged = False
-        for i in range(totalNumber):
-            for j in range(totalNumber):
-                if puzzleSolving[i][j] == 0:
-                    if len(possibleValues[i][j]) == 1:
-                        puzzleSolving[i][j] = possibleValues[i][j].pop()
-                        deleteExtraValues(puzzleSolving, possibleValues)
-                        isSmhchanged = True
-    continueSolving = False
+    def nakedTreesome(self):
+        for i in range(self.totalNumber):
+            count = 0
+            for j in range(self.totalNumber):
+                if len(self.numberField[i][j]) > 1:
+                    count +=1
+            if count > 3:
+                for j in range(self.totalNumber-1):
+                    if len(self.numberField[i][j]) == 3:
+                        matchingCells = {}
+                        matchingCells[j] = self.numberField[i][j]
+                        for nextCol in range(j+1, self.totalNumber):
+                            if self.numberField[i][nextCol].difference(self.numberField[i][j]) == 0:
+                                matchingCells[j] = self.numberField[i][nextCol]
+                        if len(matchingCells) == 3:
+                            for col in range(self.totalNumber):
+                                if not col in matchingCells.keys():
+                                    controlChanges = self.numberField[i][col]
+                                    self.numberField[i][col].difference_update(matchingCells[j])
+                                    if self.numberField[i][col] != changesControl:
 
-def nakedPair(possibleValues, puzzleSolving):
-    for i in range(totalNumber): 
-        candidateCount = {a: 0 for a in range(1,totalNumber+1)} #для строк
-        for j in range(totalNumber):
-            if len(possibleValues[i][j]) > 1:
-                for num in possibleValues[i][j]:
-                    candidateCount[num] += 1
-        for j in range(totalNumber-1):
-            if len(possibleValues[i][j]) > 1:
-                matchingCells = {}
-                matchingCells[j] = possibleValues[i][j]
-                for nextCol in range(j+1,9):
-                    if len(possibleValues[i][nextCol]) > 1:
-                        if len(possibleValues[i][nextCol].difference(matchingCells[j])) == 0:
-                            matchingCells[nextCol] = possibleValues[i][nextCol]
-                if len(matchingCells[j]) == 2:
-                    for k in matchingCells.keys():
-                        if k == j:
-                            continue
-                        else:
-                            for col in range(totalNumber):
-                                if col != j and col != k:
-                                    possibleValues[i][col].difference_update(matchingCells[j])                          
-        candidateCount = {a: 0 for a in range(1,totalNumber+1)} #для столбцов
-        for j in range(totalNumber):
-            if len(possibleValues[j][i]) > 1:
-                for num in possibleValues[j][i]:
-                    candidateCount[num] += 1
-        for j in range(totalNumber-1):
-            if len(possibleValues[j][i]) > 1:
-                matchingCells = {}
-                matchingCells[j] = possibleValues[j][i]
-                for nextRow in range(j+1,9):
-                    if len(possibleValues[nextRow][i]) > 1:
-                        if len(possibleValues[nextRow][i].difference(matchingCells[j])) == 0:
-                            matchingCells[nextRow] = possibleValues[nextRow][i]
-                if len(matchingCells[j]) == 2:
-                    for k in matchingCells.keys():
-                        if k == j:
-                            continue
-                        else:
-                            for rw in range(totalNumber):
-                                if rw != j and rw != k:
-                                    possibleValues[rw][i].difference_update(matchingCells[j]) 
-    for countBlock in range(totalNumber):
-        candidateCount = {a: 0 for a in range(1,totalNumber+1)}
-        fIndexRow = 3*(countBlock // 3)
-        fIndexColumn = 3*(countBlock % 3)
-        for i in range(3):
-            for j in range(3):
-                if len(possibleValues[fIndexRow+i][fIndexColumn+j]) > 1:
-                    for num in possibleValues[fIndexRow+i][fIndexColumn+j]:
-                        candidateCount[num] += 1
-        for index in range(totalNumber):
-            if len(possibleValues[fIndexRow + index // 3][fIndexColumn + index % 3]) > 1:
-                matchingCells = {}
-                matchingCells[index] = possibleValues[fIndexRow + index // 3][fIndexColumn + index % 3]
-                for nextCell in range(index+1,9):
-                    if len(possibleValues[fIndexRow+nextCell // 3][fIndexColumn+nextCell % 3]) > 1:
-                        if len(possibleValues[fIndexRow+nextCell // 3][fIndexColumn+nextCell % 3].difference(matchingCells[index])) == 0:
-                            matchingCells[nextCell] = possibleValues[fIndexRow+nextCell // 3][fIndexColumn+nextCell % 3]
+                                        self.changes = True
+                                        self.isNakedThreesome = True
 
-def Solve(puzzleSolving):
-    possibleValues = [[{1} for i in range(9)] for j in range(9)]
-    prepareToPossibleValues( possibleValues) 
-    deleteExtraValues(puzzleSolving, possibleValues)
-    global continueSolving
-    continueSolving = True
-    while continueSolving:
-        nakedPair(possibleValues, puzzleSolving)
-        missingNumbers(possibleValues, puzzleSolving)
-        singleCandidates(puzzleSolving, possibleValues)
-    return puzzleSolving
-
-
-puzzle = [
-    [4, 0, 0, 0, 0, 0, 9, 3, 8],
-    [0, 3, 2, 0, 9, 4, 1, 0, 0],
-    [0, 9, 5, 3, 0, 0, 2, 4, 0],
-    [3, 7, 0, 6, 0, 9, 0, 0, 4],
-    [5, 2, 9, 0, 0, 1, 6, 7, 3],
-    [6, 0, 4, 7, 0, 3, 0, 9, 0],
-    [9, 5, 7, 0, 0, 8, 3, 0, 0],
-    [0, 0, 3, 9, 0, 0, 4, 0, 0],
-    [2, 4, 0, 0, 3, 0, 7, 0, 9]
-]
-
-
-puzzleSolving = copy.deepcopy(puzzle)
-puzzleSolving = Solve(puzzleSolving)
-
-
-'''
-puzzle = [
-    [0, 0, 5, 1, 0, 6, 0, 0, 0],
-    [0, 0, 0, 0, 9, 0, 0, 0, 7],
-    [0, 1, 0, 0, 0, 4, 3, 0, 2],
-    [0, 8, 0, 0, 0, 0, 0, 6, 4],
-    [0, 0, 0, 0, 0, 0, 2, 3, 0],
-    [0, 0, 0, 0, 7, 0, 0, 0, 0],
-    [0, 0, 0, 6, 0, 9, 0, 0, 0],
-    [4, 7, 0, 0, 0, 0, 0, 0, 0],
-    [5, 0, 3, 0, 0, 0, 9, 2, 0]
-]
-
-
-puzzleSolving = copy.deepcopy(puzzle)
-puzzleSolving = Solve(puzzleSolving)
-'''
+    def hiddenPiars(self):
+        for i in range(self.totalNumber): 
+            for j in range(self.totalNumber-1): 
+                if len(self.numberField[i][j]) > 1:
+                    matchingCells = {} 
+                    matchingCells[j] = self.numberField[i][j]
+                    for nextCol in range(j+1, self.totalNumber):
+                        intersect = self.numberField[i][j].intersection(self.numberField[i][nextCol])
+                        if len(intersect) == 2:
+                            for chAllCol in range(self.totalNumber):
+                                if chAllCol == nextCol or chAllCol == j:
+                                    continue
+                                if len(self.numberField[i][chAllCol].intersection(intersect)) > 0:
+                                    intersect.clear()
+                                    break
+                        if len(intersect) == 2:
+                            matchingCells[nextCol] = self.numberField[i][nextCol]
+                    if len(matchingCells) == 2 and len(intersect) == 2:
+                        for k in matchingCells.keys():
+                            changesControl = len(self.numberField[i][k])
+                            self.numberField[i][k].intersection_update(intersect)
+                            if len(self.numberField[i][k]) != changesControl:
+                                self.deleteExtraValues()
+                                self.changes = True
+                                self.isHidPair = True
+            for j in range(self.totalNumber-1): 
+                if len(self.numberField[j][i]) > 1:
+                    matchingCells = {} 
+                    matchingCells[j] = self.numberField[j][i]
+                    for nextRow in range(j+1, self.totalNumber):
+                        intersect = self.numberField[j][i].intersection(self.numberField[nextRow][i])
+                        if len(intersect) == 2:
+                            for chAllRow in range(self.totalNumber):
+                                if chAllRow == nextRow or chAllRow == j:
+                                    continue
+                                if len(self.numberField[chAllRow][i].intersection(intersect)) > 0:
+                                    intersect.clear()
+                                    break
+                        if len(intersect) == 2:
+                            matchingCells[nextRow] = self.numberField[nextRow][i]
+                    if len(matchingCells) == 2 and len(intersect) == 2:
+                        for k in matchingCells.keys():
+                            changesControl = len(self.numberField[k][i])
+                            self.numberField[k][i].intersection_update(intersect)
+                            if len(self.numberField[k][i]) != changesControl:
+                                self.deleteExtraValues()
+                                self.changes = True
+                                self.isHidPair = True                                                                 
+        for countBlock in range(self.totalNumber):
+            fIndexRow = 3*(countBlock // 3)
+            fIndexColumn = 3*(countBlock % 3)
+            for index in range(self.totalNumber):
+                if len(self.numberField[fIndexRow + (index // 3)][fIndexColumn + (index % 3)]) > 1:
+                    matchingCells = {}
+                    matchingCells[index] = self.numberField[fIndexRow + (index // 3)][fIndexColumn + (index % 3)]
+                    for nextCell in range(index+1,self.totalNumber):
+                        intersect = self.numberField[fIndexRow + (index // 3)][fIndexColumn + (index % 3)].intersection(self.numberField[fIndexRow + (nextCell // 3)][fIndexColumn + (nextCell % 3)])
+                        if len(intersect) == 2:
+                            for chAllCell in range(self.totalNumber):
+                                if chAllCell == nextCell or chAllCell == index:
+                                    continue
+                                if len(self.numberField[fIndexRow + (chAllCell // 3)][fIndexColumn + (chAllCell % 3)].intersection(intersect)) > 0:
+                                    intersect.clear()
+                                    break
+                        if len(intersect) == 2:
+                            matchingCells[nextRow] = self.numberField[fIndexRow + (nextCell // 3)][fIndexColumn + (nextCell % 3)]
+                    if len(matchingCells) == 2 and len(intersect) == 2:
+                        for k in matchingCells.keys():
+                            changesControl = len(self.numberField[fIndexRow + (k // 3)][fIndexColumn + (k % 3)])
+                            self.numberField[fIndexRow + (k // 3)][fIndexColumn + (k % 3)].intersection_update(intersect)
+                            if len(self.numberField[fIndexRow + (k // 3)][fIndexColumn + (k % 3)]) != changesControl:
+                                self.deleteExtraValues()
+                                self.changes = True
+                                self.isHidPair = True
+                       
