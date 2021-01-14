@@ -30,10 +30,10 @@
   * [Судоку «Ёлочки»](#судоку-ёлочки)
   * [Судоку «Киллер»](#судоку-киллер)
   * [Термо-судоку](#термо-судоку)
-* [Уровни сложности судоку на разных сайтах](#)
-* [Наши судоку](#)
-  * [Реализованные методы](#)
-* [Структура проекта](#)
+* [Уровни сложности судоку на разных сайтах](#уровни-сложности-судоку-на-разных-сайтах)
+* [Наши судоку](#наши-судоку)
+  * [Реализованные методы](#реализованные-методы)
+* [Структура проекта](#структура-проекта)
 ## Разновидности судоку
 ### Классическое судоку
 
@@ -95,28 +95,157 @@
 |                  | [abc] [abc] [bc] | [abc] [ac] [bc]  |              |
 
 
-### Мегасудоку
+### Мегасудоку  
+
+<p  align="center">
+<img src="./picReadme/megasudoku.jpg" width="300" height="300"/>
+</p>  
+
+
 ### Судоку «Чет-Нечет плюс» 
+
+<p  align="center">
+<img src="./picReadme/chetnechetsudoku.jpg" width="300" height="300"/>
+</p>  
+
+
 ### Судоку «Перегородки» 
+
+<p  align="center">
+<img src="./picReadme/sudokuperegorodki.jpg" width="300" height="300"/>
+</p>  
+
+
 ### Судоку «Куб» 
+
+<p  align="center">
+<img src="./picReadme/sudokukub.jpg" width="300" height="300"/>
+</p>  
+
 ### Судоку «Неравенства» 
+
+<p  align="center">
+<img src="./picReadme/sudokuneravenstvo.jpg" width="300" height="300"/>
+</p>  
+
+
 ### Судоку «Цепочки» 
+
+<p  align="center">
+<img src="./picReadme/sudokucepochki.jpg" width="300" height="300"/>
+</p>  
+
+
 ### Судоку «Не пара» 
+
+<p  align="center">
+<img src="./picReadme/sudokunepara.jpg" width="627" height="300"/>
+</p>  
+
+
 ### Судоку «Пара» 
+
+<p  align="center">
+<img src="./picReadme/sudokupara.jpg" width="641" height="300"/>
+</p>  
+
+
 ### Судоку «Трио» 
+
+<p  align="center">
+<img src="./picReadme/sudokutrio.jpg" width="300" height="300"/>
+</p> 
+
 ### Судоку «Сумма по диагонали» 
+
+<p  align="center">
+<img src="./picReadme/sudokusummapodiagonali.jpg" width="300" height="300"/>
+</p> 
+
+
 ### Судоку «Геометрические» 
+
+<p  align="center">
+<img src="./picReadme/sudokugeometricheskay.jpg" width="300" height="300"/>
+</p> 
+
+
 ### Судоку «Виндоку» 
+
+<p  align="center">
+<img src="./picReadme/sudokuvindoku.jpg" width="300" height="300"/>
+</p> 
+
+
 ### 3D-Судоку или «Тредоку»
+
+<p  align="center">
+<img src="./picReadme/tredoku.jpg" width="300" height="400"/>
+</p> 
+
+
 ### Судоку «Диагональ»
+
+<p  align="center">
+<img src="./picReadme/sudokudiagonal.jpg" width="300" height="300"/>
+</p> 
+
+
 ### Судоку «Римское» 
+
+<p  align="center">
+<img src="./picReadme/sudokurivskoe.jpg" width="300" height="300"/>
+</p> 
+
+
 ### Судоку «Квадро» 
+
+<p  align="center">
+<img src="./picReadme/sudokukvadro.jpg" width="300" height="300"/>
+</p> 
+
+
 ### Судоку «Точки-2» 
+
+<p  align="center">
+<img src="./picReadme/sudokutochki2.jpg" width="300" height="300"/>
+</p> 
+
+
 ### Судоку «Суммы сбоку» 
+
+<p  align="center">
+<img src="./picReadme/sudokusummysboku.jpg" width="300" height="300"/>
+</p> 
+
+
 ### Судоку «Квадросуммы»
+
+<p  align="center">
+<img src="./picReadme/sudokukvadrosumma-320x320.jpg" width="300" height="300"/>
+</p> 
+
+
 ### Судоку «Ёлочки»
+
+<p  align="center">
+<img src="./picReadme/sudokuelochki.jpg" width="300" height="300"/>
+</p> 
+
+
 ### Судоку «Киллер»
+
+<p  align="center">
+<img src="./picReadme/killer.png" width="300" height="300"/>
+</p> 
+
 ### Термо-судоку
+
+<p  align="center">
+<img src="./picReadme/GM-Thermo-Ex.png" width="604" height="300"/>
+</p> 
+
+
 ## Уровни сложности судоку на разных сайтах
 ## Наши судоку
 ### Реализованные методы
