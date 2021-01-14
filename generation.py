@@ -1,5 +1,6 @@
 import random
 import sys
+import solvingMethods
 
 n=9
 m=3
@@ -153,9 +154,9 @@ def deletion (board):
             deletionB[i][j]=1
             numDeleted=board[i][j]
             board[i][j]=0
-            #if SolvingMethods.isPossible()=0:
-                #board[i][j]=numDeleted
-                #iterat-=1
+            if solvingMethods.SolvingMethods(board).isPossible()==0:
+                board[i][j]=numDeleted
+                iterat-=1
     return board
              
 
