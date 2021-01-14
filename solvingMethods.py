@@ -1,5 +1,3 @@
-import copy
-
 class SolvingMethods(object):
 
     def __init__(self, startField):
@@ -74,6 +72,13 @@ class SolvingMethods(object):
                 self.deleteExtraValues()
                 self.changes = False
                 continue
+            self.hiddenTriples()
+            if self.checksolving():
+                break
+            if self.changes:
+                self.deleteExtraValues()
+                self.changes = False
+                continue
             if not self.changes:
                 break
 
@@ -111,6 +116,7 @@ class SolvingMethods(object):
                         for chvc in range(3):
                             self.numberField[firstIndexRow+chvr][firstIndexColumn + chvc].discard(num)
                     self.numberField[i][j].add(num)
+
 
     def singleCandidates(self): #name is taken from https://www.conceptispuzzles.com/ru/index.aspx?uri=puzzle/sudoku/techniques
         for j in range(self.totalNumber):                   #row
@@ -196,7 +202,7 @@ class SolvingMethods(object):
                     matchingCells = {} 
                     matchingCells[j] = self.numberField[i][j]
                     for nextCol in range(j+1,self.totalNumber): 
-                        if len(self.numberField[i][nextCol]) == 2 and self.numberField[i][nextCol] == self.numberField[i][j]: 
+                        if len(self.numberField[i][nextCol]) == 2 and self.numberField[i][nextCol] == self.numberField[i][j]:
                             matchingCells[nextCol] = self.numberField[i][nextCol]
                             for key in matchingCells.keys():
                                 if key == j:
@@ -340,7 +346,7 @@ class SolvingMethods(object):
                                     intersect.clear()
                                     break
                         if len(intersect) == 2:
-                            matchingCells[nextRow] = self.numberField[fIndexRow + (nextCell // 3)][fIndexColumn + (nextCell % 3)]
+                            matchingCells[nextCell] = self.numberField[fIndexRow + (nextCell // 3)][fIndexColumn + (nextCell % 3)]
                     if len(matchingCells) == 2 and len(intersect) == 2:
                         for k in matchingCells.keys():
                             changesControl = len(self.numberField[fIndexRow + (k // 3)][fIndexColumn + (k % 3)])
@@ -349,4 +355,54 @@ class SolvingMethods(object):
                                 self.deleteExtraValues()
                                 self.changes = True
                                 self.isHidPair = True
-                       
+                                
+    def hiddenTriples(self):
+        for i in range(self.totalNumber): 
+            for j in range(self.totalNumber-1):  
+                if len(self.numberField[i][j]) > 1:
+                    for nextCol in range(j+1, self.totalNumber):
+                        commonNums = self.numberField[i][j].intersection(self.numberField[i][nextCol])
+                        if len(commonNums) == 3:
+                            matchingCells = {} 
+                            matchingCells[j] = self.numberField[i][j]
+                            matchingCells[nextCol] = self.numberField[i][nextCol]
+                            for chAllCol in range(self.totalNumber):
+                                if chAllCol == nextCol or chAllCol == j:
+                                    continue
+                                if len(self.numberField[i][chAllCol].intersection(commonNums)) == 1:
+                                    commonNums.clear()
+                                    break
+                                if len(self.numberField[i][chAllCol].intersection(commonNums)) == 2 or len(self.numberField[i][chAllCol].intersection(commonNums)) == 3:
+                                    matchingCells[chAllCol] = self.numberField[i][chAllCol]
+                            if len(matchingCells) == 3 and len(commonNums) !=0:
+                                for k in matchingCells.keys():
+                                    changesControl = len(self.numberField[i][k])
+                                    self.numberField[i][k].intersection_update(commonNums)
+                                    if len(self.numberField[i][k]) != changesControl:
+                                        self.deleteExtraValues()
+                                        self.changes = True
+                                        self.isHidPair = True
+        for j in range(self.totalNumber-1):  
+                if len(self.numberField[j][i]) > 1:
+                    for nextRow in range(j+1, self.totalNumber):
+                        commonNums = self.numberField[j][i].intersection(self.numberField[nextRow][i])
+                        if len(commonNums) == 3:
+                            matchingCells = {} 
+                            matchingCells[j] = self.numberField[j][i]
+                            matchingCells[nextRow] = self.numberField[nextRow][i]
+                            for chAllRows in range(self.totalNumber):
+                                if chAllRows == nextRow or chAllRows == j:
+                                    continue
+                                if len(self.numberField[chAllRows][i].intersection(commonNums)) == 1:
+                                    commonNums.clear()
+                                    break
+                                if len(self.numberField[chAllRows][i].intersection(commonNums)) == 2 or len(self.numberField[chAllRows][i].intersection(commonNums)) == 3:
+                                    matchingCells[chAllRows] = self.numberField[chAllRows][i]
+                            if len(matchingCells) == 3 and len(commonNums) !=0:
+                                for k in matchingCells.keys():
+                                    changesControl = len(self.numberField[k][i])
+                                    self.numberField[k][i].intersection_update(commonNums)
+                                    if len(self.numberField[k][i]) != changesControl:
+                                        self.deleteExtraValues()
+                                        self.changes = True
+                                        self.isHidPair = True
