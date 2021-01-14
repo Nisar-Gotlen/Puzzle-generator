@@ -213,6 +213,3 @@ window.title("SUDOKU")
 window.geometry("850x650")
 window.config(bg = "white")
 main()
-
-
-

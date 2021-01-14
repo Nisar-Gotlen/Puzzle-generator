@@ -8,10 +8,11 @@ class SolvingMethods(object):
         self.done = False
         self.changes = False
         self.difficult = 0
-        self.isSingleCand = False
-        self.isNakedPairs = False
-        self.isNakedThree= False
-        self.isHidPair = False
+        self.SingleCand = 0
+        self.NakedPairs = 0
+        self.NakedThree= 0
+        self.HidPair = 0
+        self.HidTree = 0
         self.solvingProcces()
 
     def isPossible(self):
@@ -140,7 +141,7 @@ class SolvingMethods(object):
                         self.numberField[indexSoughtRow][j].add(soughtNumber)
                         self.deleteExtraValues()
                         self.changes = True
-                        self.isSingleCand = True
+                        self.SingleCand +=1
         for i in range(self.totalNumber):                    #column
             for k in range(1, self.totalNumber+1):
                 soughtNumber = k
@@ -162,7 +163,7 @@ class SolvingMethods(object):
                         self.numberField[i][indexSoughtColumn].add(soughtNumber)
                         self.deleteExtraValues()
                         self.changes = True
-                        self.isSingleCand = True
+                        self.SingleCand += 1
         for countBlock in range(self.totalNumber):          #block
             firstIndexRow = 3*(countBlock // 3)
             firstIndexColumn = 3*(countBlock % 3)
@@ -193,7 +194,7 @@ class SolvingMethods(object):
                         self.numberField[indexSoughtRow][indexSoughtColumn].add(soughtNumber)
                         self.deleteExtraValues()
                         self.changes = True
-                        self.isSingleCand = True
+                        self.SingleCand += 1
 
     def nakedPairs(self):
         for i in range(self.totalNumber): 
@@ -214,7 +215,7 @@ class SolvingMethods(object):
                                         if len(self.numberField[i][col]) != changesControl:
                                             self.deleteExtraValues()
                                             self.changes = True
-                                            self.isNakedPairs = True
+                                            self.NakedPairs += 1
                             break
                 if len(self.numberField[j][i]) == 2:
                     matchingCells = {} 
@@ -232,7 +233,7 @@ class SolvingMethods(object):
                                         if len(self.numberField[row][i]) != changesControl:
                                             self.deleteExtraValues()
                                             self.changes = True
-                                            self.isNakedPairs = True
+                                            self.NakedPairs += 1
                             break
         for countBlock in range(self.totalNumber):
             fIndexRow = 3*(countBlock // 3)
@@ -254,7 +255,7 @@ class SolvingMethods(object):
                                         if len(self.numberField[fIndexRow+cell // 3][fIndexColumn+cell % 3]) != changesControl:
                                             self.deleteExtraValues()
                                             self.changes = True
-                                            self.isNakedPairs = True
+                                            self.NakedPairs += 1
                             break
 
     def nakedTreesome(self):
@@ -277,9 +278,9 @@ class SolvingMethods(object):
                                     controlChanges = self.numberField[i][col]
                                     self.numberField[i][col].difference_update(matchingCells[j])
                                     if self.numberField[i][col] != changesControl:
-
+                                        self.deleteExtraValues()
                                         self.changes = True
-                                        self.isNakedThreesome = True
+                                        self.NakedThree += 1
 
     def hiddenPiars(self):
         for i in range(self.totalNumber): 
@@ -305,7 +306,7 @@ class SolvingMethods(object):
                             if len(self.numberField[i][k]) != changesControl:
                                 self.deleteExtraValues()
                                 self.changes = True
-                                self.isHidPair = True
+                                self.HidPair += 1
             for j in range(self.totalNumber-1): 
                 if len(self.numberField[j][i]) > 1:
                     matchingCells = {} 
@@ -328,7 +329,7 @@ class SolvingMethods(object):
                             if len(self.numberField[k][i]) != changesControl:
                                 self.deleteExtraValues()
                                 self.changes = True
-                                self.isHidPair = True                                                                 
+                                self.HidPair += 1                                                                
         for countBlock in range(self.totalNumber):
             fIndexRow = 3*(countBlock // 3)
             fIndexColumn = 3*(countBlock % 3)
@@ -354,7 +355,7 @@ class SolvingMethods(object):
                             if len(self.numberField[fIndexRow + (k // 3)][fIndexColumn + (k % 3)]) != changesControl:
                                 self.deleteExtraValues()
                                 self.changes = True
-                                self.isHidPair = True
+                                self.HidPair += 1
                                 
     def hiddenTriples(self):
         for i in range(self.totalNumber): 
@@ -381,11 +382,13 @@ class SolvingMethods(object):
                                     if len(self.numberField[i][k]) != changesControl:
                                         self.deleteExtraValues()
                                         self.changes = True
-                                        self.isHidPair = True
+                                        self.HidTree += 1
         for j in range(self.totalNumber-1):  
                 if len(self.numberField[j][i]) > 1:
                     for nextRow in range(j+1, self.totalNumber):
                         commonNums = self.numberField[j][i].intersection(self.numberField[nextRow][i])
+                        if len(commonNums) != 2 or len(commonNums) != 3:
+                            continue
                         if len(commonNums) == 3:
                             matchingCells = {} 
                             matchingCells[j] = self.numberField[j][i]
@@ -405,23 +408,19 @@ class SolvingMethods(object):
                                     if len(self.numberField[k][i]) != changesControl:
                                         self.deleteExtraValues()
                                         self.changes = True
-                                        self.isHidPair = True
-
-
-puzzle = [
-    [4, 0, 0, 0, 0, 0, 9, 3, 8],
-    [0, 3, 2, 0, 9, 4, 1, 0, 0],
-    [0, 9, 5, 3, 0, 0, 2, 4, 0],
-    [3, 7, 0, 6, 0, 9, 0, 0, 4],
-    [5, 2, 9, 0, 0, 1, 6, 7, 3],
-    [6, 0, 4, 7, 0, 3, 0, 9, 0],
-    [9, 5, 7, 0, 0, 8, 3, 0, 0],
-    [0, 0, 3, 9, 0, 0, 4, 0, 0],
-    [2, 4, 0, 0, 3, 0, 7, 0, 9]
-]
-
-solv = SolvingMethods(puzzle)
-for i in range(9):
-    print(solv.numberField[i])
-
-print(solv.isPossible())
+                                        self.HidTree += 1
+        for countBlock in range(self.totalNumber):
+            fIndexRow = 3*(countBlock // 3)
+            fIndexColumn = 3*(countBlock % 3)
+            for index in range(self.totalNumber):
+                for nextCell in range(index+1, self.totalNumber):
+                    commonNums = self.numberField[fIndexRow + (index // 3)][fIndexColumn + (index % 3)].intersection(self.numberField[fIndexRow + (nextCell // 3)][fIndexColumn + (nextCell % 3)])
+                    if len(commonNums) != 2 or len(commonNums) != 3:
+                        continue
+                    if len(commonNums) == 3:
+                        matchingCells = {}
+                        matchingCells[index] = self.numberField[fIndexRow + (index // 3)][fIndexColumn + (index % 3)]
+                        matchingCells[nextCell] = self.numberField[fIndexRow + (nextCell // 3)][fIndexColumn + (nextCell % 3)]
+                        for nextCell in range(index+1,self.totalNumber):
+                            if chAllCell == nextCell or chAllCell == index:
+                                continue
