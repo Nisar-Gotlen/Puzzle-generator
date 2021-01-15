@@ -1,11 +1,10 @@
-class SolvingMethods(object):
+class SolvingMethod(object):
 
     def __init__(self, startField):
         self.totalNumber = 9
         self.startField = startField
         self.numberField = self.prepareField()
-        self.solvedField = [
-            [0 for i in range(self.totalNumber)] for j in range(self.totalNumber)]
+        self.solvedField = [[0 for i in range(self.totalNumber)] for j in range(self.totalNumber)]
         self.done = False
         self.changes = False
         self.difficult = 0
@@ -14,7 +13,6 @@ class SolvingMethods(object):
         self.NakedThree = 0
         self.HidPair = 0
         self.HidTree = 0
-        self.solvingProcces()
 
     def isPossible(self):
         return self.done
@@ -42,47 +40,6 @@ class SolvingMethods(object):
         if self.done:
             self.addSolution()
         return self.done
-
-    def solvingProcces(self):
-        while not self.done:
-            self.deleteExtraValues()
-            if self.checksolving():
-                break
-            if self.changes:
-                self.changes = False
-                continue
-            self.singleCandidates()
-            if self.checksolving():
-                break
-            if self.changes:
-                self.changes = False
-                continue
-            self.nakedPairs()
-            if self.checksolving():
-                break
-            if self.changes:
-                self.changes = False
-                continue
-            self.nakedTreesome()
-            if self.checksolving():
-                break
-            if self.changes:
-                self.changes = False
-                continue
-            self.hiddenPiars()
-            if self.checksolving():
-                break
-            if self.changes:
-                self.changes = False
-                continue
-            self.hiddenTriples()
-            if self.checksolving():
-                break
-            if self.changes:
-                self.changes = False
-                continue
-            if not self.changes:
-                break
 
     def addSolution(self):
         for i in range(self.totalNumber):
@@ -131,7 +88,6 @@ class SolvingMethods(object):
                             if not self.changes:
                                 if chCell != len(self.numberField[firstIndexRow + chvr][firstIndexColumn + chvc]):
                                     self.changes = True
-                    #self.numberField[i][j].add(num)
 
     # name is taken from https://www.conceptispuzzles.com/ru/index.aspx?uri=puzzle/sudoku/techniques
     def singleCandidates(self):
@@ -139,10 +95,11 @@ class SolvingMethods(object):
             for k in range(1, self.totalNumber+1):
                 soughtNumber = k
                 for i in range(self.totalNumber):
-                    for cell in self.numberField[i][j]:
-                        if cell == k:
-                            soughtNumber = 0
-                            break
+                    if len(self.numberField[i][j]) == 1:
+                        for cell in self.numberField[i][j]:
+                            if cell == k:
+                                soughtNumber = 0
+                                break
                 if soughtNumber != 0:
                     placeCount = 0
                     for i in range(self.totalNumber):
@@ -161,10 +118,11 @@ class SolvingMethods(object):
             for k in range(1, self.totalNumber+1):
                 soughtNumber = k
                 for j in range(self.totalNumber):
-                    for cell in self.numberField[i][j]:
-                        if cell == k:
-                            soughtNumber = 0
-                            break
+                    if len(self.numberField[i][j]) == 1:
+                        for cell in self.numberField[i][j]:
+                            if cell == k:
+                                soughtNumber = 0
+                                break
                 if soughtNumber != 0:
                     placeCount = 0
                     for j in range(self.totalNumber):
@@ -189,10 +147,11 @@ class SolvingMethods(object):
                     for j in range(3):
                         row = firstIndexRow+i
                         col = firstIndexColumn+j
-                        for cell in self.numberField[row][col]:
-                            if cell == k:
-                                soughtNumber = 0
-                                break
+                        if len(self.numberField[row][col]) == 1:
+                            for cell in self.numberField[row][col]:
+                                if cell == k:
+                                    soughtNumber = 0
+                                    break
                 if soughtNumber != 0:
                     placeCount = 0
                     for i in range(3):
@@ -469,6 +428,102 @@ class SolvingMethods(object):
                             if chAllCell == nextCell or chAllCell == index:
                                 continue
 
+class SolvingMethods(SolvingMethod):
+    def __init__(self, startField):
+        SolvingMethod.__init__(self, startField)
+        self.solvingProcces()
+
+    def solvingProcces(self):
+        while not self.done:
+            self.deleteExtraValues()
+            if self.checksolving():
+                break
+            if self.changes:
+                self.changes = False
+                continue
+            self.singleCandidates()
+            if self.checksolving():
+                break
+            if self.changes:
+                self.changes = False
+                continue
+            self.nakedPairs()
+            if self.checksolving():
+                break
+            if self.changes:
+                self.changes = False
+                continue
+            self.nakedTreesome()
+            if self.checksolving():
+                break
+            if self.changes:
+                self.changes = False
+                continue
+            self.hiddenPiars()
+            if self.checksolving():
+                break
+            if self.changes:
+                self.changes = False
+                continue
+            self.hiddenTriples()
+            if self.checksolving():
+                break
+            if self.changes:
+                self.changes = False
+                continue
+            if not self.changes:
+                break
+
+
+class SolvingMethodsKiller(SolvingMethods):
+    def __init__(self, startField, killerBox,countKillBox):
+        SolvingMethods.__init__(self, startField)
+        self.killerBox = killerBox
+        self.countKBox = countKillBox
+        self.solvingProcces()
+
+    def solvingProcces(self):
+        while not self.done:
+            self.deleteExtraValues()
+            if self.checksolving():
+                break
+            if self.changes:
+                self.changes = False
+                continue
+            self.singleCandidates()
+            if self.checksolving():
+                break
+            if self.changes:
+                self.changes = False
+                continue
+            self.nakedPairs()
+            if self.checksolving():
+                break
+            if self.changes:
+                self.changes = False
+                continue
+            self.nakedTreesome()
+            if self.checksolving():
+                break
+            if self.changes:
+                self.changes = False
+                continue
+            self.hiddenPiars()
+            if self.checksolving():
+                break
+            if self.changes:
+                self.changes = False
+                continue
+            self.hiddenTriples()
+            if self.checksolving():
+                break
+            if self.changes:
+                self.changes = False
+                continue
+            if not self.changes:
+                break
+
+
 puzzle = [[7, 0, 0, 3, 0, 0, 0, 1, 2],
 [0, 2, 3, 0, 0, 7, 4, 0, 0],
 [9, 0, 0, 0, 2, 0, 0, 0, 0],
@@ -479,7 +534,9 @@ puzzle = [[7, 0, 0, 3, 0, 0, 0, 1, 2],
 [0, 0, 9, 1, 0, 0, 7, 3, 0],
 [1, 6, 0, 0, 0, 5, 0, 0, 0]]
 
+
 s = SolvingMethods(puzzle)
+print(s.Solve())
 print(s.numberField)
 print(s.SingleCand)
 print(s.NakedPairs)
