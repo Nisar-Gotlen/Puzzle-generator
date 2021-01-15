@@ -13,6 +13,12 @@ class SolvingMethod(object):
         self.NakedThree = 0
         self.HidPair = 0
         self.HidTree = 0
+        self.SingleCandControl = 0
+        self.NakedPairsControl = 0
+        self.NakedThreeControl = 0
+        self.HidPairControl = 0
+        self.HidTreeControl = 0
+        self.DeleteExtraVal = 0
 
     def isPossible(self):
         return self.done
@@ -61,6 +67,7 @@ class SolvingMethod(object):
         return numberField
 
     def deleteExtraValues(self):
+        self.DeleteExtraVal +=1
         for i in range(self.totalNumber):
             for j in range(self.totalNumber):
                 if len(self.numberField[i][j]) == 1:
@@ -91,6 +98,7 @@ class SolvingMethod(object):
 
     # name is taken from https://www.conceptispuzzles.com/ru/index.aspx?uri=puzzle/sudoku/techniques
     def singleCandidates(self):
+        self.SingleCandControl +=1
         for j in range(self.totalNumber):  # row
             for k in range(1, self.totalNumber+1):
                 soughtNumber = k
@@ -174,6 +182,7 @@ class SolvingMethod(object):
                         self.SingleCand += 1
 
     def nakedPairs(self):
+        self.NakedPairsControl +=1
         for i in range(self.totalNumber):
             for j in range(self.totalNumber-1):
                 if len(self.numberField[i][j]) == 2:
@@ -244,6 +253,7 @@ class SolvingMethod(object):
                             break
 
     def nakedTreesome(self):
+        self.NakedThreeControl +=1
         for i in range(self.totalNumber):
             count = 0
             for j in range(self.totalNumber):
@@ -269,6 +279,7 @@ class SolvingMethod(object):
                                         self.NakedThree += 1
 
     def hiddenPiars(self):
+        self.HidPairControl +=1
         for i in range(self.totalNumber):
             for j in range(self.totalNumber-1):
                 if len(self.numberField[i][j]) > 1:
@@ -353,6 +364,7 @@ class SolvingMethod(object):
                                 self.HidPair += 1
 
     def hiddenTriples(self):
+        self.HidTreeControl += 1
         for i in range(self.totalNumber):
             for j in range(self.totalNumber-1):
                 if len(self.numberField[i][j]) > 1:
@@ -476,10 +488,11 @@ class SolvingMethods(SolvingMethod):
 
 
 class SolvingMethodsKiller(SolvingMethods):
-    def __init__(self, startField, killerBox,countKillBox):
+    def __init__(self, startField, killerBox,countKillBox, areaSum):
         SolvingMethods.__init__(self, startField)
         self.killerBox = killerBox
         self.countKBox = countKillBox
+        self.areaSum = areaSum
         self.solvingProcces()
 
     def solvingProcces(self):
@@ -523,23 +536,6 @@ class SolvingMethodsKiller(SolvingMethods):
             if not self.changes:
                 break
 
+    def countMissingNums(self):
+        return self.done
 
-puzzle = [[7, 0, 0, 3, 0, 0, 0, 1, 2],
-[0, 2, 3, 0, 0, 7, 4, 0, 0],
-[9, 0, 0, 0, 2, 0, 0, 0, 0],
-[0, 8, 5, 0, 6, 0, 0, 0, 7],
-[6, 0, 0, 0, 0, 0, 0, 0, 4],
-[3, 0, 0, 0, 5, 0, 2, 6, 0],
-[0, 0, 0, 0, 8, 0, 0, 0, 5],
-[0, 0, 9, 1, 0, 0, 7, 3, 0],
-[1, 6, 0, 0, 0, 5, 0, 0, 0]]
-
-
-s = SolvingMethods(puzzle)
-print(s.Solve())
-print(s.numberField)
-print(s.SingleCand)
-print(s.NakedPairs)
-print(s.NakedThree)
-print(s.HidPair)
-print(s.HidTree)
