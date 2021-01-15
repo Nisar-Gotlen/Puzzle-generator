@@ -115,6 +115,7 @@ class SolvingMethods(object):
                             chCell2 = self.numberField[chv][j]
                         self.numberField[i][chv].discard(num)
                         self.numberField[chv][j].discard(num)
+                        self.numberField[i][j].add(num)
                         if not self.changes:
                             if chCell1 != len(self.numberField[i][chv]) or chCell2 != self.numberField[chv][j]:
                                 self.changes = True
@@ -126,10 +127,11 @@ class SolvingMethods(object):
                             if not self.changes:
                                 chCell = len(self.numberField[firstIndexRow + chvr][firstIndexColumn + chvc])
                             self.numberField[firstIndexRow + chvr][firstIndexColumn + chvc].discard(num)
+                            self.numberField[i][j].add(num)
                             if not self.changes:
                                 if chCell != len(self.numberField[firstIndexRow + chvr][firstIndexColumn + chvc]):
                                     self.changes = True
-                    self.numberField[i][j].add(num)
+                    #self.numberField[i][j].add(num)
 
     # name is taken from https://www.conceptispuzzles.com/ru/index.aspx?uri=puzzle/sudoku/techniques
     def singleCandidates(self):
@@ -466,3 +468,21 @@ class SolvingMethods(object):
                         for nextCell in range(index+1, self.totalNumber):
                             if chAllCell == nextCell or chAllCell == index:
                                 continue
+
+puzzle = [[7, 0, 0, 3, 0, 0, 0, 1, 2],
+[0, 2, 3, 0, 0, 7, 4, 0, 0],
+[9, 0, 0, 0, 2, 0, 0, 0, 0],
+[0, 8, 5, 0, 6, 0, 0, 0, 7],
+[6, 0, 0, 0, 0, 0, 0, 0, 4],
+[3, 0, 0, 0, 5, 0, 2, 6, 0],
+[0, 0, 0, 0, 8, 0, 0, 0, 5],
+[0, 0, 9, 1, 0, 0, 7, 3, 0],
+[1, 6, 0, 0, 0, 5, 0, 0, 0]]
+
+s = SolvingMethods(puzzle)
+print(s.numberField)
+print(s.SingleCand)
+print(s.NakedPairs)
+print(s.NakedThree)
+print(s.HidPair)
+print(s.HidTree)
