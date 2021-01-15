@@ -3,6 +3,10 @@ import requests
 from bs4 import BeautifulSoup
 from selenium import webdriver
 import time
+import logging
+
+logging.basicConfig(filename="sample.log", level=logging.INFO,
+                    format="%(process)d %(levelname)s %(message)s")
 
 NG_BUTT_ID = 'mapsubmit'                        # "New Game" button id
 
@@ -28,7 +32,7 @@ def change_diff(driver, RB_ID):
 
     driver.find_element_by_id(RB_ID).click()
     driver.find_element_by_id(NG_BUTT_ID).click()
-    time.sleep(1)
+    time.sleep(0.5)
     return driver
 
 

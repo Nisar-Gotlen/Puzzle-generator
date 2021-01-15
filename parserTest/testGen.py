@@ -3,7 +3,7 @@ import os
 from selenium import webdriver
 import numpy as np
 import inspect
-import copy
+import logging
 
 
 URL = 'https://sudoku.org.ua/'
@@ -19,17 +19,30 @@ EASY_DIFF_NUM = 5
 NORMAL_DIFF_NUM = 5
 HARD_DIFF_NUM = 5
 EXTREME_DIFF_NUM = 5
-MINIMAL_DIFF_NUM = 5
+MINIMAL_DIFF_NUM = 0
+
+currentdir = os.path.dirname(os.path.abspath(
+    inspect.getfile(inspect.currentframe())))
+parentdir = os.path.dirname(currentdir)
+sys.path.insert(0, parentdir)
+
+# logging.basicConfig(level=logging.DEBUG, filename='sample.log',
+#                    format='%(message)s')
+
+
+def add_to_log(puzzle, DiffName):
+    from solvingMethods import SolvingMethods
+
+    solving = SolvingMethods(puzzle)
+    logging.info(DiffName + " SingleCand " + str(solving.SingleCand))
+    logging.info(DiffName + " NakedPairs " + str(solving.NakedPairs))
+    logging.info(DiffName + " NakedThree " + str(solving.NakedThree))
+    logging.info(DiffName + " HidPair " + str(solving.HidPair))
+    logging.info(DiffName + " HidTree " + str(solving.HidTree))
 
 
 def print_test_res(puzzle, filDir1, filDir2):
 
-    currentdir = os.path.dirname(os.path.abspath(
-        inspect.getfile(inspect.currentframe())))
-    parentdir = os.path.dirname(currentdir)
-    sys.path.insert(0, parentdir)
-
-    import solvingMethods
     from solvingMethods import SolvingMethods
 
     filDir1.write(str(puzzle))
@@ -50,6 +63,8 @@ def print_test_res(puzzle, filDir1, filDir2):
 
 
 def pars_test():
+    logging.basicConfig(level=logging.INFO, filemode="w", filename='parserTest/sample.log',
+                        format="%(process)d %(levelname)s %(message)s")
 
     driver = webdriver.Edge('parserTest/msedgedriver.exe')
     driver.get(URL)
@@ -66,6 +81,7 @@ def pars_test():
     for num in range(EASY_DIFF_NUM):
         puzzle = field_parse(EASY_RB_ID, driver)
         print_test_res(puzzle, filDir1, filDir2)
+        add_to_log(puzzle, 'EASY')
 
     filDir1.write('\n' + 'NORMAL' + '\n')
     filDir2.write('\n' + 'NORMAL' + '\n')
@@ -73,6 +89,7 @@ def pars_test():
     for num in range(NORMAL_DIFF_NUM):
         puzzle = field_parse(NORMAL_RB_ID, driver)
         print_test_res(puzzle, filDir1, filDir2)
+        add_to_log(puzzle, 'NORMAL')
 
     filDir1.write('\n' + 'HARD' + '\n')
     filDir2.write('\n' + 'HARD' + '\n')
@@ -80,6 +97,7 @@ def pars_test():
     for num in range(HARD_DIFF_NUM):
         puzzle = field_parse(HARD_RB_ID, driver)
         print_test_res(puzzle, filDir1, filDir2)
+        add_to_log(puzzle, 'HARD')
 
     filDir1.write('\n' + 'EXTREME' + '\n')
     filDir2.write('\n' + 'EXTREME' + '\n')
@@ -87,6 +105,7 @@ def pars_test():
     for num in range(EXTREME_DIFF_NUM):
         puzzle = field_parse(EXTREME_RB_ID, driver)
         print_test_res(puzzle, filDir1, filDir2)
+        add_to_log(puzzle, 'EXTREME')
 
     filDir1.write('\n' + 'MINIMAL' + '\n')
     filDir2.write('\n' + 'MINIMAL' + '\n')

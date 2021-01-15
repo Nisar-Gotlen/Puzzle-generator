@@ -1,0 +1,822 @@
+DEBUG:selenium.webdriver.remote.remote_connection:POST http://localhost:58814/session {"capabilities": {"firstMatch": [{}], "alwaysMatch": {"browserName": "MicrosoftEdge", "platformName": "windows"}}, "desiredCapabilities": {"browserName": "MicrosoftEdge", "version": "", "platform": "WINDOWS"}}
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:58814
+DEBUG:urllib3.connectionpool:http://localhost:58814 "POST /session HTTP/1.1" 200 708
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:selenium.webdriver.remote.remote_connection:POST http://localhost:58814/session/52ebd480605cdbaac412981695f13202/url {"url": "https://sudoku.org.ua/"}
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:58814
+DEBUG:urllib3.connectionpool:http://localhost:58814 "POST /session/52ebd480605cdbaac412981695f13202/url HTTP/1.1" 200 14
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:selenium.webdriver.remote.remote_connection:POST http://localhost:58814/session/52ebd480605cdbaac412981695f13202/element {"using": "css selector", "value": "[id=\"enhe0\"]"}
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:58814
+DEBUG:urllib3.connectionpool:http://localhost:58814 "POST /session/52ebd480605cdbaac412981695f13202/element HTTP/1.1" 200 88
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:selenium.webdriver.remote.remote_connection:POST http://localhost:58814/session/52ebd480605cdbaac412981695f13202/element/2c8de9fe-49bb-49b9-9ece-40b8d701f585/click {"id": "2c8de9fe-49bb-49b9-9ece-40b8d701f585"}
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:58814
+DEBUG:urllib3.connectionpool:http://localhost:58814 "POST /session/52ebd480605cdbaac412981695f13202/element/2c8de9fe-49bb-49b9-9ece-40b8d701f585/click HTTP/1.1" 200 14
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:selenium.webdriver.remote.remote_connection:POST http://localhost:58814/session/52ebd480605cdbaac412981695f13202/element {"using": "css selector", "value": "[id=\"mapsubmit\"]"}
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:58814
+DEBUG:urllib3.connectionpool:http://localhost:58814 "POST /session/52ebd480605cdbaac412981695f13202/element HTTP/1.1" 200 88
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:selenium.webdriver.remote.remote_connection:POST http://localhost:58814/session/52ebd480605cdbaac412981695f13202/element/809f28e5-a782-4730-8c0d-ac40537b6865/click {"id": "809f28e5-a782-4730-8c0d-ac40537b6865"}
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:58814
+DEBUG:urllib3.connectionpool:http://localhost:58814 "POST /session/52ebd480605cdbaac412981695f13202/element/809f28e5-a782-4730-8c0d-ac40537b6865/click HTTP/1.1" 200 14
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:selenium.webdriver.remote.remote_connection:GET http://localhost:58814/session/52ebd480605cdbaac412981695f13202/source {}
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:58814
+DEBUG:urllib3.connectionpool:http://localhost:58814 "GET /session/52ebd480605cdbaac412981695f13202/source HTTP/1.1" 200 20349
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:selenium.webdriver.remote.remote_connection:POST http://localhost:58885/session {"capabilities": {"firstMatch": [{}], "alwaysMatch": {"browserName": "MicrosoftEdge", "platformName": "windows"}}, "desiredCapabilities": {"browserName": "MicrosoftEdge", "version": "", "platform": "WINDOWS"}}
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:58885
+DEBUG:urllib3.connectionpool:http://localhost:58885 "POST /session HTTP/1.1" 200 709
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:selenium.webdriver.remote.remote_connection:POST http://localhost:58885/session/c6ae384bf9c76eb8ffb005aa8fe6eac7/url {"url": "https://sudoku.org.ua/"}
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:58885
+DEBUG:urllib3.connectionpool:http://localhost:58885 "POST /session/c6ae384bf9c76eb8ffb005aa8fe6eac7/url HTTP/1.1" 200 14
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:selenium.webdriver.remote.remote_connection:POST http://localhost:58885/session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element {"using": "css selector", "value": "[id=\"enhe0\"]"}
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:58885
+DEBUG:urllib3.connectionpool:http://localhost:58885 "POST /session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element HTTP/1.1" 200 88
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:selenium.webdriver.remote.remote_connection:POST http://localhost:58885/session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element/466168ba-3ad0-44c3-ba46-3d70d563e0e9/click {"id": "466168ba-3ad0-44c3-ba46-3d70d563e0e9"}
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:58885
+DEBUG:urllib3.connectionpool:http://localhost:58885 "POST /session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element/466168ba-3ad0-44c3-ba46-3d70d563e0e9/click HTTP/1.1" 200 14
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:selenium.webdriver.remote.remote_connection:POST http://localhost:58885/session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element {"using": "css selector", "value": "[id=\"mapsubmit\"]"}
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:58885
+DEBUG:urllib3.connectionpool:http://localhost:58885 "POST /session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element HTTP/1.1" 200 88
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:selenium.webdriver.remote.remote_connection:POST http://localhost:58885/session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element/15372ddd-e89f-411f-9637-91aa7dcafa50/click {"id": "15372ddd-e89f-411f-9637-91aa7dcafa50"}
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:58885
+DEBUG:urllib3.connectionpool:http://localhost:58885 "POST /session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element/15372ddd-e89f-411f-9637-91aa7dcafa50/click HTTP/1.1" 200 14
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:selenium.webdriver.remote.remote_connection:GET http://localhost:58885/session/c6ae384bf9c76eb8ffb005aa8fe6eac7/source {}
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:58885
+DEBUG:urllib3.connectionpool:http://localhost:58885 "GET /session/c6ae384bf9c76eb8ffb005aa8fe6eac7/source HTTP/1.1" 200 20398
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:root:'EASY' — 'SingleCand':0
+DEBUG:selenium.webdriver.remote.remote_connection:POST http://localhost:58885/session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element {"using": "css selector", "value": "[id=\"enhe0\"]"}
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:58885
+DEBUG:urllib3.connectionpool:http://localhost:58885 "POST /session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element HTTP/1.1" 200 88
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:selenium.webdriver.remote.remote_connection:POST http://localhost:58885/session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element/466168ba-3ad0-44c3-ba46-3d70d563e0e9/click {"id": "466168ba-3ad0-44c3-ba46-3d70d563e0e9"}
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:58885
+DEBUG:urllib3.connectionpool:http://localhost:58885 "POST /session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element/466168ba-3ad0-44c3-ba46-3d70d563e0e9/click HTTP/1.1" 200 14
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:selenium.webdriver.remote.remote_connection:POST http://localhost:58885/session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element {"using": "css selector", "value": "[id=\"mapsubmit\"]"}
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:58885
+DEBUG:urllib3.connectionpool:http://localhost:58885 "POST /session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element HTTP/1.1" 200 88
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:selenium.webdriver.remote.remote_connection:POST http://localhost:58885/session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element/15372ddd-e89f-411f-9637-91aa7dcafa50/click {"id": "15372ddd-e89f-411f-9637-91aa7dcafa50"}
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:58885
+DEBUG:urllib3.connectionpool:http://localhost:58885 "POST /session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element/15372ddd-e89f-411f-9637-91aa7dcafa50/click HTTP/1.1" 200 14
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:selenium.webdriver.remote.remote_connection:GET http://localhost:58885/session/c6ae384bf9c76eb8ffb005aa8fe6eac7/source {}
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:58885
+DEBUG:urllib3.connectionpool:http://localhost:58885 "GET /session/c6ae384bf9c76eb8ffb005aa8fe6eac7/source HTTP/1.1" 200 20393
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:root:'EASY' — 'SingleCand':0
+DEBUG:selenium.webdriver.remote.remote_connection:POST http://localhost:58885/session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element {"using": "css selector", "value": "[id=\"enhe0\"]"}
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:58885
+DEBUG:urllib3.connectionpool:http://localhost:58885 "POST /session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element HTTP/1.1" 200 88
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:selenium.webdriver.remote.remote_connection:POST http://localhost:58885/session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element/466168ba-3ad0-44c3-ba46-3d70d563e0e9/click {"id": "466168ba-3ad0-44c3-ba46-3d70d563e0e9"}
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:58885
+DEBUG:urllib3.connectionpool:http://localhost:58885 "POST /session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element/466168ba-3ad0-44c3-ba46-3d70d563e0e9/click HTTP/1.1" 200 14
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:selenium.webdriver.remote.remote_connection:POST http://localhost:58885/session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element {"using": "css selector", "value": "[id=\"mapsubmit\"]"}
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:58885
+DEBUG:urllib3.connectionpool:http://localhost:58885 "POST /session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element HTTP/1.1" 200 88
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:selenium.webdriver.remote.remote_connection:POST http://localhost:58885/session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element/15372ddd-e89f-411f-9637-91aa7dcafa50/click {"id": "15372ddd-e89f-411f-9637-91aa7dcafa50"}
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:58885
+DEBUG:urllib3.connectionpool:http://localhost:58885 "POST /session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element/15372ddd-e89f-411f-9637-91aa7dcafa50/click HTTP/1.1" 200 14
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:selenium.webdriver.remote.remote_connection:GET http://localhost:58885/session/c6ae384bf9c76eb8ffb005aa8fe6eac7/source {}
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:58885
+DEBUG:urllib3.connectionpool:http://localhost:58885 "GET /session/c6ae384bf9c76eb8ffb005aa8fe6eac7/source HTTP/1.1" 200 20399
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:root:'EASY' — 'SingleCand':0
+DEBUG:selenium.webdriver.remote.remote_connection:POST http://localhost:58885/session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element {"using": "css selector", "value": "[id=\"enhe0\"]"}
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:58885
+DEBUG:urllib3.connectionpool:http://localhost:58885 "POST /session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element HTTP/1.1" 200 88
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:selenium.webdriver.remote.remote_connection:POST http://localhost:58885/session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element/466168ba-3ad0-44c3-ba46-3d70d563e0e9/click {"id": "466168ba-3ad0-44c3-ba46-3d70d563e0e9"}
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:58885
+DEBUG:urllib3.connectionpool:http://localhost:58885 "POST /session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element/466168ba-3ad0-44c3-ba46-3d70d563e0e9/click HTTP/1.1" 200 14
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:selenium.webdriver.remote.remote_connection:POST http://localhost:58885/session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element {"using": "css selector", "value": "[id=\"mapsubmit\"]"}
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:58885
+DEBUG:urllib3.connectionpool:http://localhost:58885 "POST /session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element HTTP/1.1" 200 88
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:selenium.webdriver.remote.remote_connection:POST http://localhost:58885/session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element/15372ddd-e89f-411f-9637-91aa7dcafa50/click {"id": "15372ddd-e89f-411f-9637-91aa7dcafa50"}
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:58885
+DEBUG:urllib3.connectionpool:http://localhost:58885 "POST /session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element/15372ddd-e89f-411f-9637-91aa7dcafa50/click HTTP/1.1" 200 14
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:selenium.webdriver.remote.remote_connection:GET http://localhost:58885/session/c6ae384bf9c76eb8ffb005aa8fe6eac7/source {}
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:58885
+DEBUG:urllib3.connectionpool:http://localhost:58885 "GET /session/c6ae384bf9c76eb8ffb005aa8fe6eac7/source HTTP/1.1" 200 20248
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:root:'EASY' — 'SingleCand':0
+DEBUG:selenium.webdriver.remote.remote_connection:POST http://localhost:58885/session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element {"using": "css selector", "value": "[id=\"enhe0\"]"}
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:58885
+DEBUG:urllib3.connectionpool:http://localhost:58885 "POST /session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element HTTP/1.1" 200 88
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:selenium.webdriver.remote.remote_connection:POST http://localhost:58885/session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element/466168ba-3ad0-44c3-ba46-3d70d563e0e9/click {"id": "466168ba-3ad0-44c3-ba46-3d70d563e0e9"}
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:58885
+DEBUG:urllib3.connectionpool:http://localhost:58885 "POST /session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element/466168ba-3ad0-44c3-ba46-3d70d563e0e9/click HTTP/1.1" 200 14
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:selenium.webdriver.remote.remote_connection:POST http://localhost:58885/session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element {"using": "css selector", "value": "[id=\"mapsubmit\"]"}
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:58885
+DEBUG:urllib3.connectionpool:http://localhost:58885 "POST /session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element HTTP/1.1" 200 88
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:selenium.webdriver.remote.remote_connection:POST http://localhost:58885/session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element/15372ddd-e89f-411f-9637-91aa7dcafa50/click {"id": "15372ddd-e89f-411f-9637-91aa7dcafa50"}
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:58885
+DEBUG:urllib3.connectionpool:http://localhost:58885 "POST /session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element/15372ddd-e89f-411f-9637-91aa7dcafa50/click HTTP/1.1" 200 14
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:selenium.webdriver.remote.remote_connection:GET http://localhost:58885/session/c6ae384bf9c76eb8ffb005aa8fe6eac7/source {}
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:58885
+DEBUG:urllib3.connectionpool:http://localhost:58885 "GET /session/c6ae384bf9c76eb8ffb005aa8fe6eac7/source HTTP/1.1" 200 20250
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:root:'EASY' — 'SingleCand':0
+DEBUG:selenium.webdriver.remote.remote_connection:POST http://localhost:58885/session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element {"using": "css selector", "value": "[id=\"enhe0\"]"}
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:58885
+DEBUG:urllib3.connectionpool:http://localhost:58885 "POST /session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element HTTP/1.1" 200 88
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:selenium.webdriver.remote.remote_connection:POST http://localhost:58885/session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element/466168ba-3ad0-44c3-ba46-3d70d563e0e9/click {"id": "466168ba-3ad0-44c3-ba46-3d70d563e0e9"}
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:58885
+DEBUG:urllib3.connectionpool:http://localhost:58885 "POST /session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element/466168ba-3ad0-44c3-ba46-3d70d563e0e9/click HTTP/1.1" 200 14
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:selenium.webdriver.remote.remote_connection:POST http://localhost:58885/session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element {"using": "css selector", "value": "[id=\"mapsubmit\"]"}
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:58885
+DEBUG:urllib3.connectionpool:http://localhost:58885 "POST /session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element HTTP/1.1" 200 88
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:selenium.webdriver.remote.remote_connection:POST http://localhost:58885/session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element/15372ddd-e89f-411f-9637-91aa7dcafa50/click {"id": "15372ddd-e89f-411f-9637-91aa7dcafa50"}
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:58885
+DEBUG:urllib3.connectionpool:http://localhost:58885 "POST /session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element/15372ddd-e89f-411f-9637-91aa7dcafa50/click HTTP/1.1" 200 14
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:selenium.webdriver.remote.remote_connection:GET http://localhost:58885/session/c6ae384bf9c76eb8ffb005aa8fe6eac7/source {}
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:58885
+DEBUG:urllib3.connectionpool:http://localhost:58885 "GET /session/c6ae384bf9c76eb8ffb005aa8fe6eac7/source HTTP/1.1" 200 20248
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:root:'EASY' — 'SingleCand':0
+DEBUG:selenium.webdriver.remote.remote_connection:POST http://localhost:58885/session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element {"using": "css selector", "value": "[id=\"enhe0\"]"}
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:58885
+DEBUG:urllib3.connectionpool:http://localhost:58885 "POST /session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element HTTP/1.1" 200 88
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:selenium.webdriver.remote.remote_connection:POST http://localhost:58885/session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element/466168ba-3ad0-44c3-ba46-3d70d563e0e9/click {"id": "466168ba-3ad0-44c3-ba46-3d70d563e0e9"}
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:58885
+DEBUG:urllib3.connectionpool:http://localhost:58885 "POST /session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element/466168ba-3ad0-44c3-ba46-3d70d563e0e9/click HTTP/1.1" 200 14
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:selenium.webdriver.remote.remote_connection:POST http://localhost:58885/session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element {"using": "css selector", "value": "[id=\"mapsubmit\"]"}
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:58885
+DEBUG:urllib3.connectionpool:http://localhost:58885 "POST /session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element HTTP/1.1" 200 88
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:selenium.webdriver.remote.remote_connection:POST http://localhost:58885/session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element/15372ddd-e89f-411f-9637-91aa7dcafa50/click {"id": "15372ddd-e89f-411f-9637-91aa7dcafa50"}
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:58885
+DEBUG:urllib3.connectionpool:http://localhost:58885 "POST /session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element/15372ddd-e89f-411f-9637-91aa7dcafa50/click HTTP/1.1" 200 14
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:selenium.webdriver.remote.remote_connection:GET http://localhost:58885/session/c6ae384bf9c76eb8ffb005aa8fe6eac7/source {}
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:58885
+DEBUG:urllib3.connectionpool:http://localhost:58885 "GET /session/c6ae384bf9c76eb8ffb005aa8fe6eac7/source HTTP/1.1" 200 20249
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:root:'EASY' — 'SingleCand':0
+DEBUG:selenium.webdriver.remote.remote_connection:POST http://localhost:58885/session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element {"using": "css selector", "value": "[id=\"enhe0\"]"}
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:58885
+DEBUG:urllib3.connectionpool:http://localhost:58885 "POST /session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element HTTP/1.1" 200 88
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:selenium.webdriver.remote.remote_connection:POST http://localhost:58885/session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element/466168ba-3ad0-44c3-ba46-3d70d563e0e9/click {"id": "466168ba-3ad0-44c3-ba46-3d70d563e0e9"}
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:58885
+DEBUG:urllib3.connectionpool:http://localhost:58885 "POST /session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element/466168ba-3ad0-44c3-ba46-3d70d563e0e9/click HTTP/1.1" 200 14
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:selenium.webdriver.remote.remote_connection:POST http://localhost:58885/session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element {"using": "css selector", "value": "[id=\"mapsubmit\"]"}
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:58885
+DEBUG:urllib3.connectionpool:http://localhost:58885 "POST /session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element HTTP/1.1" 200 88
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:selenium.webdriver.remote.remote_connection:POST http://localhost:58885/session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element/15372ddd-e89f-411f-9637-91aa7dcafa50/click {"id": "15372ddd-e89f-411f-9637-91aa7dcafa50"}
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:58885
+DEBUG:urllib3.connectionpool:http://localhost:58885 "POST /session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element/15372ddd-e89f-411f-9637-91aa7dcafa50/click HTTP/1.1" 200 14
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:selenium.webdriver.remote.remote_connection:GET http://localhost:58885/session/c6ae384bf9c76eb8ffb005aa8fe6eac7/source {}
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:58885
+DEBUG:urllib3.connectionpool:http://localhost:58885 "GET /session/c6ae384bf9c76eb8ffb005aa8fe6eac7/source HTTP/1.1" 200 20250
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:root:'EASY' — 'SingleCand':0
+DEBUG:selenium.webdriver.remote.remote_connection:POST http://localhost:58885/session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element {"using": "css selector", "value": "[id=\"enhe0\"]"}
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:58885
+DEBUG:urllib3.connectionpool:http://localhost:58885 "POST /session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element HTTP/1.1" 200 88
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:selenium.webdriver.remote.remote_connection:POST http://localhost:58885/session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element/466168ba-3ad0-44c3-ba46-3d70d563e0e9/click {"id": "466168ba-3ad0-44c3-ba46-3d70d563e0e9"}
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:58885
+DEBUG:urllib3.connectionpool:http://localhost:58885 "POST /session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element/466168ba-3ad0-44c3-ba46-3d70d563e0e9/click HTTP/1.1" 200 14
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:selenium.webdriver.remote.remote_connection:POST http://localhost:58885/session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element {"using": "css selector", "value": "[id=\"mapsubmit\"]"}
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:58885
+DEBUG:urllib3.connectionpool:http://localhost:58885 "POST /session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element HTTP/1.1" 200 88
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:selenium.webdriver.remote.remote_connection:POST http://localhost:58885/session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element/15372ddd-e89f-411f-9637-91aa7dcafa50/click {"id": "15372ddd-e89f-411f-9637-91aa7dcafa50"}
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:58885
+DEBUG:urllib3.connectionpool:http://localhost:58885 "POST /session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element/15372ddd-e89f-411f-9637-91aa7dcafa50/click HTTP/1.1" 200 14
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:selenium.webdriver.remote.remote_connection:GET http://localhost:58885/session/c6ae384bf9c76eb8ffb005aa8fe6eac7/source {}
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:58885
+DEBUG:urllib3.connectionpool:http://localhost:58885 "GET /session/c6ae384bf9c76eb8ffb005aa8fe6eac7/source HTTP/1.1" 200 20242
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:root:'EASY' — 'SingleCand':0
+DEBUG:selenium.webdriver.remote.remote_connection:POST http://localhost:58885/session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element {"using": "css selector", "value": "[id=\"enhe0\"]"}
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:58885
+DEBUG:urllib3.connectionpool:http://localhost:58885 "POST /session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element HTTP/1.1" 200 88
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:selenium.webdriver.remote.remote_connection:POST http://localhost:58885/session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element/466168ba-3ad0-44c3-ba46-3d70d563e0e9/click {"id": "466168ba-3ad0-44c3-ba46-3d70d563e0e9"}
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:58885
+DEBUG:urllib3.connectionpool:http://localhost:58885 "POST /session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element/466168ba-3ad0-44c3-ba46-3d70d563e0e9/click HTTP/1.1" 200 14
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:selenium.webdriver.remote.remote_connection:POST http://localhost:58885/session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element {"using": "css selector", "value": "[id=\"mapsubmit\"]"}
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:58885
+DEBUG:urllib3.connectionpool:http://localhost:58885 "POST /session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element HTTP/1.1" 200 88
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:selenium.webdriver.remote.remote_connection:POST http://localhost:58885/session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element/15372ddd-e89f-411f-9637-91aa7dcafa50/click {"id": "15372ddd-e89f-411f-9637-91aa7dcafa50"}
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:58885
+DEBUG:urllib3.connectionpool:http://localhost:58885 "POST /session/c6ae384bf9c76eb8ffb005aa8fe6eac7/element/15372ddd-e89f-411f-9637-91aa7dcafa50/click HTTP/1.1" 200 14
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:selenium.webdriver.remote.remote_connection:GET http://localhost:58885/session/c6ae384bf9c76eb8ffb005aa8fe6eac7/source {}
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:58885
+DEBUG:urllib3.connectionpool:http://localhost:58885 "GET /session/c6ae384bf9c76eb8ffb005aa8fe6eac7/source HTTP/1.1" 200 20245
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:root:'EASY' — 'SingleCand':0
+POST http://localhost:59116/session {"capabilities": {"firstMatch": [{}], "alwaysMatch": {"browserName": "MicrosoftEdge", "platformName": "windows"}}, "desiredCapabilities": {"browserName": "MicrosoftEdge", "version": "", "platform": "WINDOWS"}} — POST http://localhost:59116/session {"capabilities": {"firstMatch": [{}], "alwaysMatch": {"browserName": "MicrosoftEdge", "platformName": "windows"}}, "desiredCapabilities": {"browserName": "MicrosoftEdge", "version": "", "platform": "WINDOWS"}}:POST http://localhost:59116/session {"capabilities": {"firstMatch": [{}], "alwaysMatch": {"browserName": "MicrosoftEdge", "platformName": "windows"}}, "desiredCapabilities": {"browserName": "MicrosoftEdge", "version": "", "platform": "WINDOWS"}}
+Starting new HTTP connection (1): localhost:59116 — Starting new HTTP connection (1): localhost:59116:Starting new HTTP connection (1): localhost:59116
+http://localhost:59116 "POST /session HTTP/1.1" 200 707 — http://localhost:59116 "POST /session HTTP/1.1" 200 707:http://localhost:59116 "POST /session HTTP/1.1" 200 707
+Finished Request — Finished Request:Finished Request
+POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/url {"url": "https://sudoku.org.ua/"} — POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/url {"url": "https://sudoku.org.ua/"}:POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/url {"url": "https://sudoku.org.ua/"}
+Starting new HTTP connection (1): localhost:59116 — Starting new HTTP connection (1): localhost:59116:Starting new HTTP connection (1): localhost:59116
+http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/url HTTP/1.1" 200 14 — http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/url HTTP/1.1" 200 14:http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/url HTTP/1.1" 200 14
+Finished Request — Finished Request:Finished Request
+POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element {"using": "css selector", "value": "[id=\"enhe0\"]"} — POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element {"using": "css selector", "value": "[id=\"enhe0\"]"}:POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element {"using": "css selector", "value": "[id=\"enhe0\"]"}
+Starting new HTTP connection (1): localhost:59116 — Starting new HTTP connection (1): localhost:59116:Starting new HTTP connection (1): localhost:59116
+http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element HTTP/1.1" 200 88 — http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element HTTP/1.1" 200 88:http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element HTTP/1.1" 200 88
+Finished Request — Finished Request:Finished Request
+POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element/9bb82d99-8a70-4a72-86fc-20e44eb8fb6c/click {"id": "9bb82d99-8a70-4a72-86fc-20e44eb8fb6c"} — POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element/9bb82d99-8a70-4a72-86fc-20e44eb8fb6c/click {"id": "9bb82d99-8a70-4a72-86fc-20e44eb8fb6c"}:POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element/9bb82d99-8a70-4a72-86fc-20e44eb8fb6c/click {"id": "9bb82d99-8a70-4a72-86fc-20e44eb8fb6c"}
+Starting new HTTP connection (1): localhost:59116 — Starting new HTTP connection (1): localhost:59116:Starting new HTTP connection (1): localhost:59116
+http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element/9bb82d99-8a70-4a72-86fc-20e44eb8fb6c/click HTTP/1.1" 200 14 — http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element/9bb82d99-8a70-4a72-86fc-20e44eb8fb6c/click HTTP/1.1" 200 14:http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element/9bb82d99-8a70-4a72-86fc-20e44eb8fb6c/click HTTP/1.1" 200 14
+Finished Request — Finished Request:Finished Request
+POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element {"using": "css selector", "value": "[id=\"mapsubmit\"]"} — POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element {"using": "css selector", "value": "[id=\"mapsubmit\"]"}:POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element {"using": "css selector", "value": "[id=\"mapsubmit\"]"}
+Starting new HTTP connection (1): localhost:59116 — Starting new HTTP connection (1): localhost:59116:Starting new HTTP connection (1): localhost:59116
+http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element HTTP/1.1" 200 88 — http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element HTTP/1.1" 200 88:http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element HTTP/1.1" 200 88
+Finished Request — Finished Request:Finished Request
+POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element/3efaf9f1-542c-43a1-bc70-804b4bdb9968/click {"id": "3efaf9f1-542c-43a1-bc70-804b4bdb9968"} — POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element/3efaf9f1-542c-43a1-bc70-804b4bdb9968/click {"id": "3efaf9f1-542c-43a1-bc70-804b4bdb9968"}:POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element/3efaf9f1-542c-43a1-bc70-804b4bdb9968/click {"id": "3efaf9f1-542c-43a1-bc70-804b4bdb9968"}
+Starting new HTTP connection (1): localhost:59116 — Starting new HTTP connection (1): localhost:59116:Starting new HTTP connection (1): localhost:59116
+http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element/3efaf9f1-542c-43a1-bc70-804b4bdb9968/click HTTP/1.1" 200 14 — http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element/3efaf9f1-542c-43a1-bc70-804b4bdb9968/click HTTP/1.1" 200 14:http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element/3efaf9f1-542c-43a1-bc70-804b4bdb9968/click HTTP/1.1" 200 14
+Finished Request — Finished Request:Finished Request
+GET http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/source {} — GET http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/source {}:GET http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/source {}
+Starting new HTTP connection (1): localhost:59116 — Starting new HTTP connection (1): localhost:59116:Starting new HTTP connection (1): localhost:59116
+http://localhost:59116 "GET /session/6fdb852ef50760cdf12d219b12f9b819/source HTTP/1.1" 200 20368 — http://localhost:59116 "GET /session/6fdb852ef50760cdf12d219b12f9b819/source HTTP/1.1" 200 20368:http://localhost:59116 "GET /session/6fdb852ef50760cdf12d219b12f9b819/source HTTP/1.1" 200 20368
+Finished Request — Finished Request:Finished Request
+POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element {"using": "css selector", "value": "[id=\"enhe0\"]"} — POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element {"using": "css selector", "value": "[id=\"enhe0\"]"}:POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element {"using": "css selector", "value": "[id=\"enhe0\"]"}
+Starting new HTTP connection (1): localhost:59116 — Starting new HTTP connection (1): localhost:59116:Starting new HTTP connection (1): localhost:59116
+http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element HTTP/1.1" 200 88 — http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element HTTP/1.1" 200 88:http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element HTTP/1.1" 200 88
+Finished Request — Finished Request:Finished Request
+POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element/9bb82d99-8a70-4a72-86fc-20e44eb8fb6c/click {"id": "9bb82d99-8a70-4a72-86fc-20e44eb8fb6c"} — POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element/9bb82d99-8a70-4a72-86fc-20e44eb8fb6c/click {"id": "9bb82d99-8a70-4a72-86fc-20e44eb8fb6c"}:POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element/9bb82d99-8a70-4a72-86fc-20e44eb8fb6c/click {"id": "9bb82d99-8a70-4a72-86fc-20e44eb8fb6c"}
+Starting new HTTP connection (1): localhost:59116 — Starting new HTTP connection (1): localhost:59116:Starting new HTTP connection (1): localhost:59116
+http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element/9bb82d99-8a70-4a72-86fc-20e44eb8fb6c/click HTTP/1.1" 200 14 — http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element/9bb82d99-8a70-4a72-86fc-20e44eb8fb6c/click HTTP/1.1" 200 14:http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element/9bb82d99-8a70-4a72-86fc-20e44eb8fb6c/click HTTP/1.1" 200 14
+Finished Request — Finished Request:Finished Request
+POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element {"using": "css selector", "value": "[id=\"mapsubmit\"]"} — POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element {"using": "css selector", "value": "[id=\"mapsubmit\"]"}:POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element {"using": "css selector", "value": "[id=\"mapsubmit\"]"}
+Starting new HTTP connection (1): localhost:59116 — Starting new HTTP connection (1): localhost:59116:Starting new HTTP connection (1): localhost:59116
+http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element HTTP/1.1" 200 88 — http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element HTTP/1.1" 200 88:http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element HTTP/1.1" 200 88
+Finished Request — Finished Request:Finished Request
+POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element/3efaf9f1-542c-43a1-bc70-804b4bdb9968/click {"id": "3efaf9f1-542c-43a1-bc70-804b4bdb9968"} — POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element/3efaf9f1-542c-43a1-bc70-804b4bdb9968/click {"id": "3efaf9f1-542c-43a1-bc70-804b4bdb9968"}:POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element/3efaf9f1-542c-43a1-bc70-804b4bdb9968/click {"id": "3efaf9f1-542c-43a1-bc70-804b4bdb9968"}
+Starting new HTTP connection (1): localhost:59116 — Starting new HTTP connection (1): localhost:59116:Starting new HTTP connection (1): localhost:59116
+http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element/3efaf9f1-542c-43a1-bc70-804b4bdb9968/click HTTP/1.1" 200 14 — http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element/3efaf9f1-542c-43a1-bc70-804b4bdb9968/click HTTP/1.1" 200 14:http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element/3efaf9f1-542c-43a1-bc70-804b4bdb9968/click HTTP/1.1" 200 14
+Finished Request — Finished Request:Finished Request
+GET http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/source {} — GET http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/source {}:GET http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/source {}
+Starting new HTTP connection (1): localhost:59116 — Starting new HTTP connection (1): localhost:59116:Starting new HTTP connection (1): localhost:59116
+http://localhost:59116 "GET /session/6fdb852ef50760cdf12d219b12f9b819/source HTTP/1.1" 200 20365 — http://localhost:59116 "GET /session/6fdb852ef50760cdf12d219b12f9b819/source HTTP/1.1" 200 20365:http://localhost:59116 "GET /session/6fdb852ef50760cdf12d219b12f9b819/source HTTP/1.1" 200 20365
+Finished Request — Finished Request:Finished Request
+POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element {"using": "css selector", "value": "[id=\"enhe0\"]"} — POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element {"using": "css selector", "value": "[id=\"enhe0\"]"}:POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element {"using": "css selector", "value": "[id=\"enhe0\"]"}
+Starting new HTTP connection (1): localhost:59116 — Starting new HTTP connection (1): localhost:59116:Starting new HTTP connection (1): localhost:59116
+http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element HTTP/1.1" 200 88 — http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element HTTP/1.1" 200 88:http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element HTTP/1.1" 200 88
+Finished Request — Finished Request:Finished Request
+POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element/9bb82d99-8a70-4a72-86fc-20e44eb8fb6c/click {"id": "9bb82d99-8a70-4a72-86fc-20e44eb8fb6c"} — POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element/9bb82d99-8a70-4a72-86fc-20e44eb8fb6c/click {"id": "9bb82d99-8a70-4a72-86fc-20e44eb8fb6c"}:POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element/9bb82d99-8a70-4a72-86fc-20e44eb8fb6c/click {"id": "9bb82d99-8a70-4a72-86fc-20e44eb8fb6c"}
+Starting new HTTP connection (1): localhost:59116 — Starting new HTTP connection (1): localhost:59116:Starting new HTTP connection (1): localhost:59116
+http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element/9bb82d99-8a70-4a72-86fc-20e44eb8fb6c/click HTTP/1.1" 200 14 — http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element/9bb82d99-8a70-4a72-86fc-20e44eb8fb6c/click HTTP/1.1" 200 14:http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element/9bb82d99-8a70-4a72-86fc-20e44eb8fb6c/click HTTP/1.1" 200 14
+Finished Request — Finished Request:Finished Request
+POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element {"using": "css selector", "value": "[id=\"mapsubmit\"]"} — POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element {"using": "css selector", "value": "[id=\"mapsubmit\"]"}:POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element {"using": "css selector", "value": "[id=\"mapsubmit\"]"}
+Starting new HTTP connection (1): localhost:59116 — Starting new HTTP connection (1): localhost:59116:Starting new HTTP connection (1): localhost:59116
+http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element HTTP/1.1" 200 88 — http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element HTTP/1.1" 200 88:http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element HTTP/1.1" 200 88
+Finished Request — Finished Request:Finished Request
+POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element/3efaf9f1-542c-43a1-bc70-804b4bdb9968/click {"id": "3efaf9f1-542c-43a1-bc70-804b4bdb9968"} — POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element/3efaf9f1-542c-43a1-bc70-804b4bdb9968/click {"id": "3efaf9f1-542c-43a1-bc70-804b4bdb9968"}:POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element/3efaf9f1-542c-43a1-bc70-804b4bdb9968/click {"id": "3efaf9f1-542c-43a1-bc70-804b4bdb9968"}
+Starting new HTTP connection (1): localhost:59116 — Starting new HTTP connection (1): localhost:59116:Starting new HTTP connection (1): localhost:59116
+http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element/3efaf9f1-542c-43a1-bc70-804b4bdb9968/click HTTP/1.1" 200 14 — http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element/3efaf9f1-542c-43a1-bc70-804b4bdb9968/click HTTP/1.1" 200 14:http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element/3efaf9f1-542c-43a1-bc70-804b4bdb9968/click HTTP/1.1" 200 14
+Finished Request — Finished Request:Finished Request
+GET http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/source {} — GET http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/source {}:GET http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/source {}
+Starting new HTTP connection (1): localhost:59116 — Starting new HTTP connection (1): localhost:59116:Starting new HTTP connection (1): localhost:59116
+http://localhost:59116 "GET /session/6fdb852ef50760cdf12d219b12f9b819/source HTTP/1.1" 200 20367 — http://localhost:59116 "GET /session/6fdb852ef50760cdf12d219b12f9b819/source HTTP/1.1" 200 20367:http://localhost:59116 "GET /session/6fdb852ef50760cdf12d219b12f9b819/source HTTP/1.1" 200 20367
+Finished Request — Finished Request:Finished Request
+POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element {"using": "css selector", "value": "[id=\"enhe0\"]"} — POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element {"using": "css selector", "value": "[id=\"enhe0\"]"}:POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element {"using": "css selector", "value": "[id=\"enhe0\"]"}
+Starting new HTTP connection (1): localhost:59116 — Starting new HTTP connection (1): localhost:59116:Starting new HTTP connection (1): localhost:59116
+http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element HTTP/1.1" 200 88 — http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element HTTP/1.1" 200 88:http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element HTTP/1.1" 200 88
+Finished Request — Finished Request:Finished Request
+POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element/9bb82d99-8a70-4a72-86fc-20e44eb8fb6c/click {"id": "9bb82d99-8a70-4a72-86fc-20e44eb8fb6c"} — POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element/9bb82d99-8a70-4a72-86fc-20e44eb8fb6c/click {"id": "9bb82d99-8a70-4a72-86fc-20e44eb8fb6c"}:POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element/9bb82d99-8a70-4a72-86fc-20e44eb8fb6c/click {"id": "9bb82d99-8a70-4a72-86fc-20e44eb8fb6c"}
+Starting new HTTP connection (1): localhost:59116 — Starting new HTTP connection (1): localhost:59116:Starting new HTTP connection (1): localhost:59116
+http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element/9bb82d99-8a70-4a72-86fc-20e44eb8fb6c/click HTTP/1.1" 200 14 — http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element/9bb82d99-8a70-4a72-86fc-20e44eb8fb6c/click HTTP/1.1" 200 14:http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element/9bb82d99-8a70-4a72-86fc-20e44eb8fb6c/click HTTP/1.1" 200 14
+Finished Request — Finished Request:Finished Request
+POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element {"using": "css selector", "value": "[id=\"mapsubmit\"]"} — POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element {"using": "css selector", "value": "[id=\"mapsubmit\"]"}:POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element {"using": "css selector", "value": "[id=\"mapsubmit\"]"}
+Starting new HTTP connection (1): localhost:59116 — Starting new HTTP connection (1): localhost:59116:Starting new HTTP connection (1): localhost:59116
+http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element HTTP/1.1" 200 88 — http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element HTTP/1.1" 200 88:http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element HTTP/1.1" 200 88
+Finished Request — Finished Request:Finished Request
+POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element/3efaf9f1-542c-43a1-bc70-804b4bdb9968/click {"id": "3efaf9f1-542c-43a1-bc70-804b4bdb9968"} — POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element/3efaf9f1-542c-43a1-bc70-804b4bdb9968/click {"id": "3efaf9f1-542c-43a1-bc70-804b4bdb9968"}:POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element/3efaf9f1-542c-43a1-bc70-804b4bdb9968/click {"id": "3efaf9f1-542c-43a1-bc70-804b4bdb9968"}
+Starting new HTTP connection (1): localhost:59116 — Starting new HTTP connection (1): localhost:59116:Starting new HTTP connection (1): localhost:59116
+http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element/3efaf9f1-542c-43a1-bc70-804b4bdb9968/click HTTP/1.1" 200 14 — http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element/3efaf9f1-542c-43a1-bc70-804b4bdb9968/click HTTP/1.1" 200 14:http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element/3efaf9f1-542c-43a1-bc70-804b4bdb9968/click HTTP/1.1" 200 14
+Finished Request — Finished Request:Finished Request
+GET http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/source {} — GET http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/source {}:GET http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/source {}
+Starting new HTTP connection (1): localhost:59116 — Starting new HTTP connection (1): localhost:59116:Starting new HTTP connection (1): localhost:59116
+http://localhost:59116 "GET /session/6fdb852ef50760cdf12d219b12f9b819/source HTTP/1.1" 200 20219 — http://localhost:59116 "GET /session/6fdb852ef50760cdf12d219b12f9b819/source HTTP/1.1" 200 20219:http://localhost:59116 "GET /session/6fdb852ef50760cdf12d219b12f9b819/source HTTP/1.1" 200 20219
+Finished Request — Finished Request:Finished Request
+POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element {"using": "css selector", "value": "[id=\"enhe0\"]"} — POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element {"using": "css selector", "value": "[id=\"enhe0\"]"}:POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element {"using": "css selector", "value": "[id=\"enhe0\"]"}
+Starting new HTTP connection (1): localhost:59116 — Starting new HTTP connection (1): localhost:59116:Starting new HTTP connection (1): localhost:59116
+http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element HTTP/1.1" 200 88 — http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element HTTP/1.1" 200 88:http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element HTTP/1.1" 200 88
+Finished Request — Finished Request:Finished Request
+POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element/9bb82d99-8a70-4a72-86fc-20e44eb8fb6c/click {"id": "9bb82d99-8a70-4a72-86fc-20e44eb8fb6c"} — POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element/9bb82d99-8a70-4a72-86fc-20e44eb8fb6c/click {"id": "9bb82d99-8a70-4a72-86fc-20e44eb8fb6c"}:POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element/9bb82d99-8a70-4a72-86fc-20e44eb8fb6c/click {"id": "9bb82d99-8a70-4a72-86fc-20e44eb8fb6c"}
+Starting new HTTP connection (1): localhost:59116 — Starting new HTTP connection (1): localhost:59116:Starting new HTTP connection (1): localhost:59116
+http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element/9bb82d99-8a70-4a72-86fc-20e44eb8fb6c/click HTTP/1.1" 200 14 — http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element/9bb82d99-8a70-4a72-86fc-20e44eb8fb6c/click HTTP/1.1" 200 14:http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element/9bb82d99-8a70-4a72-86fc-20e44eb8fb6c/click HTTP/1.1" 200 14
+Finished Request — Finished Request:Finished Request
+POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element {"using": "css selector", "value": "[id=\"mapsubmit\"]"} — POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element {"using": "css selector", "value": "[id=\"mapsubmit\"]"}:POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element {"using": "css selector", "value": "[id=\"mapsubmit\"]"}
+Starting new HTTP connection (1): localhost:59116 — Starting new HTTP connection (1): localhost:59116:Starting new HTTP connection (1): localhost:59116
+http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element HTTP/1.1" 200 88 — http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element HTTP/1.1" 200 88:http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element HTTP/1.1" 200 88
+Finished Request — Finished Request:Finished Request
+POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element/3efaf9f1-542c-43a1-bc70-804b4bdb9968/click {"id": "3efaf9f1-542c-43a1-bc70-804b4bdb9968"} — POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element/3efaf9f1-542c-43a1-bc70-804b4bdb9968/click {"id": "3efaf9f1-542c-43a1-bc70-804b4bdb9968"}:POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element/3efaf9f1-542c-43a1-bc70-804b4bdb9968/click {"id": "3efaf9f1-542c-43a1-bc70-804b4bdb9968"}
+Starting new HTTP connection (1): localhost:59116 — Starting new HTTP connection (1): localhost:59116:Starting new HTTP connection (1): localhost:59116
+http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element/3efaf9f1-542c-43a1-bc70-804b4bdb9968/click HTTP/1.1" 200 14 — http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element/3efaf9f1-542c-43a1-bc70-804b4bdb9968/click HTTP/1.1" 200 14:http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element/3efaf9f1-542c-43a1-bc70-804b4bdb9968/click HTTP/1.1" 200 14
+Finished Request — Finished Request:Finished Request
+GET http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/source {} — GET http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/source {}:GET http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/source {}
+Starting new HTTP connection (1): localhost:59116 — Starting new HTTP connection (1): localhost:59116:Starting new HTTP connection (1): localhost:59116
+http://localhost:59116 "GET /session/6fdb852ef50760cdf12d219b12f9b819/source HTTP/1.1" 200 20219 — http://localhost:59116 "GET /session/6fdb852ef50760cdf12d219b12f9b819/source HTTP/1.1" 200 20219:http://localhost:59116 "GET /session/6fdb852ef50760cdf12d219b12f9b819/source HTTP/1.1" 200 20219
+Finished Request — Finished Request:Finished Request
+POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element {"using": "css selector", "value": "[id=\"enhe0\"]"} — POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element {"using": "css selector", "value": "[id=\"enhe0\"]"}:POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element {"using": "css selector", "value": "[id=\"enhe0\"]"}
+Starting new HTTP connection (1): localhost:59116 — Starting new HTTP connection (1): localhost:59116:Starting new HTTP connection (1): localhost:59116
+http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element HTTP/1.1" 200 88 — http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element HTTP/1.1" 200 88:http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element HTTP/1.1" 200 88
+Finished Request — Finished Request:Finished Request
+POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element/9bb82d99-8a70-4a72-86fc-20e44eb8fb6c/click {"id": "9bb82d99-8a70-4a72-86fc-20e44eb8fb6c"} — POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element/9bb82d99-8a70-4a72-86fc-20e44eb8fb6c/click {"id": "9bb82d99-8a70-4a72-86fc-20e44eb8fb6c"}:POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element/9bb82d99-8a70-4a72-86fc-20e44eb8fb6c/click {"id": "9bb82d99-8a70-4a72-86fc-20e44eb8fb6c"}
+Starting new HTTP connection (1): localhost:59116 — Starting new HTTP connection (1): localhost:59116:Starting new HTTP connection (1): localhost:59116
+http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element/9bb82d99-8a70-4a72-86fc-20e44eb8fb6c/click HTTP/1.1" 200 14 — http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element/9bb82d99-8a70-4a72-86fc-20e44eb8fb6c/click HTTP/1.1" 200 14:http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element/9bb82d99-8a70-4a72-86fc-20e44eb8fb6c/click HTTP/1.1" 200 14
+Finished Request — Finished Request:Finished Request
+POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element {"using": "css selector", "value": "[id=\"mapsubmit\"]"} — POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element {"using": "css selector", "value": "[id=\"mapsubmit\"]"}:POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element {"using": "css selector", "value": "[id=\"mapsubmit\"]"}
+Starting new HTTP connection (1): localhost:59116 — Starting new HTTP connection (1): localhost:59116:Starting new HTTP connection (1): localhost:59116
+http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element HTTP/1.1" 200 88 — http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element HTTP/1.1" 200 88:http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element HTTP/1.1" 200 88
+Finished Request — Finished Request:Finished Request
+POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element/3efaf9f1-542c-43a1-bc70-804b4bdb9968/click {"id": "3efaf9f1-542c-43a1-bc70-804b4bdb9968"} — POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element/3efaf9f1-542c-43a1-bc70-804b4bdb9968/click {"id": "3efaf9f1-542c-43a1-bc70-804b4bdb9968"}:POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element/3efaf9f1-542c-43a1-bc70-804b4bdb9968/click {"id": "3efaf9f1-542c-43a1-bc70-804b4bdb9968"}
+Starting new HTTP connection (1): localhost:59116 — Starting new HTTP connection (1): localhost:59116:Starting new HTTP connection (1): localhost:59116
+http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element/3efaf9f1-542c-43a1-bc70-804b4bdb9968/click HTTP/1.1" 200 14 — http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element/3efaf9f1-542c-43a1-bc70-804b4bdb9968/click HTTP/1.1" 200 14:http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element/3efaf9f1-542c-43a1-bc70-804b4bdb9968/click HTTP/1.1" 200 14
+Finished Request — Finished Request:Finished Request
+GET http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/source {} — GET http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/source {}:GET http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/source {}
+Starting new HTTP connection (1): localhost:59116 — Starting new HTTP connection (1): localhost:59116:Starting new HTTP connection (1): localhost:59116
+http://localhost:59116 "GET /session/6fdb852ef50760cdf12d219b12f9b819/source HTTP/1.1" 200 20217 — http://localhost:59116 "GET /session/6fdb852ef50760cdf12d219b12f9b819/source HTTP/1.1" 200 20217:http://localhost:59116 "GET /session/6fdb852ef50760cdf12d219b12f9b819/source HTTP/1.1" 200 20217
+Finished Request — Finished Request:Finished Request
+POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element {"using": "css selector", "value": "[id=\"enhe0\"]"} — POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element {"using": "css selector", "value": "[id=\"enhe0\"]"}:POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element {"using": "css selector", "value": "[id=\"enhe0\"]"}
+Starting new HTTP connection (1): localhost:59116 — Starting new HTTP connection (1): localhost:59116:Starting new HTTP connection (1): localhost:59116
+http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element HTTP/1.1" 200 88 — http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element HTTP/1.1" 200 88:http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element HTTP/1.1" 200 88
+Finished Request — Finished Request:Finished Request
+POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element/9bb82d99-8a70-4a72-86fc-20e44eb8fb6c/click {"id": "9bb82d99-8a70-4a72-86fc-20e44eb8fb6c"} — POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element/9bb82d99-8a70-4a72-86fc-20e44eb8fb6c/click {"id": "9bb82d99-8a70-4a72-86fc-20e44eb8fb6c"}:POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element/9bb82d99-8a70-4a72-86fc-20e44eb8fb6c/click {"id": "9bb82d99-8a70-4a72-86fc-20e44eb8fb6c"}
+Starting new HTTP connection (1): localhost:59116 — Starting new HTTP connection (1): localhost:59116:Starting new HTTP connection (1): localhost:59116
+http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element/9bb82d99-8a70-4a72-86fc-20e44eb8fb6c/click HTTP/1.1" 200 14 — http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element/9bb82d99-8a70-4a72-86fc-20e44eb8fb6c/click HTTP/1.1" 200 14:http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element/9bb82d99-8a70-4a72-86fc-20e44eb8fb6c/click HTTP/1.1" 200 14
+Finished Request — Finished Request:Finished Request
+POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element {"using": "css selector", "value": "[id=\"mapsubmit\"]"} — POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element {"using": "css selector", "value": "[id=\"mapsubmit\"]"}:POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element {"using": "css selector", "value": "[id=\"mapsubmit\"]"}
+Starting new HTTP connection (1): localhost:59116 — Starting new HTTP connection (1): localhost:59116:Starting new HTTP connection (1): localhost:59116
+http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element HTTP/1.1" 200 88 — http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element HTTP/1.1" 200 88:http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element HTTP/1.1" 200 88
+Finished Request — Finished Request:Finished Request
+POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element/3efaf9f1-542c-43a1-bc70-804b4bdb9968/click {"id": "3efaf9f1-542c-43a1-bc70-804b4bdb9968"} — POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element/3efaf9f1-542c-43a1-bc70-804b4bdb9968/click {"id": "3efaf9f1-542c-43a1-bc70-804b4bdb9968"}:POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element/3efaf9f1-542c-43a1-bc70-804b4bdb9968/click {"id": "3efaf9f1-542c-43a1-bc70-804b4bdb9968"}
+Starting new HTTP connection (1): localhost:59116 — Starting new HTTP connection (1): localhost:59116:Starting new HTTP connection (1): localhost:59116
+http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element/3efaf9f1-542c-43a1-bc70-804b4bdb9968/click HTTP/1.1" 200 14 — http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element/3efaf9f1-542c-43a1-bc70-804b4bdb9968/click HTTP/1.1" 200 14:http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element/3efaf9f1-542c-43a1-bc70-804b4bdb9968/click HTTP/1.1" 200 14
+Finished Request — Finished Request:Finished Request
+GET http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/source {} — GET http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/source {}:GET http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/source {}
+Starting new HTTP connection (1): localhost:59116 — Starting new HTTP connection (1): localhost:59116:Starting new HTTP connection (1): localhost:59116
+http://localhost:59116 "GET /session/6fdb852ef50760cdf12d219b12f9b819/source HTTP/1.1" 200 20219 — http://localhost:59116 "GET /session/6fdb852ef50760cdf12d219b12f9b819/source HTTP/1.1" 200 20219:http://localhost:59116 "GET /session/6fdb852ef50760cdf12d219b12f9b819/source HTTP/1.1" 200 20219
+Finished Request — Finished Request:Finished Request
+POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element {"using": "css selector", "value": "[id=\"enhe0\"]"} — POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element {"using": "css selector", "value": "[id=\"enhe0\"]"}:POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element {"using": "css selector", "value": "[id=\"enhe0\"]"}
+Starting new HTTP connection (1): localhost:59116 — Starting new HTTP connection (1): localhost:59116:Starting new HTTP connection (1): localhost:59116
+http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element HTTP/1.1" 200 88 — http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element HTTP/1.1" 200 88:http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element HTTP/1.1" 200 88
+Finished Request — Finished Request:Finished Request
+POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element/9bb82d99-8a70-4a72-86fc-20e44eb8fb6c/click {"id": "9bb82d99-8a70-4a72-86fc-20e44eb8fb6c"} — POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element/9bb82d99-8a70-4a72-86fc-20e44eb8fb6c/click {"id": "9bb82d99-8a70-4a72-86fc-20e44eb8fb6c"}:POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element/9bb82d99-8a70-4a72-86fc-20e44eb8fb6c/click {"id": "9bb82d99-8a70-4a72-86fc-20e44eb8fb6c"}
+Starting new HTTP connection (1): localhost:59116 — Starting new HTTP connection (1): localhost:59116:Starting new HTTP connection (1): localhost:59116
+http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element/9bb82d99-8a70-4a72-86fc-20e44eb8fb6c/click HTTP/1.1" 200 14 — http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element/9bb82d99-8a70-4a72-86fc-20e44eb8fb6c/click HTTP/1.1" 200 14:http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element/9bb82d99-8a70-4a72-86fc-20e44eb8fb6c/click HTTP/1.1" 200 14
+Finished Request — Finished Request:Finished Request
+POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element {"using": "css selector", "value": "[id=\"mapsubmit\"]"} — POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element {"using": "css selector", "value": "[id=\"mapsubmit\"]"}:POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element {"using": "css selector", "value": "[id=\"mapsubmit\"]"}
+Starting new HTTP connection (1): localhost:59116 — Starting new HTTP connection (1): localhost:59116:Starting new HTTP connection (1): localhost:59116
+http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element HTTP/1.1" 200 88 — http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element HTTP/1.1" 200 88:http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element HTTP/1.1" 200 88
+Finished Request — Finished Request:Finished Request
+POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element/3efaf9f1-542c-43a1-bc70-804b4bdb9968/click {"id": "3efaf9f1-542c-43a1-bc70-804b4bdb9968"} — POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element/3efaf9f1-542c-43a1-bc70-804b4bdb9968/click {"id": "3efaf9f1-542c-43a1-bc70-804b4bdb9968"}:POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element/3efaf9f1-542c-43a1-bc70-804b4bdb9968/click {"id": "3efaf9f1-542c-43a1-bc70-804b4bdb9968"}
+Starting new HTTP connection (1): localhost:59116 — Starting new HTTP connection (1): localhost:59116:Starting new HTTP connection (1): localhost:59116
+http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element/3efaf9f1-542c-43a1-bc70-804b4bdb9968/click HTTP/1.1" 200 14 — http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element/3efaf9f1-542c-43a1-bc70-804b4bdb9968/click HTTP/1.1" 200 14:http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element/3efaf9f1-542c-43a1-bc70-804b4bdb9968/click HTTP/1.1" 200 14
+Finished Request — Finished Request:Finished Request
+GET http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/source {} — GET http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/source {}:GET http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/source {}
+Starting new HTTP connection (1): localhost:59116 — Starting new HTTP connection (1): localhost:59116:Starting new HTTP connection (1): localhost:59116
+http://localhost:59116 "GET /session/6fdb852ef50760cdf12d219b12f9b819/source HTTP/1.1" 200 20218 — http://localhost:59116 "GET /session/6fdb852ef50760cdf12d219b12f9b819/source HTTP/1.1" 200 20218:http://localhost:59116 "GET /session/6fdb852ef50760cdf12d219b12f9b819/source HTTP/1.1" 200 20218
+Finished Request — Finished Request:Finished Request
+POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element {"using": "css selector", "value": "[id=\"enhe0\"]"} — POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element {"using": "css selector", "value": "[id=\"enhe0\"]"}:POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element {"using": "css selector", "value": "[id=\"enhe0\"]"}
+Starting new HTTP connection (1): localhost:59116 — Starting new HTTP connection (1): localhost:59116:Starting new HTTP connection (1): localhost:59116
+http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element HTTP/1.1" 200 88 — http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element HTTP/1.1" 200 88:http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element HTTP/1.1" 200 88
+Finished Request — Finished Request:Finished Request
+POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element/9bb82d99-8a70-4a72-86fc-20e44eb8fb6c/click {"id": "9bb82d99-8a70-4a72-86fc-20e44eb8fb6c"} — POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element/9bb82d99-8a70-4a72-86fc-20e44eb8fb6c/click {"id": "9bb82d99-8a70-4a72-86fc-20e44eb8fb6c"}:POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element/9bb82d99-8a70-4a72-86fc-20e44eb8fb6c/click {"id": "9bb82d99-8a70-4a72-86fc-20e44eb8fb6c"}
+Starting new HTTP connection (1): localhost:59116 — Starting new HTTP connection (1): localhost:59116:Starting new HTTP connection (1): localhost:59116
+http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element/9bb82d99-8a70-4a72-86fc-20e44eb8fb6c/click HTTP/1.1" 200 14 — http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element/9bb82d99-8a70-4a72-86fc-20e44eb8fb6c/click HTTP/1.1" 200 14:http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element/9bb82d99-8a70-4a72-86fc-20e44eb8fb6c/click HTTP/1.1" 200 14
+Finished Request — Finished Request:Finished Request
+POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element {"using": "css selector", "value": "[id=\"mapsubmit\"]"} — POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element {"using": "css selector", "value": "[id=\"mapsubmit\"]"}:POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element {"using": "css selector", "value": "[id=\"mapsubmit\"]"}
+Starting new HTTP connection (1): localhost:59116 — Starting new HTTP connection (1): localhost:59116:Starting new HTTP connection (1): localhost:59116
+http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element HTTP/1.1" 200 88 — http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element HTTP/1.1" 200 88:http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element HTTP/1.1" 200 88
+Finished Request — Finished Request:Finished Request
+POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element/3efaf9f1-542c-43a1-bc70-804b4bdb9968/click {"id": "3efaf9f1-542c-43a1-bc70-804b4bdb9968"} — POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element/3efaf9f1-542c-43a1-bc70-804b4bdb9968/click {"id": "3efaf9f1-542c-43a1-bc70-804b4bdb9968"}:POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element/3efaf9f1-542c-43a1-bc70-804b4bdb9968/click {"id": "3efaf9f1-542c-43a1-bc70-804b4bdb9968"}
+Starting new HTTP connection (1): localhost:59116 — Starting new HTTP connection (1): localhost:59116:Starting new HTTP connection (1): localhost:59116
+http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element/3efaf9f1-542c-43a1-bc70-804b4bdb9968/click HTTP/1.1" 200 14 — http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element/3efaf9f1-542c-43a1-bc70-804b4bdb9968/click HTTP/1.1" 200 14:http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element/3efaf9f1-542c-43a1-bc70-804b4bdb9968/click HTTP/1.1" 200 14
+Finished Request — Finished Request:Finished Request
+GET http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/source {} — GET http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/source {}:GET http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/source {}
+Starting new HTTP connection (1): localhost:59116 — Starting new HTTP connection (1): localhost:59116:Starting new HTTP connection (1): localhost:59116
+http://localhost:59116 "GET /session/6fdb852ef50760cdf12d219b12f9b819/source HTTP/1.1" 200 20217 — http://localhost:59116 "GET /session/6fdb852ef50760cdf12d219b12f9b819/source HTTP/1.1" 200 20217:http://localhost:59116 "GET /session/6fdb852ef50760cdf12d219b12f9b819/source HTTP/1.1" 200 20217
+Finished Request — Finished Request:Finished Request
+POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element {"using": "css selector", "value": "[id=\"enhe0\"]"} — POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element {"using": "css selector", "value": "[id=\"enhe0\"]"}:POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element {"using": "css selector", "value": "[id=\"enhe0\"]"}
+Starting new HTTP connection (1): localhost:59116 — Starting new HTTP connection (1): localhost:59116:Starting new HTTP connection (1): localhost:59116
+http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element HTTP/1.1" 200 88 — http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element HTTP/1.1" 200 88:http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element HTTP/1.1" 200 88
+Finished Request — Finished Request:Finished Request
+POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element/9bb82d99-8a70-4a72-86fc-20e44eb8fb6c/click {"id": "9bb82d99-8a70-4a72-86fc-20e44eb8fb6c"} — POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element/9bb82d99-8a70-4a72-86fc-20e44eb8fb6c/click {"id": "9bb82d99-8a70-4a72-86fc-20e44eb8fb6c"}:POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element/9bb82d99-8a70-4a72-86fc-20e44eb8fb6c/click {"id": "9bb82d99-8a70-4a72-86fc-20e44eb8fb6c"}
+Starting new HTTP connection (1): localhost:59116 — Starting new HTTP connection (1): localhost:59116:Starting new HTTP connection (1): localhost:59116
+http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element/9bb82d99-8a70-4a72-86fc-20e44eb8fb6c/click HTTP/1.1" 200 14 — http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element/9bb82d99-8a70-4a72-86fc-20e44eb8fb6c/click HTTP/1.1" 200 14:http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element/9bb82d99-8a70-4a72-86fc-20e44eb8fb6c/click HTTP/1.1" 200 14
+Finished Request — Finished Request:Finished Request
+POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element {"using": "css selector", "value": "[id=\"mapsubmit\"]"} — POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element {"using": "css selector", "value": "[id=\"mapsubmit\"]"}:POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element {"using": "css selector", "value": "[id=\"mapsubmit\"]"}
+Starting new HTTP connection (1): localhost:59116 — Starting new HTTP connection (1): localhost:59116:Starting new HTTP connection (1): localhost:59116
+http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element HTTP/1.1" 200 88 — http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element HTTP/1.1" 200 88:http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element HTTP/1.1" 200 88
+Finished Request — Finished Request:Finished Request
+POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element/3efaf9f1-542c-43a1-bc70-804b4bdb9968/click {"id": "3efaf9f1-542c-43a1-bc70-804b4bdb9968"} — POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element/3efaf9f1-542c-43a1-bc70-804b4bdb9968/click {"id": "3efaf9f1-542c-43a1-bc70-804b4bdb9968"}:POST http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/element/3efaf9f1-542c-43a1-bc70-804b4bdb9968/click {"id": "3efaf9f1-542c-43a1-bc70-804b4bdb9968"}
+Starting new HTTP connection (1): localhost:59116 — Starting new HTTP connection (1): localhost:59116:Starting new HTTP connection (1): localhost:59116
+http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element/3efaf9f1-542c-43a1-bc70-804b4bdb9968/click HTTP/1.1" 200 14 — http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element/3efaf9f1-542c-43a1-bc70-804b4bdb9968/click HTTP/1.1" 200 14:http://localhost:59116 "POST /session/6fdb852ef50760cdf12d219b12f9b819/element/3efaf9f1-542c-43a1-bc70-804b4bdb9968/click HTTP/1.1" 200 14
+Finished Request — Finished Request:Finished Request
+GET http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/source {} — GET http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/source {}:GET http://localhost:59116/session/6fdb852ef50760cdf12d219b12f9b819/source {}
+Starting new HTTP connection (1): localhost:59116 — Starting new HTTP connection (1): localhost:59116:Starting new HTTP connection (1): localhost:59116
+http://localhost:59116 "GET /session/6fdb852ef50760cdf12d219b12f9b819/source HTTP/1.1" 200 20219 — http://localhost:59116 "GET /session/6fdb852ef50760cdf12d219b12f9b819/source HTTP/1.1" 200 20219:http://localhost:59116 "GET /session/6fdb852ef50760cdf12d219b12f9b819/source HTTP/1.1" 200 20219
+Finished Request — Finished Request:Finished Request
+POST http://localhost:59254/session {"capabilities": {"firstMatch": [{}], "alwaysMatch": {"browserName": "MicrosoftEdge", "platformName": "windows"}}, "desiredCapabilities": {"browserName": "MicrosoftEdge", "version": "", "platform": "WINDOWS"}}
+Starting new HTTP connection (1): localhost:59254
+http://localhost:59254 "POST /session HTTP/1.1" 200 709
+Finished Request
+POST http://localhost:59254/session/48448457995194f5355a62e52b26b69d/url {"url": "https://sudoku.org.ua/"}
+Starting new HTTP connection (1): localhost:59254
+http://localhost:59254 "POST /session/48448457995194f5355a62e52b26b69d/url HTTP/1.1" 200 14
+Finished Request
+POST http://localhost:59254/session/48448457995194f5355a62e52b26b69d/element {"using": "css selector", "value": "[id=\"enhe0\"]"}
+Starting new HTTP connection (1): localhost:59254
+http://localhost:59254 "POST /session/48448457995194f5355a62e52b26b69d/element HTTP/1.1" 200 88
+Finished Request
+POST http://localhost:59254/session/48448457995194f5355a62e52b26b69d/element/1c30d950-5b4f-4896-beda-2ef21dd26811/click {"id": "1c30d950-5b4f-4896-beda-2ef21dd26811"}
+Starting new HTTP connection (1): localhost:59254
+http://localhost:59254 "POST /session/48448457995194f5355a62e52b26b69d/element/1c30d950-5b4f-4896-beda-2ef21dd26811/click HTTP/1.1" 200 14
+Finished Request
+POST http://localhost:59254/session/48448457995194f5355a62e52b26b69d/element {"using": "css selector", "value": "[id=\"mapsubmit\"]"}
+Starting new HTTP connection (1): localhost:59254
+http://localhost:59254 "POST /session/48448457995194f5355a62e52b26b69d/element HTTP/1.1" 200 88
+Finished Request
+POST http://localhost:59254/session/48448457995194f5355a62e52b26b69d/element/93b4c143-b96e-4cf9-8470-37130be817dc/click {"id": "93b4c143-b96e-4cf9-8470-37130be817dc"}
+Starting new HTTP connection (1): localhost:59254
+http://localhost:59254 "POST /session/48448457995194f5355a62e52b26b69d/element/93b4c143-b96e-4cf9-8470-37130be817dc/click HTTP/1.1" 200 14
+Finished Request
+GET http://localhost:59254/session/48448457995194f5355a62e52b26b69d/source {}
+Starting new HTTP connection (1): localhost:59254
+http://localhost:59254 "GET /session/48448457995194f5355a62e52b26b69d/source HTTP/1.1" 200 20300
+Finished Request
+POST http://localhost:59316/session {"capabilities": {"firstMatch": [{}], "alwaysMatch": {"browserName": "MicrosoftEdge", "platformName": "windows"}}, "desiredCapabilities": {"browserName": "MicrosoftEdge", "version": "", "platform": "WINDOWS"}}
+Starting new HTTP connection (1): localhost:59316
+http://localhost:59316 "POST /session HTTP/1.1" 200 709
+Finished Request
+POST http://localhost:59316/session/b17436bfa71df5a260861e443949ea62/url {"url": "https://sudoku.org.ua/"}
+Starting new HTTP connection (1): localhost:59316
+http://localhost:59316 "POST /session/b17436bfa71df5a260861e443949ea62/url HTTP/1.1" 200 14
+Finished Request
+POST http://localhost:59316/session/b17436bfa71df5a260861e443949ea62/element {"using": "css selector", "value": "[id=\"enhe0\"]"}
+Starting new HTTP connection (1): localhost:59316
+http://localhost:59316 "POST /session/b17436bfa71df5a260861e443949ea62/element HTTP/1.1" 200 88
+Finished Request
+POST http://localhost:59316/session/b17436bfa71df5a260861e443949ea62/element/9a62bb6b-79ec-41f4-b4d4-60009b64a4c3/click {"id": "9a62bb6b-79ec-41f4-b4d4-60009b64a4c3"}
+Starting new HTTP connection (1): localhost:59316
+http://localhost:59316 "POST /session/b17436bfa71df5a260861e443949ea62/element/9a62bb6b-79ec-41f4-b4d4-60009b64a4c3/click HTTP/1.1" 200 14
+Finished Request
+POST http://localhost:59316/session/b17436bfa71df5a260861e443949ea62/element {"using": "css selector", "value": "[id=\"mapsubmit\"]"}
+Starting new HTTP connection (1): localhost:59316
+http://localhost:59316 "POST /session/b17436bfa71df5a260861e443949ea62/element HTTP/1.1" 200 88
+Finished Request
+POST http://localhost:59316/session/b17436bfa71df5a260861e443949ea62/element/bb911ff6-d2bc-4366-8508-a642e8a5f4e4/click {"id": "bb911ff6-d2bc-4366-8508-a642e8a5f4e4"}
+Starting new HTTP connection (1): localhost:59316
+http://localhost:59316 "POST /session/b17436bfa71df5a260861e443949ea62/element/bb911ff6-d2bc-4366-8508-a642e8a5f4e4/click HTTP/1.1" 200 14
+Finished Request
+GET http://localhost:59316/session/b17436bfa71df5a260861e443949ea62/source {}
+Starting new HTTP connection (1): localhost:59316
+http://localhost:59316 "GET /session/b17436bfa71df5a260861e443949ea62/source HTTP/1.1" 200 20305
+Finished Request
+EASYSingleCand0
+POST http://localhost:59316/session/b17436bfa71df5a260861e443949ea62/element {"using": "css selector", "value": "[id=\"enhe0\"]"}
+Starting new HTTP connection (1): localhost:59316
+http://localhost:59316 "POST /session/b17436bfa71df5a260861e443949ea62/element HTTP/1.1" 200 88
+Finished Request
+POST http://localhost:59316/session/b17436bfa71df5a260861e443949ea62/element/9a62bb6b-79ec-41f4-b4d4-60009b64a4c3/click {"id": "9a62bb6b-79ec-41f4-b4d4-60009b64a4c3"}
+Starting new HTTP connection (1): localhost:59316
+http://localhost:59316 "POST /session/b17436bfa71df5a260861e443949ea62/element/9a62bb6b-79ec-41f4-b4d4-60009b64a4c3/click HTTP/1.1" 200 14
+Finished Request
+POST http://localhost:59316/session/b17436bfa71df5a260861e443949ea62/element {"using": "css selector", "value": "[id=\"mapsubmit\"]"}
+Starting new HTTP connection (1): localhost:59316
+http://localhost:59316 "POST /session/b17436bfa71df5a260861e443949ea62/element HTTP/1.1" 200 88
+Finished Request
+POST http://localhost:59316/session/b17436bfa71df5a260861e443949ea62/element/bb911ff6-d2bc-4366-8508-a642e8a5f4e4/click {"id": "bb911ff6-d2bc-4366-8508-a642e8a5f4e4"}
+Starting new HTTP connection (1): localhost:59316
+http://localhost:59316 "POST /session/b17436bfa71df5a260861e443949ea62/element/bb911ff6-d2bc-4366-8508-a642e8a5f4e4/click HTTP/1.1" 200 14
+Finished Request
+GET http://localhost:59316/session/b17436bfa71df5a260861e443949ea62/source {}
+Starting new HTTP connection (1): localhost:59316
+http://localhost:59316 "GET /session/b17436bfa71df5a260861e443949ea62/source HTTP/1.1" 200 20303
+Finished Request
+EASYSingleCand0
+POST http://localhost:59316/session/b17436bfa71df5a260861e443949ea62/element {"using": "css selector", "value": "[id=\"enhe0\"]"}
+Starting new HTTP connection (1): localhost:59316
+http://localhost:59316 "POST /session/b17436bfa71df5a260861e443949ea62/element HTTP/1.1" 200 88
+Finished Request
+POST http://localhost:59316/session/b17436bfa71df5a260861e443949ea62/element/9a62bb6b-79ec-41f4-b4d4-60009b64a4c3/click {"id": "9a62bb6b-79ec-41f4-b4d4-60009b64a4c3"}
+Starting new HTTP connection (1): localhost:59316
+http://localhost:59316 "POST /session/b17436bfa71df5a260861e443949ea62/element/9a62bb6b-79ec-41f4-b4d4-60009b64a4c3/click HTTP/1.1" 200 14
+Finished Request
+POST http://localhost:59316/session/b17436bfa71df5a260861e443949ea62/element {"using": "css selector", "value": "[id=\"mapsubmit\"]"}
+Starting new HTTP connection (1): localhost:59316
+http://localhost:59316 "POST /session/b17436bfa71df5a260861e443949ea62/element HTTP/1.1" 200 88
+Finished Request
+POST http://localhost:59316/session/b17436bfa71df5a260861e443949ea62/element/bb911ff6-d2bc-4366-8508-a642e8a5f4e4/click {"id": "bb911ff6-d2bc-4366-8508-a642e8a5f4e4"}
+Starting new HTTP connection (1): localhost:59316
+http://localhost:59316 "POST /session/b17436bfa71df5a260861e443949ea62/element/bb911ff6-d2bc-4366-8508-a642e8a5f4e4/click HTTP/1.1" 200 14
+Finished Request
+GET http://localhost:59316/session/b17436bfa71df5a260861e443949ea62/source {}
+Starting new HTTP connection (1): localhost:59316
+http://localhost:59316 "GET /session/b17436bfa71df5a260861e443949ea62/source HTTP/1.1" 200 20303
+Finished Request
+EASYSingleCand0
+POST http://localhost:59316/session/b17436bfa71df5a260861e443949ea62/element {"using": "css selector", "value": "[id=\"enhe0\"]"}
+Starting new HTTP connection (1): localhost:59316
+http://localhost:59316 "POST /session/b17436bfa71df5a260861e443949ea62/element HTTP/1.1" 200 88
+Finished Request
+POST http://localhost:59316/session/b17436bfa71df5a260861e443949ea62/element/9a62bb6b-79ec-41f4-b4d4-60009b64a4c3/click {"id": "9a62bb6b-79ec-41f4-b4d4-60009b64a4c3"}
+Starting new HTTP connection (1): localhost:59316
+http://localhost:59316 "POST /session/b17436bfa71df5a260861e443949ea62/element/9a62bb6b-79ec-41f4-b4d4-60009b64a4c3/click HTTP/1.1" 200 14
+Finished Request
+POST http://localhost:59316/session/b17436bfa71df5a260861e443949ea62/element {"using": "css selector", "value": "[id=\"mapsubmit\"]"}
+Starting new HTTP connection (1): localhost:59316
+http://localhost:59316 "POST /session/b17436bfa71df5a260861e443949ea62/element HTTP/1.1" 200 88
+Finished Request
+POST http://localhost:59316/session/b17436bfa71df5a260861e443949ea62/element/bb911ff6-d2bc-4366-8508-a642e8a5f4e4/click {"id": "bb911ff6-d2bc-4366-8508-a642e8a5f4e4"}
+Starting new HTTP connection (1): localhost:59316
+http://localhost:59316 "POST /session/b17436bfa71df5a260861e443949ea62/element/bb911ff6-d2bc-4366-8508-a642e8a5f4e4/click HTTP/1.1" 200 14
+Finished Request
+GET http://localhost:59316/session/b17436bfa71df5a260861e443949ea62/source {}
+Starting new HTTP connection (1): localhost:59316
+http://localhost:59316 "GET /session/b17436bfa71df5a260861e443949ea62/source HTTP/1.1" 200 20156
+Finished Request
+EASYSingleCand0
+POST http://localhost:59316/session/b17436bfa71df5a260861e443949ea62/element {"using": "css selector", "value": "[id=\"enhe0\"]"}
+Starting new HTTP connection (1): localhost:59316
+http://localhost:59316 "POST /session/b17436bfa71df5a260861e443949ea62/element HTTP/1.1" 200 88
+Finished Request
+POST http://localhost:59316/session/b17436bfa71df5a260861e443949ea62/element/9a62bb6b-79ec-41f4-b4d4-60009b64a4c3/click {"id": "9a62bb6b-79ec-41f4-b4d4-60009b64a4c3"}
+Starting new HTTP connection (1): localhost:59316
+http://localhost:59316 "POST /session/b17436bfa71df5a260861e443949ea62/element/9a62bb6b-79ec-41f4-b4d4-60009b64a4c3/click HTTP/1.1" 200 14
+Finished Request
+POST http://localhost:59316/session/b17436bfa71df5a260861e443949ea62/element {"using": "css selector", "value": "[id=\"mapsubmit\"]"}
+Starting new HTTP connection (1): localhost:59316
+http://localhost:59316 "POST /session/b17436bfa71df5a260861e443949ea62/element HTTP/1.1" 200 88
+Finished Request
+POST http://localhost:59316/session/b17436bfa71df5a260861e443949ea62/element/bb911ff6-d2bc-4366-8508-a642e8a5f4e4/click {"id": "bb911ff6-d2bc-4366-8508-a642e8a5f4e4"}
+Starting new HTTP connection (1): localhost:59316
+http://localhost:59316 "POST /session/b17436bfa71df5a260861e443949ea62/element/bb911ff6-d2bc-4366-8508-a642e8a5f4e4/click HTTP/1.1" 200 14
+Finished Request
+GET http://localhost:59316/session/b17436bfa71df5a260861e443949ea62/source {}
+Starting new HTTP connection (1): localhost:59316
+http://localhost:59316 "GET /session/b17436bfa71df5a260861e443949ea62/source HTTP/1.1" 200 20156
+Finished Request
+EASYSingleCand0
+POST http://localhost:59316/session/b17436bfa71df5a260861e443949ea62/element {"using": "css selector", "value": "[id=\"enhe0\"]"}
+Starting new HTTP connection (1): localhost:59316
+http://localhost:59316 "POST /session/b17436bfa71df5a260861e443949ea62/element HTTP/1.1" 200 88
+Finished Request
+POST http://localhost:59316/session/b17436bfa71df5a260861e443949ea62/element/9a62bb6b-79ec-41f4-b4d4-60009b64a4c3/click {"id": "9a62bb6b-79ec-41f4-b4d4-60009b64a4c3"}
+Starting new HTTP connection (1): localhost:59316
+http://localhost:59316 "POST /session/b17436bfa71df5a260861e443949ea62/element/9a62bb6b-79ec-41f4-b4d4-60009b64a4c3/click HTTP/1.1" 200 14
+Finished Request
+POST http://localhost:59316/session/b17436bfa71df5a260861e443949ea62/element {"using": "css selector", "value": "[id=\"mapsubmit\"]"}
+Starting new HTTP connection (1): localhost:59316
+http://localhost:59316 "POST /session/b17436bfa71df5a260861e443949ea62/element HTTP/1.1" 200 88
+Finished Request
+POST http://localhost:59316/session/b17436bfa71df5a260861e443949ea62/element/bb911ff6-d2bc-4366-8508-a642e8a5f4e4/click {"id": "bb911ff6-d2bc-4366-8508-a642e8a5f4e4"}
+Starting new HTTP connection (1): localhost:59316
+http://localhost:59316 "POST /session/b17436bfa71df5a260861e443949ea62/element/bb911ff6-d2bc-4366-8508-a642e8a5f4e4/click HTTP/1.1" 200 14
+Finished Request
+GET http://localhost:59316/session/b17436bfa71df5a260861e443949ea62/source {}
+Starting new HTTP connection (1): localhost:59316
+http://localhost:59316 "GET /session/b17436bfa71df5a260861e443949ea62/source HTTP/1.1" 200 20156
+Finished Request
+EASYSingleCand0
+POST http://localhost:59316/session/b17436bfa71df5a260861e443949ea62/element {"using": "css selector", "value": "[id=\"enhe0\"]"}
+Starting new HTTP connection (1): localhost:59316
+http://localhost:59316 "POST /session/b17436bfa71df5a260861e443949ea62/element HTTP/1.1" 200 88
+Finished Request
+POST http://localhost:59316/session/b17436bfa71df5a260861e443949ea62/element/9a62bb6b-79ec-41f4-b4d4-60009b64a4c3/click {"id": "9a62bb6b-79ec-41f4-b4d4-60009b64a4c3"}
+Starting new HTTP connection (1): localhost:59316
+http://localhost:59316 "POST /session/b17436bfa71df5a260861e443949ea62/element/9a62bb6b-79ec-41f4-b4d4-60009b64a4c3/click HTTP/1.1" 200 14
+Finished Request
+POST http://localhost:59316/session/b17436bfa71df5a260861e443949ea62/element {"using": "css selector", "value": "[id=\"mapsubmit\"]"}
+Starting new HTTP connection (1): localhost:59316
+http://localhost:59316 "POST /session/b17436bfa71df5a260861e443949ea62/element HTTP/1.1" 200 88
+Finished Request
+POST http://localhost:59316/session/b17436bfa71df5a260861e443949ea62/element/bb911ff6-d2bc-4366-8508-a642e8a5f4e4/click {"id": "bb911ff6-d2bc-4366-8508-a642e8a5f4e4"}
+Starting new HTTP connection (1): localhost:59316
+http://localhost:59316 "POST /session/b17436bfa71df5a260861e443949ea62/element/bb911ff6-d2bc-4366-8508-a642e8a5f4e4/click HTTP/1.1" 200 14
+Finished Request
+GET http://localhost:59316/session/b17436bfa71df5a260861e443949ea62/source {}
+Starting new HTTP connection (1): localhost:59316
+http://localhost:59316 "GET /session/b17436bfa71df5a260861e443949ea62/source HTTP/1.1" 200 20151
+Finished Request
+EASYSingleCand0
+POST http://localhost:59316/session/b17436bfa71df5a260861e443949ea62/element {"using": "css selector", "value": "[id=\"enhe0\"]"}
+Starting new HTTP connection (1): localhost:59316
+http://localhost:59316 "POST /session/b17436bfa71df5a260861e443949ea62/element HTTP/1.1" 200 88
+Finished Request
+POST http://localhost:59316/session/b17436bfa71df5a260861e443949ea62/element/9a62bb6b-79ec-41f4-b4d4-60009b64a4c3/click {"id": "9a62bb6b-79ec-41f4-b4d4-60009b64a4c3"}
+Starting new HTTP connection (1): localhost:59316
+http://localhost:59316 "POST /session/b17436bfa71df5a260861e443949ea62/element/9a62bb6b-79ec-41f4-b4d4-60009b64a4c3/click HTTP/1.1" 200 14
+Finished Request
+POST http://localhost:59316/session/b17436bfa71df5a260861e443949ea62/element {"using": "css selector", "value": "[id=\"mapsubmit\"]"}
+Starting new HTTP connection (1): localhost:59316
+http://localhost:59316 "POST /session/b17436bfa71df5a260861e443949ea62/element HTTP/1.1" 200 88
+Finished Request
+POST http://localhost:59316/session/b17436bfa71df5a260861e443949ea62/element/bb911ff6-d2bc-4366-8508-a642e8a5f4e4/click {"id": "bb911ff6-d2bc-4366-8508-a642e8a5f4e4"}
+Starting new HTTP connection (1): localhost:59316
+http://localhost:59316 "POST /session/b17436bfa71df5a260861e443949ea62/element/bb911ff6-d2bc-4366-8508-a642e8a5f4e4/click HTTP/1.1" 200 14
+Finished Request
+GET http://localhost:59316/session/b17436bfa71df5a260861e443949ea62/source {}
+Starting new HTTP connection (1): localhost:59316
+http://localhost:59316 "GET /session/b17436bfa71df5a260861e443949ea62/source HTTP/1.1" 200 20151
+Finished Request
+EASYSingleCand0
+POST http://localhost:59316/session/b17436bfa71df5a260861e443949ea62/element {"using": "css selector", "value": "[id=\"enhe0\"]"}
+Starting new HTTP connection (1): localhost:59316
+http://localhost:59316 "POST /session/b17436bfa71df5a260861e443949ea62/element HTTP/1.1" 200 88
+Finished Request
+POST http://localhost:59316/session/b17436bfa71df5a260861e443949ea62/element/9a62bb6b-79ec-41f4-b4d4-60009b64a4c3/click {"id": "9a62bb6b-79ec-41f4-b4d4-60009b64a4c3"}
+Starting new HTTP connection (1): localhost:59316
+http://localhost:59316 "POST /session/b17436bfa71df5a260861e443949ea62/element/9a62bb6b-79ec-41f4-b4d4-60009b64a4c3/click HTTP/1.1" 200 14
+Finished Request
+POST http://localhost:59316/session/b17436bfa71df5a260861e443949ea62/element {"using": "css selector", "value": "[id=\"mapsubmit\"]"}
+Starting new HTTP connection (1): localhost:59316
+http://localhost:59316 "POST /session/b17436bfa71df5a260861e443949ea62/element HTTP/1.1" 200 88
+Finished Request
+POST http://localhost:59316/session/b17436bfa71df5a260861e443949ea62/element/bb911ff6-d2bc-4366-8508-a642e8a5f4e4/click {"id": "bb911ff6-d2bc-4366-8508-a642e8a5f4e4"}
+Starting new HTTP connection (1): localhost:59316
+http://localhost:59316 "POST /session/b17436bfa71df5a260861e443949ea62/element/bb911ff6-d2bc-4366-8508-a642e8a5f4e4/click HTTP/1.1" 200 14
+Finished Request
+GET http://localhost:59316/session/b17436bfa71df5a260861e443949ea62/source {}
+Starting new HTTP connection (1): localhost:59316
+http://localhost:59316 "GET /session/b17436bfa71df5a260861e443949ea62/source HTTP/1.1" 200 20156
+Finished Request
+EASYSingleCand0
+POST http://localhost:59316/session/b17436bfa71df5a260861e443949ea62/element {"using": "css selector", "value": "[id=\"enhe0\"]"}
+Starting new HTTP connection (1): localhost:59316
+http://localhost:59316 "POST /session/b17436bfa71df5a260861e443949ea62/element HTTP/1.1" 200 88
+Finished Request
+POST http://localhost:59316/session/b17436bfa71df5a260861e443949ea62/element/9a62bb6b-79ec-41f4-b4d4-60009b64a4c3/click {"id": "9a62bb6b-79ec-41f4-b4d4-60009b64a4c3"}
+Starting new HTTP connection (1): localhost:59316
+http://localhost:59316 "POST /session/b17436bfa71df5a260861e443949ea62/element/9a62bb6b-79ec-41f4-b4d4-60009b64a4c3/click HTTP/1.1" 200 14
+Finished Request
+POST http://localhost:59316/session/b17436bfa71df5a260861e443949ea62/element {"using": "css selector", "value": "[id=\"mapsubmit\"]"}
+Starting new HTTP connection (1): localhost:59316
+http://localhost:59316 "POST /session/b17436bfa71df5a260861e443949ea62/element HTTP/1.1" 200 88
+Finished Request
+POST http://localhost:59316/session/b17436bfa71df5a260861e443949ea62/element/bb911ff6-d2bc-4366-8508-a642e8a5f4e4/click {"id": "bb911ff6-d2bc-4366-8508-a642e8a5f4e4"}
+Starting new HTTP connection (1): localhost:59316
+http://localhost:59316 "POST /session/b17436bfa71df5a260861e443949ea62/element/bb911ff6-d2bc-4366-8508-a642e8a5f4e4/click HTTP/1.1" 200 14
+Finished Request
+GET http://localhost:59316/session/b17436bfa71df5a260861e443949ea62/source {}
+Starting new HTTP connection (1): localhost:59316
+http://localhost:59316 "GET /session/b17436bfa71df5a260861e443949ea62/source HTTP/1.1" 200 20156
+Finished Request
+EASYSingleCand0
+INFO:root:EASYSingleCand0
+INFO:root:EASYSingleCand0
+INFO:root:EASYSingleCand0
+INFO:root:EASYSingleCand0
+INFO:root:EASYSingleCand0
+INFO:root:EASYSingleCand0
+INFO:root:EASYSingleCand0
+INFO:root:EASYSingleCand0
+3104 WARNING This is a Warning
+3104 INFO EASY SingleCand 0
+3104 INFO EASY SingleCand 0
+7912 WARNING This is a Warning lalalaalal
+7912 INFO EASY SingleCand 0
+7912 INFO EASY SingleCand 0
+240 INFO EASY SingleCand 0
+240 INFO EASY SingleCand 0
+15384 INFO EASY SingleCand 0
+15384 INFO EASY SingleCand 0
+9184 INFO EASY SingleCand 0
+9184 INFO EASY SingleCand 0
+14580 INFO  SingleCand 
+12244 INFO  SingleCand 
+INFO EASY SingleCand 0
+INFO EASY NakedPairs 0
+INFO EASY NakedThree 0
+INFO EASY HidPair 0
+INFO EASY HidTree 0
+INFO EASY SingleCand 0
+INFO EASY NakedPairs 0
+INFO EASY NakedThree 0
+INFO EASY HidPair 0
+INFO EASY HidTree 0
+INFO EASY SingleCand 0
+INFO EASY NakedPairs 0
+INFO EASY NakedThree 0
+INFO EASY HidPair 0
+INFO EASY HidTree 0
+INFO EASY SingleCand 0
+INFO EASY NakedPairs 0
+INFO EASY NakedThree 0
+INFO EASY HidPair 0
+INFO EASY HidTree 0
+INFO EASY SingleCand 0
+INFO EASY NakedPairs 0
+INFO EASY NakedThree 0
+INFO EASY HidPair 0
+INFO EASY HidTree 0
+INFO NORMAL SingleCand 0
+INFO NORMAL NakedPairs 0
+INFO NORMAL NakedThree 0
+INFO NORMAL HidPair 0
+INFO NORMAL HidTree 0
+INFO NORMAL SingleCand 0
+INFO NORMAL NakedPairs 0
+INFO NORMAL NakedThree 0
+INFO NORMAL HidPair 0
+INFO NORMAL HidTree 0
+INFO NORMAL SingleCand 0
+INFO NORMAL NakedPairs 0
+INFO NORMAL NakedThree 0
+INFO NORMAL HidPair 0
+INFO NORMAL HidTree 0
+INFO NORMAL SingleCand 0
+INFO NORMAL NakedPairs 0
+INFO NORMAL NakedThree 0
+INFO NORMAL HidPair 0
+INFO NORMAL HidTree 0
+INFO NORMAL SingleCand 0
+INFO NORMAL NakedPairs 0
+INFO NORMAL NakedThree 0
+INFO NORMAL HidPair 0
+INFO NORMAL HidTree 0
+INFO HARD SingleCand 0
+INFO HARD NakedPairs 0
+INFO HARD NakedThree 0
+INFO HARD HidPair 0
+INFO HARD HidTree 0
+INFO HARD SingleCand 0
+INFO HARD NakedPairs 0
+INFO HARD NakedThree 0
+INFO HARD HidPair 0
+INFO HARD HidTree 0
+INFO HARD SingleCand 0
+INFO HARD NakedPairs 0
+INFO HARD NakedThree 0
+INFO HARD HidPair 0
+INFO HARD HidTree 0
+INFO HARD SingleCand 0
+INFO HARD NakedPairs 0
+INFO HARD NakedThree 0
+INFO HARD HidPair 0
+INFO HARD HidTree 0
+INFO HARD SingleCand 0
+INFO HARD NakedPairs 11
+INFO HARD NakedThree 0
+INFO HARD HidPair 0
+INFO HARD HidTree 0
+INFO EXTREME SingleCand 0
+INFO EXTREME NakedPairs 0
+INFO EXTREME NakedThree 0
+INFO EXTREME HidPair 0
+INFO EXTREME HidTree 0
+INFO EXTREME SingleCand 0
+INFO EXTREME NakedPairs 13
+INFO EXTREME NakedThree 0
+INFO EXTREME HidPair 0
+INFO EXTREME HidTree 0
+INFO EXTREME SingleCand 0
+INFO EXTREME NakedPairs 0
+INFO EXTREME NakedThree 0
+INFO EXTREME HidPair 0
+INFO EXTREME HidTree 0
+INFO EXTREME SingleCand 0
+INFO EXTREME NakedPairs 4
+INFO EXTREME NakedThree 0
+INFO EXTREME HidPair 0
+INFO EXTREME HidTree 0
+INFO EXTREME SingleCand 0
+INFO EXTREME NakedPairs 13
+INFO EXTREME NakedThree 0
+INFO EXTREME HidPair 0
+INFO EXTREME HidTree 0
