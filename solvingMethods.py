@@ -118,11 +118,12 @@ class SolvingMethod(object):
                             placeCount += 1
                             indexSoughtRow = i
                     if placeCount == 1:
+                        self.deleteExtraValues()
                         self.numberField[indexSoughtRow][j].clear()
                         self.numberField[indexSoughtRow][j].add(soughtNumber)
                         self.deleteExtraValues()
                         self.changes = True
-                        self.SingleCand += 1
+                        self.changes = True
         for i in range(self.totalNumber):  # column
             for k in range(1, self.totalNumber+1):
                 soughtNumber = k
@@ -174,13 +175,13 @@ class SolvingMethod(object):
                                 indexSoughtColumn = col
                                 indexSoughtRow = row
                     if placeCount == 1:
-                        self.numberField[indexSoughtRow][indexSoughtColumn].clear(
-                        )
+                        self.numberField[indexSoughtRow][indexSoughtColumn].clear()
                         self.numberField[indexSoughtRow][indexSoughtColumn].add(
                             soughtNumber)
                         self.deleteExtraValues()
                         self.changes = True
                         self.SingleCand += 1
+    
 
     def nakedPairs(self):
         self.NakedPairsControl +=1
@@ -519,12 +520,6 @@ class SolvingMethodsKiller(SolvingMethod):
             if self.changes:
                 self.changes = False
                 continue
-            self.countMissingNums()
-            if self.checksolving():
-                break
-            if self.changes:
-                self.changes = False
-                continue
             self.singleCandidates()
             if self.checksolving():
                 break
@@ -537,6 +532,7 @@ class SolvingMethodsKiller(SolvingMethod):
             if self.changes:
                 self.changes = False
                 continue
+
             self.nakedTreesome()
             if self.checksolving():
                 break
@@ -600,7 +596,6 @@ class SolvingMethodsKiller(SolvingMethod):
                             countcells +=1
             allowAddition = int(controlSum - (((countcells + 1) * countcells) / 2))
             if allowAddition >= 0 and controlSum != 0:
-                print("2")
                 allowedNum = allowAddition + countcells
                 if allowedNum < self.totalNumber:
                     for k in range(allowedNum+1,self.totalNumber+1):
@@ -610,7 +605,7 @@ class SolvingMethodsKiller(SolvingMethod):
                             if len(self.numberField[indexCell[counter][0]][indexCell[counter][1]]) != changesControl:
                                 self.changes = True
                                 self.uniqAmCount +=1
-                            if (controlSum % 2) == 0:
+                            if (controlSum % 2) == 0 and countcells ==2:
                                 delNum = int(controlSum / 2)
                                 changesControl = len(self.numberField[indexCell[counter][0]][indexCell[counter][1]])
                                 self.numberField[indexCell[counter][0]][indexCell[counter][1]].discard(delNum)
@@ -625,8 +620,60 @@ class SolvingMethodsKiller(SolvingMethod):
                                     self.changes = True
                                     self.uniqAmCount +=1
             #балансер
-            self.balancer(controlSum, num, countcells)
+            self.balancer(controlSum, num, indexCell)
 
-    def balancer(self, controlSum, numOfCell, countcells):
+    def balancer(self, controlSum, numOfCell, indexCell):
+        countcells = len(indexCell)
         allowAddition = int(controlSum - (((countcells + 1) * countcells) / 2))
         allowedNum = allowAddition + countcells
+        if countcells == 2:
+            iterationSet = set()
+            for k in self.numberField[indexCell[0][0]][indexCell[0][1]]:
+                iterationSet.add(k)
+            for possibleNum in iterationSet:
+                if (controlSum - possibleNum) not in self.numberField[indexCell[1][0]][indexCell[1][1]]:
+                    self.numberField[indexCell[0][0]][indexCell[0][1]].discard(possibleNum)
+            iterationSet.clear()
+            for k in self.numberField[indexCell[1][0]][indexCell[1][1]]:
+                iterationSet.add(k)
+            for possibleNum in iterationSet:
+                i = indexCell[1][0]
+                j = indexCell[1][1]
+                if (controlSum - possibleNum) not in self.numberField[indexCell[0][0]][indexCell[0][1]]:
+                    self.numberField[i][j].discard(possibleNum)
+
+
+puzzle = [
+[0, 0, 0, 0, 0, 0, 0, 0, 0],
+[0, 0, 0, 0, 0, 0, 0, 0, 0],
+[0, 0, 0, 0, 0, 0, 0, 0, 0],
+[0, 0, 0, 0, 0, 0, 0, 0, 0],
+[0, 0, 0, 0, 0, 0, 0, 0, 0],
+[0, 0, 0, 0, 0, 0, 0, 0, 0],
+[0, 0, 0, 0, 0, 0, 0, 0, 0],
+[0, 0, 0, 0, 0, 0, 0, 0, 0],
+[0, 0, 0, 0, 0, 0, 0, 0, 0]]
+
+killerBox = [
+[1,  2,  3,  4,  4,  5,  5,  6,  6],
+[1,  2,  3,  7,  7,  8,  8,  9,  6],
+[10, 11, 11, 7, 12, 13, 13,  9,  9],
+[10, 14, 15, 12, 12, 16, 16, 17, 17],
+[18, 14, 15, 19, 20, 16, 21, 22, 17],
+[18, 18, 19, 19, 23, 23, 21, 22, 24],
+[25, 25, 26, 26, 23, 27, 28, 28, 24],
+[29, 25, 30, 30, 27, 27, 31, 32, 33],
+[29, 29, 34, 34, 35, 35, 31, 32, 33]]
+
+countKillBox = 35
+
+areaSum = {1:13, 2:6, 3:17, 4:12, 5:11, 6:10, 7:9, 8:10, 9:21, 10:5, 11:8, 12:16, 13:11, 14:13, 
+           15:13, 16:13, 17:10, 18:12, 19:16, 20:5, 21:9, 22:9, 23:21, 24:17, 25:16, 26:3, 27:14, 
+           28:10, 29:22, 30:12, 31:8, 32:14, 33:5, 34:4, 35:10}
+
+solve = SolvingMethodsKiller(puzzle, killerBox, countKillBox, areaSum)
+for i in range(9):
+    print(solve.numberField[i])
+
+
+print(solve.Solve())
