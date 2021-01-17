@@ -67,7 +67,6 @@ class SolvingMethod(object):
         return numberField
 
     def deleteExtraValues(self):
-        self.DeleteExtraVal +=1
         for i in range(self.totalNumber):
             for j in range(self.totalNumber):
                 if len(self.numberField[i][j]) == 1:
@@ -82,6 +81,7 @@ class SolvingMethod(object):
                         self.numberField[i][j].add(num)
                         if not self.changes:
                             if chCell1 != len(self.numberField[i][chv]) or chCell2 != self.numberField[chv][j]:
+                                self.DeleteExtraVal +=1
                                 self.changes = True
                     self.numberField[i][j].add(num)
                     firstIndexRow = 3*(i//3)
@@ -94,6 +94,7 @@ class SolvingMethod(object):
                             self.numberField[i][j].add(num)
                             if not self.changes:
                                 if chCell != len(self.numberField[firstIndexRow + chvr][firstIndexColumn + chvc]):
+                                    self.DeleteExtraVal +=1
                                     self.changes = True
 
     # name is taken from https://www.conceptispuzzles.com/ru/index.aspx?uri=puzzle/sudoku/techniques
@@ -487,17 +488,38 @@ class SolvingMethods(SolvingMethod):
                 break
 
 
-class SolvingMethodsKiller(SolvingMethods):
-    def __init__(self, startField, killerBox,countKillBox, areaSum):
-        SolvingMethods.__init__(self, startField)
+class SolvingMethodsKiller(SolvingMethod):
+    def __init__(self, startField, killerBox, countKillBox, areaSum):
+        SolvingMethod.__init__(self, startField)
         self.killerBox = killerBox
-        self.countKBox = countKillBox
+        self.countKillBox = countKillBox
         self.areaSum = areaSum
+        self.missingNumsCount = 0
+        self.uniqAmCount  = 0
+        self.balancerCount = 0
         self.solvingProcces()
 
     def solvingProcces(self):
         while not self.done:
+            self.countMissingNums()
+            if self.checksolving():
+                break
+            if self.changes:
+                self.changes = False
+                continue
             self.deleteExtraValues()
+            if self.checksolving():
+                break
+            if self.changes:
+                self.changes = False
+                continue
+            self.uniqAmounts()
+            if self.checksolving():
+                break
+            if self.changes:
+                self.changes = False
+                continue
+            self.countMissingNums()
             if self.checksolving():
                 break
             if self.changes:
@@ -537,5 +559,74 @@ class SolvingMethodsKiller(SolvingMethods):
                 break
 
     def countMissingNums(self):
-        return self.done
+        for num in range(1, self.countKillBox):
+            controlSum = self.areaSum[num]
+            emptyCell = 0
+            for i in range(self.totalNumber):
+                for j in range(self.totalNumber):
+                    if self.killerBox[i][j] == num:
+                        if len(self.numberField[i][j]) == 1:
+                            for k in self.numberField[i][j]:
+                                controlSum -= k
+                        else:
+                            emptyCell +=1
+            if emptyCell == 1 and controlSum > 0:
+                for i in range(self.totalNumber):
+                    for j in range(self.totalNumber):
+                        if self.killerBox[i][j] == num:
+                            if len(self.numberField[i][j]) != 1:
+                                self.numberField[i][j].clear()
+                                self.numberField[i][j].add(controlSum)
+                                self.changes = True
+                                self.missingNumsCount +=1
+                                break
+                        if self.changes:
+                            break
 
+    def uniqAmounts(self):
+        for num in range(1, self.countKillBox):
+            indexCell = []
+            countcells = 0
+            controlSum = self.areaSum[num]
+            for i in range(self.totalNumber):
+                for j in range(self.totalNumber):
+                    if killerBox[i][j] == num:
+                        if len(self.numberField[i][j]) == 1:
+                            for k in self.numberField[i][j]:
+                                controlSum -= k
+                        else:
+                            list = [i,j]
+                            indexCell.append(list)
+                            countcells +=1
+            allowAddition = int(controlSum - (((countcells + 1) * countcells) / 2))
+            if allowAddition >= 0 and controlSum != 0:
+                print("2")
+                allowedNum = allowAddition + countcells
+                if allowedNum < self.totalNumber:
+                    for k in range(allowedNum+1,self.totalNumber+1):
+                        for counter in range(countcells):
+                            changesControl = len(self.numberField[indexCell[counter][0]][indexCell[counter][1]])
+                            self.numberField[indexCell[counter][0]][indexCell[counter][1]].discard(k)
+                            if len(self.numberField[indexCell[counter][0]][indexCell[counter][1]]) != changesControl:
+                                self.changes = True
+                                self.uniqAmCount +=1
+                            if (controlSum % 2) == 0:
+                                delNum = int(controlSum / 2)
+                                changesControl = len(self.numberField[indexCell[counter][0]][indexCell[counter][1]])
+                                self.numberField[indexCell[counter][0]][indexCell[counter][1]].discard(delNum)
+                                if len(self.numberField[indexCell[counter][0]][indexCell[counter][1]]) != changesControl:
+                                    self.changes = True
+                                    self.uniqAmCount +=1
+                            if allowAddition == 1:
+                                delNum = countcells
+                                changesControl = len(self.numberField[indexCell[counter][0]][indexCell[counter][1]])
+                                self.numberField[indexCell[counter][0]][indexCell[counter][1]].discard(delNum)
+                                if len(self.numberField[indexCell[counter][0]][indexCell[counter][1]]) != changesControl:
+                                    self.changes = True
+                                    self.uniqAmCount +=1
+            #балансер
+            self.balancer(controlSum, num, countcells)
+
+    def balancer(self, controlSum, numOfCell, countcells):
+        allowAddition = int(controlSum - (((countcells + 1) * countcells) / 2))
+        allowedNum = allowAddition + countcells
