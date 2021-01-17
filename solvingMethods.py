@@ -641,6 +641,41 @@ class SolvingMethodsKiller(SolvingMethod):
                 j = indexCell[1][1]
                 if (controlSum - possibleNum) not in self.numberField[indexCell[0][0]][indexCell[0][1]]:
                     self.numberField[i][j].discard(possibleNum)
+        elif countcells > 2:
+            self.balanerTriples(controlSum, indexCell, True)
+
+    def balanerTriples(self, controlSum, indexCell, first):
+        countcells = len(indexCell)
+        allowAddition = int(controlSum - (((countcells + 1) * countcells) / 2))
+        allowedNum = allowAddition + countcells
+        if controlSum < 0:
+            return False
+        if countcells == 1:
+            if controlSum in self.numberField[indexCell[0][0]][indexCell[0][1]]:
+                return True
+            return False
+        for counter in range(countcells):
+            copynumCell = []
+            for k in self.numberField[indexCell[counter][0]][indexCell[counter][1]]:
+                copynumCell.append(k)
+            allBalanced = False
+            for k in copynumCell:
+                copyindexCell = []
+                for i in range(len(indexCell)):
+                    if i == 0:
+                        continue
+                    copyindexCell.append(indexCell[i])
+                if not (self.balanerTriples(controlSum - k, copyindexCell, False)):
+                    if first:
+                        self.numberField[indexCell[counter][0]][indexCell[counter][1]].discard(k)
+                        self.changes = True
+                        self.uniqAmCount +=1
+                else:
+                    allBalanced = True
+            return allBalanced
+
+
+                
 
 
 puzzle = [
@@ -670,6 +705,7 @@ countKillBox = 35
 areaSum = {1:13, 2:6, 3:17, 4:12, 5:11, 6:10, 7:9, 8:10, 9:21, 10:5, 11:8, 12:16, 13:11, 14:13, 
            15:13, 16:13, 17:10, 18:12, 19:16, 20:5, 21:9, 22:9, 23:21, 24:17, 25:16, 26:3, 27:14, 
            28:10, 29:22, 30:12, 31:8, 32:14, 33:5, 34:4, 35:10}
+
 
 solve = SolvingMethodsKiller(puzzle, killerBox, countKillBox, areaSum)
 for i in range(9):
