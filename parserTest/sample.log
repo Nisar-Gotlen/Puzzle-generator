@@ -1,100 +1,280 @@
-10048 INFO EASY SingleCand 0
-10048 INFO EASY NakedPairs 0
-10048 INFO EASY NakedThree 0
-10048 INFO EASY HidPair 0
-10048 INFO EASY HidTree 0
-10048 INFO EASY SingleCand 0
-10048 INFO EASY NakedPairs 0
-10048 INFO EASY NakedThree 0
-10048 INFO EASY HidPair 0
-10048 INFO EASY HidTree 0
-10048 INFO EASY SingleCand 0
-10048 INFO EASY NakedPairs 0
-10048 INFO EASY NakedThree 0
-10048 INFO EASY HidPair 0
-10048 INFO EASY HidTree 0
-10048 INFO EASY SingleCand 0
-10048 INFO EASY NakedPairs 0
-10048 INFO EASY NakedThree 0
-10048 INFO EASY HidPair 0
-10048 INFO EASY HidTree 0
-10048 INFO EASY SingleCand 0
-10048 INFO EASY NakedPairs 0
-10048 INFO EASY NakedThree 0
-10048 INFO EASY HidPair 0
-10048 INFO EASY HidTree 0
-10048 INFO NORMAL SingleCand 0
-10048 INFO NORMAL NakedPairs 0
-10048 INFO NORMAL NakedThree 0
-10048 INFO NORMAL HidPair 0
-10048 INFO NORMAL HidTree 0
-10048 INFO NORMAL SingleCand 0
-10048 INFO NORMAL NakedPairs 0
-10048 INFO NORMAL NakedThree 0
-10048 INFO NORMAL HidPair 0
-10048 INFO NORMAL HidTree 0
-10048 INFO NORMAL SingleCand 0
-10048 INFO NORMAL NakedPairs 0
-10048 INFO NORMAL NakedThree 0
-10048 INFO NORMAL HidPair 0
-10048 INFO NORMAL HidTree 0
-10048 INFO NORMAL SingleCand 0
-10048 INFO NORMAL NakedPairs 0
-10048 INFO NORMAL NakedThree 0
-10048 INFO NORMAL HidPair 0
-10048 INFO NORMAL HidTree 0
-10048 INFO NORMAL SingleCand 0
-10048 INFO NORMAL NakedPairs 0
-10048 INFO NORMAL NakedThree 0
-10048 INFO NORMAL HidPair 0
-10048 INFO NORMAL HidTree 0
-10048 INFO HARD SingleCand 0
-10048 INFO HARD NakedPairs 0
-10048 INFO HARD NakedThree 0
-10048 INFO HARD HidPair 0
-10048 INFO HARD HidTree 0
-10048 INFO HARD SingleCand 0
-10048 INFO HARD NakedPairs 0
-10048 INFO HARD NakedThree 0
-10048 INFO HARD HidPair 0
-10048 INFO HARD HidTree 0
-10048 INFO HARD SingleCand 0
-10048 INFO HARD NakedPairs 0
-10048 INFO HARD NakedThree 0
-10048 INFO HARD HidPair 0
-10048 INFO HARD HidTree 0
-10048 INFO HARD SingleCand 7
-10048 INFO HARD NakedPairs 0
-10048 INFO HARD NakedThree 0
-10048 INFO HARD HidPair 0
-10048 INFO HARD HidTree 0
-10048 INFO HARD SingleCand 0
-10048 INFO HARD NakedPairs 0
-10048 INFO HARD NakedThree 0
-10048 INFO HARD HidPair 0
-10048 INFO HARD HidTree 0
-10048 INFO EXTREME SingleCand 13
-10048 INFO EXTREME NakedPairs 0
-10048 INFO EXTREME NakedThree 0
-10048 INFO EXTREME HidPair 0
-10048 INFO EXTREME HidTree 0
-10048 INFO EXTREME SingleCand 16
-10048 INFO EXTREME NakedPairs 0
-10048 INFO EXTREME NakedThree 0
-10048 INFO EXTREME HidPair 0
-10048 INFO EXTREME HidTree 0
-10048 INFO EXTREME SingleCand 14
-10048 INFO EXTREME NakedPairs 0
-10048 INFO EXTREME NakedThree 0
-10048 INFO EXTREME HidPair 0
-10048 INFO EXTREME HidTree 0
-10048 INFO EXTREME SingleCand 12
-10048 INFO EXTREME NakedPairs 0
-10048 INFO EXTREME NakedThree 0
-10048 INFO EXTREME HidPair 0
-10048 INFO EXTREME HidTree 0
-10048 INFO EXTREME SingleCand 15
-10048 INFO EXTREME NakedPairs 0
-10048 INFO EXTREME NakedThree 0
-10048 INFO EXTREME HidPair 0
-10048 INFO EXTREME HidTree 0
+EASY nZERO: 44
+EASY SingleCand: 0
+EASY NakedPairs: 0
+EASY NakedThree: 0
+EASY HidPair: 0
+EASY HidTree: 0
+EASY DeleteExtraVal: 3
+EASY nZERO: 49
+EASY SingleCand: 0
+EASY NakedPairs: 0
+EASY NakedThree: 0
+EASY HidPair: 0
+EASY HidTree: 0
+EASY DeleteExtraVal: 4
+EASY nZERO: 45
+EASY SingleCand: 0
+EASY NakedPairs: 0
+EASY NakedThree: 0
+EASY HidPair: 0
+EASY HidTree: 0
+EASY DeleteExtraVal: 3
+EASY nZERO: 46
+EASY SingleCand: 0
+EASY NakedPairs: 0
+EASY NakedThree: 0
+EASY HidPair: 0
+EASY HidTree: 0
+EASY DeleteExtraVal: 4
+EASY nZERO: 49
+EASY SingleCand: 0
+EASY NakedPairs: 0
+EASY NakedThree: 0
+EASY HidPair: 0
+EASY HidTree: 0
+EASY DeleteExtraVal: 5
+EASY nZERO: 46
+EASY SingleCand: 0
+EASY NakedPairs: 0
+EASY NakedThree: 0
+EASY HidPair: 0
+EASY HidTree: 0
+EASY DeleteExtraVal: 4
+EASY nZERO: 44
+EASY SingleCand: 0
+EASY NakedPairs: 0
+EASY NakedThree: 0
+EASY HidPair: 0
+EASY HidTree: 0
+EASY DeleteExtraVal: 3
+EASY nZERO: 44
+EASY SingleCand: 0
+EASY NakedPairs: 0
+EASY NakedThree: 0
+EASY HidPair: 0
+EASY HidTree: 0
+EASY DeleteExtraVal: 3
+EASY nZERO: 49
+EASY SingleCand: 0
+EASY NakedPairs: 0
+EASY NakedThree: 0
+EASY HidPair: 0
+EASY HidTree: 0
+EASY DeleteExtraVal: 4
+EASY nZERO: 46
+EASY SingleCand: 0
+EASY NakedPairs: 0
+EASY NakedThree: 0
+EASY HidPair: 0
+EASY HidTree: 0
+EASY DeleteExtraVal: 4
+NORMAL nZERO: 53
+NORMAL SingleCand: 0
+NORMAL NakedPairs: 0
+NORMAL NakedThree: 0
+NORMAL HidPair: 0
+NORMAL HidTree: 0
+NORMAL DeleteExtraVal: 5
+NORMAL nZERO: 45
+NORMAL SingleCand: 0
+NORMAL NakedPairs: 0
+NORMAL NakedThree: 0
+NORMAL HidPair: 0
+NORMAL HidTree: 0
+NORMAL DeleteExtraVal: 3
+NORMAL nZERO: 45
+NORMAL SingleCand: 0
+NORMAL NakedPairs: 0
+NORMAL NakedThree: 0
+NORMAL HidPair: 0
+NORMAL HidTree: 0
+NORMAL DeleteExtraVal: 4
+NORMAL nZERO: 45
+NORMAL SingleCand: 0
+NORMAL NakedPairs: 0
+NORMAL NakedThree: 0
+NORMAL HidPair: 0
+NORMAL HidTree: 0
+NORMAL DeleteExtraVal: 4
+NORMAL nZERO: 45
+NORMAL SingleCand: 0
+NORMAL NakedPairs: 0
+NORMAL NakedThree: 0
+NORMAL HidPair: 0
+NORMAL HidTree: 0
+NORMAL DeleteExtraVal: 4
+NORMAL nZERO: 45
+NORMAL SingleCand: 0
+NORMAL NakedPairs: 0
+NORMAL NakedThree: 0
+NORMAL HidPair: 0
+NORMAL HidTree: 0
+NORMAL DeleteExtraVal: 3
+NORMAL nZERO: 45
+NORMAL SingleCand: 0
+NORMAL NakedPairs: 0
+NORMAL NakedThree: 0
+NORMAL HidPair: 0
+NORMAL HidTree: 0
+NORMAL DeleteExtraVal: 3
+NORMAL nZERO: 45
+NORMAL SingleCand: 0
+NORMAL NakedPairs: 0
+NORMAL NakedThree: 0
+NORMAL HidPair: 0
+NORMAL HidTree: 0
+NORMAL DeleteExtraVal: 4
+NORMAL nZERO: 45
+NORMAL SingleCand: 0
+NORMAL NakedPairs: 0
+NORMAL NakedThree: 0
+NORMAL HidPair: 0
+NORMAL HidTree: 0
+NORMAL DeleteExtraVal: 3
+NORMAL nZERO: 45
+NORMAL SingleCand: 0
+NORMAL NakedPairs: 0
+NORMAL NakedThree: 0
+NORMAL HidPair: 0
+NORMAL HidTree: 0
+NORMAL DeleteExtraVal: 4
+HARD nZERO: 44
+HARD SingleCand: 0
+HARD NakedPairs: 0
+HARD NakedThree: 0
+HARD HidPair: 0
+HARD HidTree: 0
+HARD DeleteExtraVal: 4
+HARD nZERO: 53
+HARD SingleCand: 1
+HARD NakedPairs: 0
+HARD NakedThree: 0
+HARD HidPair: 0
+HARD HidTree: 0
+HARD DeleteExtraVal: 4
+HARD nZERO: 53
+HARD SingleCand: 0
+HARD NakedPairs: 0
+HARD NakedThree: 0
+HARD HidPair: 0
+HARD HidTree: 0
+HARD DeleteExtraVal: 8
+HARD nZERO: 53
+HARD SingleCand: 0
+HARD NakedPairs: 0
+HARD NakedThree: 0
+HARD HidPair: 0
+HARD HidTree: 0
+HARD DeleteExtraVal: 10
+HARD nZERO: 53
+HARD SingleCand: 1
+HARD NakedPairs: 0
+HARD NakedThree: 0
+HARD HidPair: 0
+HARD HidTree: 0
+HARD DeleteExtraVal: 7
+HARD nZERO: 51
+HARD SingleCand: 0
+HARD NakedPairs: 0
+HARD NakedThree: 0
+HARD HidPair: 0
+HARD HidTree: 0
+HARD DeleteExtraVal: 6
+HARD nZERO: 51
+HARD SingleCand: 1
+HARD NakedPairs: 0
+HARD NakedThree: 0
+HARD HidPair: 0
+HARD HidTree: 0
+HARD DeleteExtraVal: 6
+HARD nZERO: 53
+HARD SingleCand: 1
+HARD NakedPairs: 0
+HARD NakedThree: 0
+HARD HidPair: 0
+HARD HidTree: 0
+HARD DeleteExtraVal: 7
+HARD nZERO: 52
+HARD SingleCand: 1
+HARD NakedPairs: 0
+HARD NakedThree: 0
+HARD HidPair: 0
+HARD HidTree: 0
+HARD DeleteExtraVal: 3
+HARD nZERO: 53
+HARD SingleCand: 1
+HARD NakedPairs: 0
+HARD NakedThree: 0
+HARD HidPair: 0
+HARD HidTree: 0
+HARD DeleteExtraVal: 8
+EXTREME nZERO: 54
+EXTREME SingleCand: 2
+EXTREME NakedPairs: 1
+EXTREME NakedThree: 1
+EXTREME HidPair: 1
+EXTREME HidTree: 1
+EXTREME DeleteExtraVal: 5
+EXTREME nZERO: 55
+EXTREME SingleCand: 4
+EXTREME NakedPairs: 1
+EXTREME NakedThree: 1
+EXTREME HidPair: 1
+EXTREME HidTree: 1
+EXTREME DeleteExtraVal: 6
+EXTREME nZERO: 55
+EXTREME SingleCand: 1
+EXTREME NakedPairs: 0
+EXTREME NakedThree: 0
+EXTREME HidPair: 0
+EXTREME HidTree: 0
+EXTREME DeleteExtraVal: 12
+EXTREME nZERO: 53
+EXTREME SingleCand: 4
+EXTREME NakedPairs: 2
+EXTREME NakedThree: 1
+EXTREME HidPair: 1
+EXTREME HidTree: 1
+EXTREME DeleteExtraVal: 3
+EXTREME nZERO: 55
+EXTREME SingleCand: 2
+EXTREME NakedPairs: 1
+EXTREME NakedThree: 1
+EXTREME HidPair: 1
+EXTREME HidTree: 1
+EXTREME DeleteExtraVal: 4
+EXTREME nZERO: 53
+EXTREME SingleCand: 1
+EXTREME NakedPairs: 0
+EXTREME NakedThree: 0
+EXTREME HidPair: 0
+EXTREME HidTree: 0
+EXTREME DeleteExtraVal: 4
+EXTREME nZERO: 53
+EXTREME SingleCand: 1
+EXTREME NakedPairs: 0
+EXTREME NakedThree: 0
+EXTREME HidPair: 0
+EXTREME HidTree: 0
+EXTREME DeleteExtraVal: 5
+EXTREME nZERO: 53
+EXTREME SingleCand: 2
+EXTREME NakedPairs: 1
+EXTREME NakedThree: 1
+EXTREME HidPair: 1
+EXTREME HidTree: 1
+EXTREME DeleteExtraVal: 6
+EXTREME nZERO: 53
+EXTREME SingleCand: 1
+EXTREME NakedPairs: 0
+EXTREME NakedThree: 0
+EXTREME HidPair: 0
+EXTREME HidTree: 0
+EXTREME DeleteExtraVal: 6
+EXTREME nZERO: 53
+EXTREME SingleCand: 1
+EXTREME NakedPairs: 0
+EXTREME NakedThree: 0
+EXTREME HidPair: 0
+EXTREME HidTree: 0
+EXTREME DeleteExtraVal: 5

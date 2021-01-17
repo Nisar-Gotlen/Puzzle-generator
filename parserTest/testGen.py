@@ -15,10 +15,10 @@ EXTREME_RB_ID = 'enhe3'     # Extreme Radio Button id
 MINIMAL_RB_ID = 'enhe4'     # Minimal Radio Button id
 
 # Number of fields generated of varying complexity
-EASY_DIFF_NUM = 5
-NORMAL_DIFF_NUM = 5
-HARD_DIFF_NUM = 5
-EXTREME_DIFF_NUM = 5
+EASY_DIFF_NUM = 10
+NORMAL_DIFF_NUM = 10
+HARD_DIFF_NUM = 10
+EXTREME_DIFF_NUM = 10
 MINIMAL_DIFF_NUM = 0
 
 currentdir = os.path.dirname(os.path.abspath(
@@ -32,13 +32,16 @@ sys.path.insert(0, parentdir)
 
 def add_to_log(puzzle, DiffName):
     from solvingMethods import SolvingMethods
-
     solving = SolvingMethods(puzzle)
-    logging.info(DiffName + " SingleCand " + str(solving.SingleCand))
-    logging.info(DiffName + " NakedPairs " + str(solving.NakedPairs))
-    logging.info(DiffName + " NakedThree " + str(solving.NakedThree))
-    logging.info(DiffName + " HidPair " + str(solving.HidPair))
-    logging.info(DiffName + " HidTree " + str(solving.HidTree))
+    puzzle = np.array(puzzle)
+    n = 81 - np.count_nonzero(puzzle)
+    logging.info(DiffName + " nZERO: " + str(n))
+    logging.info(DiffName + " SingleCand: " + str(solving.SingleCandControl))
+    logging.info(DiffName + " NakedPairs: " + str(solving.NakedPairsControl))
+    logging.info(DiffName + " NakedThree: " + str(solving.NakedThreeControl))
+    logging.info(DiffName + " HidPair: " + str(solving.HidPairControl))
+    logging.info(DiffName + " HidTree: " + str(solving.HidTreeControl))
+    logging.info(DiffName + " DeleteExtraVal: " + str(solving.DeleteExtraVal))
 
 
 def print_test_res(puzzle, filDir1, filDir2):
@@ -64,7 +67,7 @@ def print_test_res(puzzle, filDir1, filDir2):
 
 def pars_test():
     logging.basicConfig(level=logging.INFO, filemode="w", filename='parserTest/sample.log',
-                        format="%(process)d %(levelname)s %(message)s")
+                        format="%(message)s")
 
     driver = webdriver.Edge('parserTest/msedgedriver.exe')
     driver.get(URL)
@@ -110,7 +113,7 @@ def pars_test():
     filDir1.write('\n' + 'MINIMAL' + '\n')
     filDir2.write('\n' + 'MINIMAL' + '\n')
 
-    for num in range(EXTREME_DIFF_NUM):
+    for num in range(MINIMAL_DIFF_NUM):
         puzzle = field_parse(MINIMAL_RB_ID, driver)
         print_test_res(puzzle, filDir1, filDir2)
 
