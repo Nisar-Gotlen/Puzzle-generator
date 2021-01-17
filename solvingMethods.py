@@ -75,12 +75,12 @@ class SolvingMethod(object):
                     for chv in range(self.totalNumber):
                         if not self.changes:
                             chCell1 = len(self.numberField[i][chv])
-                            chCell2 = self.numberField[chv][j]
+                            chCell2 = len(self.numberField[chv][j])
                         self.numberField[i][chv].discard(num)
                         self.numberField[chv][j].discard(num)
                         self.numberField[i][j].add(num)
                         if not self.changes:
-                            if chCell1 != len(self.numberField[i][chv]) or chCell2 != self.numberField[chv][j]:
+                            if chCell1 != len(self.numberField[i][chv]) or chCell2 != len(self.numberField[chv][j]):
                                 self.DeleteExtraVal +=1
                                 self.changes = True
                     self.numberField[i][j].add(num)
@@ -368,79 +368,202 @@ class SolvingMethod(object):
     def hiddenTriples(self):
         self.HidTreeControl += 1
         for i in range(self.totalNumber):
-            for j in range(self.totalNumber-1):
-                if len(self.numberField[i][j]) > 1:
-                    for nextCol in range(j+1, self.totalNumber):
-                        commonNums = self.numberField[i][j].intersection(
-                            self.numberField[i][nextCol])
-                        if len(commonNums) == 3:
-                            matchingCells = {}
-                            matchingCells[j] = self.numberField[i][j]
-                            matchingCells[nextCol] = self.numberField[i][nextCol]
-                            for chAllCol in range(self.totalNumber):
-                                if chAllCol == nextCol or chAllCol == j:
+            indexSaver = {}
+            for k in range(1,self.totalNumber+1):
+                for j in range(self.totalNumber):
+                    if len(self.numberField[i][j]) >1:
+                        if k in self.numberField[i][j]:
+                            if indexSaver.get(k) == None:
+                                indexSaver[k] = []
+                            indexSaver[k].append([i,j])
+            compareInd = []
+            if len(indexSaver) >= 3:
+                rememberDel = []
+                keysInd = []
+                commonNums = []
+                finded = False
+                for k in indexSaver.keys():
+                    keysInd.append(k)
+                    if len(indexSaver[k]) > 3 and len(indexSaver[k]) == 1:
+                        if k not in rememberDel:
+                            rememberDel.append(k)
+                for k1 in range(len(keysInd)):
+                    if not finded and len(indexSaver[keysInd[k1]]) < 4 and len(indexSaver[k]) != 1:
+                        compareInd = indexSaver[keysInd[k1]]
+                        for k2 in range(k1+1, len(keysInd)):
+                            marker = True
+                            for c in indexSaver[keysInd[k2]]:
+                                if c in compareInd:
                                     continue
-                                if len(self.numberField[i][chAllCol].intersection(commonNums)) == 1:
-                                    commonNums.clear()
+                                marker = False
+                            if marker:
+                                for k3 in range(k2+1,len(keysInd)):
+                                    marker2 = True
+                                    for c in indexSaver[keysInd[k3]]:
+                                        if c in compareInd:
+                                            finded = True
+                                        else:
+                                            finded = False
+                                            break
+                                    if finded:
+                                        commonNums.append(keysInd[k3])
+                                        break
+                                if finded:
+                                    commonNums.append(keysInd[k2])
                                     break
-                                if len(self.numberField[i][chAllCol].intersection(commonNums)) == 2 or len(self.numberField[i][chAllCol].intersection(commonNums)) == 3:
-                                    matchingCells[chAllCol] = self.numberField[i][chAllCol]
-                            if len(matchingCells) == 3 and len(commonNums) != 0:
-                                for k in matchingCells.keys():
-                                    changesControl = len(
-                                        self.numberField[i][k])
-                                    self.numberField[i][k].intersection_update(
-                                        commonNums)
-                                    if len(self.numberField[i][k]) != changesControl:
-                                        self.deleteExtraValues()
-                                        self.changes = True
-                                        self.HidTree += 1
-        for j in range(self.totalNumber-1):
-            if len(self.numberField[j][i]) > 1:
-                for nextRow in range(j+1, self.totalNumber):
-                    commonNums = self.numberField[j][i].intersection(
-                        self.numberField[nextRow][i])
-                    if len(commonNums) != 2 or len(commonNums) != 3:
-                        continue
-                    if len(commonNums) == 3:
-                        matchingCells = {}
-                        matchingCells[j] = self.numberField[j][i]
-                        matchingCells[nextRow] = self.numberField[nextRow][i]
-                        for chAllRows in range(self.totalNumber):
-                            if chAllRows == nextRow or chAllRows == j:
-                                continue
-                            if len(self.numberField[chAllRows][i].intersection(commonNums)) == 1:
-                                commonNums.clear()
-                                break
-                            if len(self.numberField[chAllRows][i].intersection(commonNums)) == 2 or len(self.numberField[chAllRows][i].intersection(commonNums)) == 3:
-                                matchingCells[chAllRows] = self.numberField[chAllRows][i]
-                        if len(matchingCells) == 3 and len(commonNums) != 0:
-                            for k in matchingCells.keys():
-                                changesControl = len(self.numberField[k][i])
-                                self.numberField[k][i].intersection_update(
-                                    commonNums)
-                                if len(self.numberField[k][i]) != changesControl:
-                                    self.deleteExtraValues()
-                                    self.changes = True
-                                    self.HidTree += 1
+                        if finded:
+                            commonNums.append(keysInd[k1])
+                            continue
+                        else: 
+                            if keysInd[k1] not in rememberDel:
+                                rememberDel.append(keysInd[k1])
+                    else: 
+                        if keysInd[k1] not in rememberDel and keysInd[k1] not in commonNums:
+                            rememberDel.append(keysInd[k1])
+                if len(rememberDel) != 0:
+                    for c in rememberDel:
+                        indexSaver.pop(c)
+            if len(compareInd) == 3 and len(indexSaver) == 3:
+                for k in indexSaver.keys():
+                    commonNums.append(k)
+                for c in compareInd:
+                    changesControl = len(self.numberField[c[0]][c[1]])
+                    self.numberField[c[0]][c[1]].intersection_update(commonNums)
+                    if len(self.numberField[c[0]][c[1]]) != changesControl:
+                        self.deleteExtraValues()
+                        self.changes = True
+                        self.HidTree += 1
+            indexSaver = {}
+            for k in range(1,self.totalNumber+1):
+                for j in range(self.totalNumber):
+                    if len(self.numberField[j][i]) >1:
+                        if k in self.numberField[j][i]:
+                            if indexSaver.get(k) == None:
+                                indexSaver[k] = []
+                            indexSaver[k].append([j,i])
+            compareInd = []
+            if len(indexSaver) >= 3:
+                rememberDel = []
+                keysInd = []
+                commonNums = []
+                finded = False
+                for k in indexSaver.keys():
+                    keysInd.append(k)
+                    if len(indexSaver[k]) > 3 or len(indexSaver[k]) ==1:
+                        if k not in rememberDel:
+                            rememberDel.append(k)
+                for k1 in range(len(keysInd)):
+                    if not finded and len(indexSaver[keysInd[k1]]) < 4 and len(indexSaver[k]) != 1:
+                        compareInd = indexSaver[keysInd[k1]]
+                        for k2 in range(k1+1, len(keysInd)):
+                            marker = True
+                            for c in indexSaver[keysInd[k2]]:
+                                if c in compareInd:
+                                    continue
+                                marker = False
+                            if marker:
+                                for k3 in range(k2+1,len(keysInd)):
+                                    marker2 = True
+                                    for c in indexSaver[keysInd[k3]]:
+                                        if c in compareInd:
+                                            finded = True
+                                        else:
+                                            finded = False
+                                            break
+                                    if finded:
+                                        commonNums.append(keysInd[k3])
+                                        break
+                                if finded:
+                                    commonNums.append(keysInd[k2])
+                                    break
+                        if finded:
+                            commonNums.append(keysInd[k1])
+                            continue
+                        else: 
+                            if keysInd[k1] not in rememberDel:
+                                rememberDel.append(keysInd[k1])
+                    else: 
+                            if keysInd[k1] not in rememberDel and keysInd[k1] not in commonNums:
+                                rememberDel.append(keysInd[k1])
+                if len(rememberDel) != 0:
+                    for c in rememberDel:
+                        indexSaver.pop(c)
+            if len(compareInd) == 3 and len(indexSaver) == 3:
+                for c in compareInd:
+                    changesControl = len(self.numberField[c[0]][c[1]])
+                    self.numberField[c[0]][c[1]].intersection_update(commonNums)
+                    if len(self.numberField[c[0]][c[1]]) != changesControl:
+                        self.deleteExtraValues()
+                        self.changes = True
+                        self.HidTree += 1
         for countBlock in range(self.totalNumber):
             fIndexRow = 3*(countBlock // 3)
             fIndexColumn = 3*(countBlock % 3)
-            for index in range(self.totalNumber):
-                for nextCell in range(index+1, self.totalNumber):
-                    commonNums = self.numberField[fIndexRow + (index // 3)][fIndexColumn + (index % 3)].intersection(
-                        self.numberField[fIndexRow + (nextCell // 3)][fIndexColumn + (nextCell % 3)])
-                    if len(commonNums) != 2 or len(commonNums) != 3:
-                        continue
-                    if len(commonNums) == 3:
-                        matchingCells = {}
-                        matchingCells[index] = self.numberField[fIndexRow +
-                                                                (index // 3)][fIndexColumn + (index % 3)]
-                        matchingCells[nextCell] = self.numberField[fIndexRow +
-                                                                   (nextCell // 3)][fIndexColumn + (nextCell % 3)]
-                        for nextCell in range(index+1, self.totalNumber):
-                            if chAllCell == nextCell or chAllCell == index:
-                                continue
+            indexSaver = {}
+            for k in range(1, self.totalNumber+1):
+                for index in range(self.totalNumber):
+                    if len(self.numberField[fIndexRow + (index // 3)][fIndexColumn + (index % 3)]) >1:
+                        if k in self.numberField[fIndexRow + (index // 3)][fIndexColumn + (index % 3)]:
+                            if indexSaver.get(k) == None:
+                                indexSaver[k] = []
+                            indexSaver[k].append([fIndexRow + (index // 3),fIndexColumn + (index % 3)])
+            compareInd = []
+            if len(indexSaver) >= 3:
+                rememberDel = []
+                keysInd = []
+                commonNums = []
+                finded = False
+                for k in indexSaver.keys():
+                    keysInd.append(k)
+                    if len(indexSaver[k]) > 3 and len(indexSaver[k]) == 1:
+                        if k not in rememberDel:
+                            rememberDel.append(k)
+                for k1 in range(len(keysInd)):
+                    if not finded and len(indexSaver[keysInd[k1]]) < 4 and len(indexSaver[k]) != 1:
+                        compareInd = indexSaver[keysInd[k1]]
+                        for k2 in range(k1+1, len(keysInd)):
+                            marker = True
+                            for c in indexSaver[keysInd[k2]]:
+                                if c in compareInd:
+                                    continue
+                                marker = False
+                            if marker:
+                                for k3 in range(k2+1,len(keysInd)):
+                                    marker2 = True
+                                    for c in indexSaver[keysInd[k3]]:
+                                        if c in compareInd:
+                                            finded = True
+                                        else:
+                                            finded = False
+                                            break
+                                    if finded:
+                                        commonNums.append(keysInd[k3])
+                                        break
+                                if finded:
+                                    commonNums.append(keysInd[k2])
+                                    break
+                        if finded:
+                            commonNums.append(keysInd[k1])
+                            continue
+                        else: 
+                            if keysInd[k1] not in rememberDel:
+                                rememberDel.append(keysInd[k1])
+                    else: 
+                        if keysInd[k1] not in rememberDel and keysInd[k1] not in commonNums:
+                            rememberDel.append(keysInd[k1])
+                if len(rememberDel) != 0:
+                    for c in rememberDel:
+                        indexSaver.pop(c)
+            if len(indexSaver) == 3 and len(compareInd) == 3:
+                for k in indexSaver.keys():
+                    commonNums.append(k)
+                for c in compareInd:
+                    changesControl = len(self.numberField[c[0]][c[1]])
+                    self.numberField[c[0]][c[1]].intersection_update(commonNums)
+                    if len(self.numberField[c[0]][c[1]]) != changesControl:
+                        self.deleteExtraValues()
+                        self.changes = True
+                        self.HidTree += 1
 
 class SolvingMethods(SolvingMethod):
     def __init__(self, startField):
@@ -675,41 +798,39 @@ class SolvingMethodsKiller(SolvingMethod):
             return allBalanced
 
 
-                
-
+p = [
+    [0, 0, 0, 0, 0, 1, 0, 3, 0],
+    [2, 3, 1, 0, 9, 0, 0, 0, 0],
+    [0, 6, 5, 0, 0, 3, 1, 0, 0],
+    [6, 7, 8, 9, 2, 4, 3, 0, 0],
+    [1, 0, 3, 0, 5, 0, 0, 0, 6],
+    [0, 0, 0, 1, 3, 6, 7, 0, 0],
+    [0, 0, 9, 3, 6, 0, 5, 7, 0],
+    [0, 0, 6, 0, 1, 9, 8, 4, 3],
+    [3, 0, 0, 0, 0, 0, 0, 0, 0]
+]
 
 puzzle = [
-[0, 0, 0, 0, 0, 0, 0, 0, 0],
-[0, 0, 0, 0, 0, 0, 0, 0, 0],
-[0, 0, 0, 0, 0, 0, 0, 0, 0],
-[0, 0, 0, 0, 0, 0, 0, 0, 0],
-[0, 0, 0, 0, 0, 0, 0, 0, 0],
-[0, 0, 0, 0, 0, 0, 0, 0, 0],
-[0, 0, 0, 0, 0, 0, 0, 0, 0],
-[0, 0, 0, 0, 0, 0, 0, 0, 0],
-[0, 0, 0, 0, 0, 0, 0, 0, 0]]
+    [9, 0, 1, 5, 0, 0, 0, 4, 6],
+    [4, 2, 5, 0, 9, 0, 0, 8, 1],
+    [8, 6, 0, 0, 1, 0, 0, 2, 0],
+    [5, 0, 2, 0, 0, 0, 0, 0, 0],
+    [0, 1, 9, 0, 0, 0, 4, 6, 0],
+    [6, 0, 0, 0, 0, 0, 0, 0, 2],
+    [1, 9, 6, 0, 4, 0, 2, 5, 3],
+    [2, 0, 0, 0, 6, 0, 8, 1, 7],
+    [0, 0, 0, 0, 0, 1, 6, 9, 4]
+]
 
-killerBox = [
-[1,  2,  3,  4,  4,  5,  5,  6,  6],
-[1,  2,  3,  7,  7,  8,  8,  9,  6],
-[10, 11, 11, 7, 12, 13, 13,  9,  9],
-[10, 14, 15, 12, 12, 16, 16, 17, 17],
-[18, 14, 15, 19, 20, 16, 21, 22, 17],
-[18, 18, 19, 19, 23, 23, 21, 22, 24],
-[25, 25, 26, 26, 23, 27, 28, 28, 24],
-[29, 25, 30, 30, 27, 27, 31, 32, 33],
-[29, 29, 34, 34, 35, 35, 31, 32, 33]]
-
-countKillBox = 35
-
-areaSum = {1:13, 2:6, 3:17, 4:12, 5:11, 6:10, 7:9, 8:10, 9:21, 10:5, 11:8, 12:16, 13:11, 14:13, 
-           15:13, 16:13, 17:10, 18:12, 19:16, 20:5, 21:9, 22:9, 23:21, 24:17, 25:16, 26:3, 27:14, 
-           28:10, 29:22, 30:12, 31:8, 32:14, 33:5, 34:4, 35:10}
-
-
-solve = SolvingMethodsKiller(puzzle, killerBox, countKillBox, areaSum)
-for i in range(9):
-    print(solve.numberField[i])
-
-
-print(solve.Solve())
+sol = SolvingMethods(puzzle)
+for i in sol.numberField:
+    print(i)
+print(sol.SingleCand)
+print(sol.NakedPairs)
+print()
+print(sol.NakedPairsControl)
+print(sol.NakedThreeControl)
+print(sol.HidPairControl)
+print(sol.HidTreeControl)
+print(sol.DeleteExtraVal)
+print(sol.Solve())
