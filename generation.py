@@ -1,9 +1,14 @@
 import random
 import sys
+import copy
 import solvingMethods
 
 n=9
 m=3
+difClassic={1:44,2:49,3:45,4:53,5:51,6:55}
+methodsClassic={1:3,2:5,3:3,4:10,5:3,6:10}
+difKiller={1:44,2:49,3:45,4:53,5:51,6:55}
+methodsKiller={1:3,2:5,3:3,4:10,5:3,6:10}
 
 def baseBoard():
     board=[[(0) for i in range(n)] for j in range(n)]
@@ -59,6 +64,18 @@ def swapColBig(board):
     board=transposed(board)
     return board
 
+def blocksSum(board, checkPol, maxN):
+    dict={}
+    for i in range(1,maxN+1):
+        sum=0
+        x1=y1=0
+        for x in range(n):
+            for y in range(n):
+                if checkPol[x][y]==i:
+                    sum+=board[x][y]
+        dict[i]=sum
+    return dict
+
 def checkDir(checkPol,x1,y1):
     c=[0,0,0,0]
     direct=0
@@ -87,14 +104,10 @@ def checkDir(checkPol,x1,y1):
     return b
             
 
-def sudokuKiller():
+def sudokuKiller(board):
     checkPol=[[(0) for i in range(n)] for j in range(n)]
-    m=n*n
-    c=0
-    x=0
-    y=0
+    c=x=y=r=0
     k=-1
-    r=0
     while k!=0:
 
         c+=1
@@ -118,21 +131,21 @@ def sudokuKiller():
                         y-=1
 
                 else:
-                    number=0
-            
+                    number=0 
         k=0
-
         for i in range(n):
             for j in range(n):
                 if checkPol[i][j]==0:
                     k=1
-                    x=i
-                    y=j
+                    x,y=i,j
                     break
             if checkPol[i][j]==0:
                 break
 
-    return checkPol,c
+    dict=blocksSum(board, checkPol, c)
+
+    return checkPol,c, dict
+
 
 def mixing(board, seedN):
     random.seed(seedN)
@@ -142,22 +155,38 @@ def mixing(board, seedN):
         board=variants[func](board)
     return board
 
-def deletion (board):
+def deletion (board, dif,typeG):
     deletionB=[[(0) for i in range(n)] for j in range(n)]
     iterat=0
-    delCount=int(n*n*0.6)
-    
+    c=0
+    if typeG==1:
+        delCount=difClassic[dif*2-1]+random.randrange(difClassic[dif*2]-difClassic[dif*2-1]+1)
+        meth=methodsClassic[dif*2-1]
+    elif typeG==2:
+        delCount=difKiller[dif*2-1]+random.randrange(difClassic[dif*2]-difClassic[dif*2-1]+1)
+        meth=methodsKiller[dif*2-1]
     while iterat < delCount:
         i,j=random.randrange(n), random.randrange(n)
         if deletionB[i][j]==0:
             iterat+=1
             deletionB[i][j]=1
+            c+=1
             numDeleted=board[i][j]
             board[i][j]=0
             if solvingMethods.SolvingMethods(board).isPossible()==0:
                 board[i][j]=numDeleted
                 iterat-=1
-    return board
+            meth = solvingMethods.SolvingMethod(board).SingleCandControl
+            if typeG==1:
+                if meth>methodsClassic[dif*2]:
+                    break
+            elif typeG==2:
+                if meth>methodsKiller[dif*2]:
+                    break
+            copyBoard=copy.deepcopy(board)
+        if c==n*n:
+            break
+    return copyBoard
              
 
 
