@@ -6,9 +6,8 @@ import solvingMethods
 n=9
 m=3
 difClassic={1:44,2:49,3:45,4:53,5:51,6:55}
-methodsClassic={1:3,2:5,3:3,4:10,5:3,6:10}
-difKiller={1:44,2:49,3:45,4:53,5:51,6:55}
-methodsKiller={1:3,2:5,3:3,4:10,5:3,6:10}
+difKiller={1:45,2:53,3:51,4:64,5:64,6:81}
+
 
 def baseBoard():
     board=[[(0) for i in range(n)] for j in range(n)]
@@ -155,16 +154,48 @@ def mixing(board, seedN):
         board=variants[func](board)
     return board
 
+def Easy(board):
+    flag=0
+    if solvingMethods.SolvingMethod(board).SingleCandControl==0:
+        if solvingMethods.SolvingMethod(board).NakedPairsControl==0:
+           if solvingMethods.SolvingMethod(board).NakedThreeControl==0:
+               if solvingMethods.SolvingMethod(board).HidPairControl==0:
+                   if solvingMethods.SolvingMethod(board).HidTreeControl==0:
+                       if (solvingMethods.SolvingMethod(board).DeleteExtraVal>=3) and (solvingMethods.SolvingMethod(board).DeleteExtraVal<=5):
+                           flag=1
+    return flag
+
+def Medium(board):
+    flag=0
+    if solvingMethods.SolvingMethod(board).SingleCandControl<=1:
+        if solvingMethods.SolvingMethod(board).NakedPairsControl==0:
+           if solvingMethods.SolvingMethod(board).NakedThreeControl==0:
+               if solvingMethods.SolvingMethod(board).HidPairControl==0:
+                   if solvingMethods.SolvingMethod(board).HidTreeControl==0:
+                       if (solvingMethods.SolvingMethod(board).DeleteExtraVal>=3) and (solvingMethods.SolvingMethod(board).DeleteExtraVal<=10):
+                           flag=1
+    return flag
+
+def Hard(board):
+    flag=0
+    if solvingMethods.SolvingMethod(board).SingleCandControl<=4:
+        if solvingMethods.SolvingMethod(board).NakedPairsControl<=2:
+           if solvingMethods.SolvingMethod(board).NakedThreeControl<=1:
+               if solvingMethods.SolvingMethod(board).HidPairControl<=1:
+                   if solvingMethods.SolvingMethod(board).HidTreeControl<=1:
+                       if (solvingMethods.SolvingMethod(board).DeleteExtraVal>=3) and (solvingMethods.SolvingMethod(board).DeleteExtraVal<=10):
+                           flag=1
+    return flag
+
 def deletion (board, dif,typeG):
     deletionB=[[(0) for i in range(n)] for j in range(n)]
     iterat=0
     c=0
     if typeG==1:
         delCount=difClassic[dif*2-1]+random.randrange(difClassic[dif*2]-difClassic[dif*2-1]+1)
-        meth=methodsClassic[dif*2-1]
     elif typeG==2:
         delCount=difKiller[dif*2-1]+random.randrange(difClassic[dif*2]-difClassic[dif*2-1]+1)
-        meth=methodsKiller[dif*2-1]
+    meth=1
     while iterat < delCount:
         i,j=random.randrange(n), random.randrange(n)
         if deletionB[i][j]==0:
@@ -176,13 +207,22 @@ def deletion (board, dif,typeG):
             if solvingMethods.SolvingMethods(board).isPossible()==0:
                 board[i][j]=numDeleted
                 iterat-=1
-            meth = solvingMethods.SolvingMethod(board).SingleCandControl
-            if typeG==1:
-                if meth>methodsClassic[dif*2]:
-                    break
-            elif typeG==2:
-                if meth>methodsKiller[dif*2]:
-                    break
+            if (typeG==1) and (iterat>difClassic[dif*2-1]):
+                if dif==1:
+                    meth=Easy(board)
+                elif dif==2:
+                    meth=Medium(board)
+                elif dif==3:
+                    meth=Hard(board)
+            if (typeG==2) and (iterat>difKiller[dif*2-1]):
+                if dif==1:
+                    meth=Easy(board)
+                elif dif==2:
+                    meth=Easy(board)
+                elif dif==3:
+                    meth=Easy(board)
+            if meth==0:
+                break
             copyBoard=copy.deepcopy(board)
         if c==n*n:
             break
