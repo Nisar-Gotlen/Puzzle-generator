@@ -29,23 +29,25 @@ def createBoard():
             e.append(entry)
             entry.place(x=i*50,y=j*50, height=45, width=45)
         entries.append(e)
-    
-    if buttonText=="Classic":
-        classicSudoku()
-    elif buttonText=="Killer Sudoku":
-        killerSudoku()
 
 def classicSudoku():
     global copyBoard
-    firstBoard,genSeed=generation.main()
-    seedText.config(text=genSeed)
+    global seedMes
+    seedMes=message.get()
+    if seedMes=='':
+        firstBoard,genSeed=generation.main()
+        seedText.config(text=genSeed)
+    else:
+        baseBoard=generation.baseBoard()
+        firstBoard=generation.mixing(baseBoard, int(seedMes))
     copyBoard=copy.deepcopy(firstBoard)
-    board=generation.deletion(firstBoard)
-    for i in range (pole):
-        for j in range(pole):
-            if board[i][j]!=0:
-                entries[j][i].insert (0, board[i][j])
-                entries[j][i].config(state="readonly")
+    if dif!=0:
+        board=generation.deletion(firstBoard, dif, 1)
+        for i in range (pole):
+            for j in range(pole):
+                if board[i][j]!=0:
+                    entries[j][i].insert (0, board[i][j])
+                    entries[j][i].config(state="readonly")
 
 def searchingForBlocks(x,y,blockBoard):
 
@@ -56,49 +58,43 @@ def searchingForBlocks(x,y,blockBoard):
     if y<pole-1:
         if math.fabs(blockBoard[x][y]-blockBoard[x][y+1])>=1:
             canvas.create_line(50*(y+1)-3,50*x,50*(y+1)-3,50*(x+1),width=4,fill='blue',dash=(10,2))
-            
-    if x>0:
-        if math.fabs(blockBoard[x][y]-blockBoard[x-1][y])>=1:
-            canvas.create_line(50*y,50*x-3,50*(y+1),50*x-3,width=4,fill='blue',dash=(10,2))
-
-    if y>0:
-        if math.fabs(blockBoard[x][y]-blockBoard[x][y-1])>=1:
-            canvas.create_line(50*y-3,50*x,50*y-3,50*(x+1),width=4,fill='blue',dash=(10,2))
-
-    
     
 
 def killerSudoku():
     global copyBoard
-    firstBoard,genSeed=generation.main()
-    seedText.config(text=genSeed)
-    blockBoard,maxNum=generation.sudokuKiller()
+    global seedMes
+    seedMes=message.get()
+    if seedMes=='':
+        firstBoard,genSeed=generation.main()
+        seedText.config(text=genSeed)
+    else:
+        baseBoard=generation.baseBoard()
+        firstBoard=generation.mixing(baseBoard, int(seedMes))
     copyBoard=copy.deepcopy(firstBoard)
-    board=generation.deletion(firstBoard)
-    for i in range (pole):
-        for j in range(pole):
-            if board[i][j]!=0:
-                entries[j][i].insert (0, board[i][j])
-                entries[j][i].config(state="readonly")
-                
-    for x in range(pole):
-        for y in range(pole):
-            searchingForBlocks(x,y,blockBoard)
+    blockBoard,maxNum, dictN=generation.sudokuKiller(firstBoard)
+    if dif!=0:
+        board=generation.deletion(firstBoard, dif,2)
+        for i in range (pole):
+            for j in range(pole):
+                if board[i][j]!=0:
+                    entries[j][i].insert (0, board[i][j])
+                    entries[j][i].config(state="readonly")
 
-    for i in range(1,maxNum+1):
-        sum=0
-        x1=0
-        y1=0
+    
         for x in range(pole):
             for y in range(pole):
-                if blockBoard[x][y]==i:
-                    sum+=copyBoard[x][y]
-                    x1=x
-                    y1=y
-        text=Label(frame, text=sum)
-        text.place(x=y1*50,y=x1*50)
-                
-            
+                searchingForBlocks(x,y,blockBoard)
+
+        for i in range(1,maxNum+1):
+            x1=y1=0
+            for x in range(pole):
+                for y in range(pole):
+                    if blockBoard[x][y]==i:
+                        x1,y1=x,y
+                        break
+            text=Label(frame, text=dictN[i])
+            text.place(x=y1*50,y=x1*50)
+        
     
 
 def checkBoard():
@@ -130,24 +126,65 @@ def changingSeed(seed):
 def seedChange():
     global seedMes
     seedMes=message.get()
-    if seedMes.isdigit():
-        if int(seedMes)>0:
-            frame.place_forget()
-            random.seed(seedMes)
-            firstBoard=generation.baseBoard()
-            board=generation.mixing(firstBoard, int(seedMes))
-            createBoard()
-            changingSeed(seedMes)
+    if dif!=0:
+        if seedMes.isdigit():
+            if int(seedMes)>0:
+                frame.place_forget()
+                createBoard()
+                if buttonText=="Classic":
+                    classicSudoku()          
+                elif buttonText=="Killer Sudoku":
+                    killerSudoku()
+                changingSeed(seedMes)
+            else:
+                 messagebox.showinfo("Error","Seed in the wrong range")
         else:
-             messagebox.showinfo("Error","Seed in the wrong range")
-    else:
-        messagebox.showinfo("Error", "Wrong seed")
+            messagebox.showinfo("Error", "Wrong seed")
 
 
 def returnToTheMenu():
     frameMenu.pack()
     frameMain.pack_forget()
     frame.place_forget()
+
+def Easy():
+    global dif
+    dif=1
+    if message.get()=='':
+        frame.place_forget()
+        createBoard()
+        if buttonText=="Classic":
+            classicSudoku()
+        elif buttonText=="Killer Sudoku":
+            killerSudoku()
+    else:
+        seedChange()
+
+def Medium():
+    global dif
+    dif=2
+    if message.get()=='':
+        frame.place_forget()
+        createBoard()
+        if buttonText=="Classic":
+            classicSudoku()
+        elif buttonText=="Killer Sudoku":
+            killerSudoku()
+    else:
+        seedChange()
+
+def Hard():
+    global dif
+    dif=3
+    if message.get()=='':
+        frame.place_forget()
+        createBoard()
+        if buttonText=="Classic":
+            classicSudoku()
+        elif buttonText=="Killer Sudoku":
+            killerSudoku()
+    else:
+        seedChange()
                 
                 
 def startGame():
@@ -172,10 +209,19 @@ def startGame():
     message = StringVar()
     global mesEntry
     mesEntry = Entry(frameMain,textvariable=message, background="white",foreground="black",font="Arial 16",width=16, justify="center", bd="3",)
-    mesEntry.place (x=550,y=375)
+    mesEntry.place (x=550,y=300)
 
-    btnOk=Button(frameMain,text="Enter seed",background="#235",foreground="white",font="Arial 16",width=15, command=seedChange)
-    btnOk.place(x=550,y=425)
+
+    global dif
+    dif=0
+    btnEasy=Button(frameMain,text="Easy",background="#235",foreground="white",font="Arial 16",width=8, command=Easy)
+    btnEasy.place(x=490,y=385)
+
+    btnMed=Button(frameMain,text="Medium",background="#235",foreground="white",font="Arial 16",width=8, command=Medium)
+    btnMed.place(x=600,y=385)
+
+    btnHard=Button(frameMain,text="Hard",background="#235",foreground="white",font="Arial 16",width=8, command=Hard)
+    btnHard.place(x=710,y=385)
 
     createBoard()
 
@@ -213,3 +259,6 @@ window.title("SUDOKU")
 window.geometry("850x650")
 window.config(bg = "white")
 main()
+
+
+
