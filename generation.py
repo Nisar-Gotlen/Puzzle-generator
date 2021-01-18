@@ -214,13 +214,6 @@ def deletion (board, dif,typeG):
                     meth=Medium(board)
                 elif dif==3:
                     meth=Hard(board)
-            if (typeG==2) and (iterat>difKiller[dif*2-1]):
-                if dif==1:
-                    meth=Easy(board)
-                elif dif==2:
-                    meth=Easy(board)
-                elif dif==3:
-                    meth=Easy(board)
             if meth==0:
                 break
             copyBoard=copy.deepcopy(board)
