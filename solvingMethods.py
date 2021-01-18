@@ -7,18 +7,18 @@ class SolvingMethod(object):
         self.solvedField = [[0 for i in range(self.totalNumber)] for j in range(self.totalNumber)]
         self.done = False
         self.changes = False
-        self.difficult = 0
+        self.difficult = 0          #количество ПРИМЕНЕНИЙ методов(может быть все по 0)
         self.SingleCand = 0
         self.NakedPairs = 0
         self.NakedThree = 0
         self.HidPair = 0
         self.HidTree = 0
-        self.SingleCandControl = 0
+        self.DeleteExtraVal = 0
+        self.SingleCandControl = 0  #количество ВЫЗОВОВ методов (всегда как минимум 1)
         self.NakedPairsControl = 0
         self.NakedThreeControl = 0
         self.HidPairControl = 0
         self.HidTreeControl = 0
-        self.DeleteExtraVal = 0
 
     def isPossible(self):
         return self.done
@@ -611,6 +611,9 @@ class SolvingMethods(SolvingMethod):
             if not self.changes:
                 break
 
+    def MathMethods(self):
+        return  self.DeleteExtraVal + self.SingleCand + self.NakedPairs + self.NakedThree + self.HidPair + self.HidTree
+
 
 class SolvingMethodsKiller(SolvingMethod):
     def __init__(self, startField, killerBox, countKillBox, areaSum):
@@ -655,7 +658,6 @@ class SolvingMethodsKiller(SolvingMethod):
             if self.changes:
                 self.changes = False
                 continue
-
             self.nakedTreesome()
             if self.checksolving():
                 break
@@ -676,6 +678,9 @@ class SolvingMethodsKiller(SolvingMethod):
                 continue
             if not self.changes:
                 break
+
+    def MathMethods(self):
+        return  self.DeleteExtraVal + self.SingleCand + self.NakedPairs + self.NakedThree + self.HidPair + self.HidTree + self.missingNumsCount + self.uniqAmCount + self.balancerCount
 
     def countMissingNums(self):
         for num in range(1, self.countKillBox):
@@ -797,40 +802,3 @@ class SolvingMethodsKiller(SolvingMethod):
                     allBalanced = True
             return allBalanced
 
-
-p = [
-    [0, 0, 0, 0, 0, 1, 0, 3, 0],
-    [2, 3, 1, 0, 9, 0, 0, 0, 0],
-    [0, 6, 5, 0, 0, 3, 1, 0, 0],
-    [6, 7, 8, 9, 2, 4, 3, 0, 0],
-    [1, 0, 3, 0, 5, 0, 0, 0, 6],
-    [0, 0, 0, 1, 3, 6, 7, 0, 0],
-    [0, 0, 9, 3, 6, 0, 5, 7, 0],
-    [0, 0, 6, 0, 1, 9, 8, 4, 3],
-    [3, 0, 0, 0, 0, 0, 0, 0, 0]
-]
-
-puzzle = [
-    [9, 0, 1, 5, 0, 0, 0, 4, 6],
-    [4, 2, 5, 0, 9, 0, 0, 8, 1],
-    [8, 6, 0, 0, 1, 0, 0, 2, 0],
-    [5, 0, 2, 0, 0, 0, 0, 0, 0],
-    [0, 1, 9, 0, 0, 0, 4, 6, 0],
-    [6, 0, 0, 0, 0, 0, 0, 0, 2],
-    [1, 9, 6, 0, 4, 0, 2, 5, 3],
-    [2, 0, 0, 0, 6, 0, 8, 1, 7],
-    [0, 0, 0, 0, 0, 1, 6, 9, 4]
-]
-
-sol = SolvingMethods(puzzle)
-for i in sol.numberField:
-    print(i)
-print(sol.SingleCand)
-print(sol.NakedPairs)
-print()
-print(sol.NakedPairsControl)
-print(sol.NakedThreeControl)
-print(sol.HidPairControl)
-print(sol.HidTreeControl)
-print(sol.DeleteExtraVal)
-print(sol.Solve())
