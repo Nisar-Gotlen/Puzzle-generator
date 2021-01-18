@@ -19,7 +19,7 @@ EASY_DIFF_NUM = 10
 NORMAL_DIFF_NUM = 10
 HARD_DIFF_NUM = 10
 EXTREME_DIFF_NUM = 10
-MINIMAL_DIFF_NUM = 0
+MINIMAL_DIFF_NUM = 10
 
 currentdir = os.path.dirname(os.path.abspath(
     inspect.getfile(inspect.currentframe())))
@@ -116,6 +116,7 @@ def pars_test():
     for num in range(MINIMAL_DIFF_NUM):
         puzzle = field_parse(MINIMAL_RB_ID, driver)
         print_test_res(puzzle, filDir1, filDir2)
+        add_to_log(puzzle, 'MINIMAL')
 
 
 pars_test()

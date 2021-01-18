@@ -42,78 +42,78 @@ for line in filDir:
         l = line.split()
         if l[0] == "EASY":
             zeros_EASY = numpy.append(zeros_EASY, int(l[2]))
-        elif l[0] == "NORMAL":
-            zeros_NORMAL = numpy.append(zeros_NORMAL, int(l[2]))
         elif l[0] == "HARD":
-            zeros_HARD = numpy.append(zeros_HARD, int(l[2]))
+            zeros_NORMAL = numpy.append(zeros_NORMAL, int(l[2]))
         elif l[0] == "EXTREME":
+            zeros_HARD = numpy.append(zeros_HARD, int(l[2]))
+        elif l[0] == "MINIMAL":
             zeros_EXTREME = numpy.append(zeros_EXTREME, int(l[2]))
 
     elif k == 1:
         l = line.split()
         if l[0] == "EASY":
             EASY_SingleCand = numpy.append(EASY_SingleCand, int(l[2]))
-        elif l[0] == "NORMAL":
-            NORMAL_SingleCand = numpy.append(NORMAL_SingleCand, int(l[2]))
         elif l[0] == "HARD":
-            HARD_SingleCand = numpy.append(HARD_SingleCand, int(l[2]))
+            NORMAL_SingleCand = numpy.append(NORMAL_SingleCand, int(l[2]))
         elif l[0] == "EXTREME":
+            HARD_SingleCand = numpy.append(HARD_SingleCand, int(l[2]))
+        elif l[0] == "MINIMAL":
             EXTREME_SingleCand = numpy.append(EXTREME_SingleCand, int(l[2]))
 
     elif k == 2:
         l = line.split()
         if l[0] == "EASY":
             EASY_NakedPairs = numpy.append(EASY_NakedPairs, int(l[2]))
-        elif l[0] == "NORMAL":
-            NORMAL_NakedPairs = numpy.append(NORMAL_NakedPairs, int(l[2]))
         elif l[0] == "HARD":
-            HARD_NakedPairs = numpy.append(HARD_NakedPairs, int(l[2]))
+            NORMAL_NakedPairs = numpy.append(NORMAL_NakedPairs, int(l[2]))
         elif l[0] == "EXTREME":
+            HARD_NakedPairs = numpy.append(HARD_NakedPairs, int(l[2]))
+        elif l[0] == "MINIMAL":
             EXTREME_NakedPairs = numpy.append(EXTREME_NakedPairs, int(l[2]))
 
     elif k == 3:
         l = line.split()
         if l[0] == "EASY":
             EASY_NakedThree = numpy.append(EASY_NakedThree, int(l[2]))
-        elif l[0] == "NORMAL":
-            NORMAL_NakedThree = numpy.append(NORMAL_NakedThree, int(l[2]))
         elif l[0] == "HARD":
-            HARD_NakedThree = numpy.append(HARD_NakedThree, int(l[2]))
+            NORMAL_NakedThree = numpy.append(NORMAL_NakedThree, int(l[2]))
         elif l[0] == "EXTREME":
+            HARD_NakedThree = numpy.append(HARD_NakedThree, int(l[2]))
+        elif l[0] == "MINIMAL":
             EXTREME_NakedThree = numpy.append(EXTREME_NakedThree, int(l[2]))
 
     elif k == 4:
         l = line.split()
         if l[0] == "EASY":
             EASY_HidPair = numpy.append(EASY_HidPair, int(l[2]))
-        elif l[0] == "NORMAL":
-            NORMAL_HidPair = numpy.append(NORMAL_HidPair, int(l[2]))
         elif l[0] == "HARD":
-            HARD_HidPair = numpy.append(HARD_HidPair, int(l[2]))
+            NORMAL_HidPair = numpy.append(NORMAL_HidPair, int(l[2]))
         elif l[0] == "EXTREME":
+            HARD_HidPair = numpy.append(HARD_HidPair, int(l[2]))
+        elif l[0] == "MINIMAL":
             EXTREME_HidPair = numpy.append(EXTREME_HidPair, int(l[2]))
 
     elif k == 5:
         l = line.split()
         if l[0] == "EASY":
             EASY_HidTree = numpy.append(EASY_HidTree, int(l[2]))
-        elif l[0] == "NORMAL":
-            NORMAL_HidTree = numpy.append(NORMAL_HidTree, int(l[2]))
         elif l[0] == "HARD":
-            HARD_HidTree = numpy.append(HARD_HidTree, int(l[2]))
+            NORMAL_HidTree = numpy.append(NORMAL_HidTree, int(l[2]))
         elif l[0] == "EXTREME":
+            HARD_HidTree = numpy.append(HARD_HidTree, int(l[2]))
+        elif l[0] == "MINIMAL":
             EXTREME_HidTree = numpy.append(EXTREME_HidTree, int(l[2]))
 
     elif k == 6:
         l = line.split()
         if l[0] == "EASY":
             EASY_DeleteExtraVal = numpy.append(EASY_DeleteExtraVal, int(l[2]))
-        elif l[0] == "NORMAL":
+        elif l[0] == "HARD":
             NORMAL_DeleteExtraVal = numpy.append(
                 NORMAL_DeleteExtraVal, int(l[2]))
-        elif l[0] == "HARD":
-            HARD_DeleteExtraVal = numpy.append(HARD_DeleteExtraVal, int(l[2]))
         elif l[0] == "EXTREME":
+            HARD_DeleteExtraVal = numpy.append(HARD_DeleteExtraVal, int(l[2]))
+        elif l[0] == "MINIMAL":
             EXTREME_DeleteExtraVal = numpy.append(
                 EXTREME_DeleteExtraVal, int(l[2]))
 
@@ -121,16 +121,18 @@ for line in filDir:
         k += 1
     else:
         k = 0
+
+
 print("zeros_EASY min " + str(numpy.amin(zeros_EASY)) +
       " max " + str(numpy.amax(zeros_EASY)))
-
-
 print("zeros_NORMAL min " + str(numpy.amin(zeros_NORMAL)) +
       " max " + str(numpy.amax(zeros_NORMAL)))
 print("zeros_HARDL min " + str(numpy.amin(zeros_HARD)) +
       " max " + str(numpy.amax(zeros_HARD)))
 print("zeros_EXTREME min " + str(numpy.amin(zeros_EXTREME)) +
       " max " + str(numpy.amax(zeros_EXTREME)))
+
+print("\n")
 
 print("EASY_SingleCand min " + str(numpy.amin(EASY_SingleCand)) +
       " max " + str(numpy.amax(EASY_SingleCand)))
@@ -145,6 +147,8 @@ print("EASY_HidTree min " + str(numpy.amin(EASY_HidTree)) +
 print("EASY_DeleteExtraVal min " + str(numpy.amin(EASY_DeleteExtraVal)) +
       " max " + str(numpy.amax(EASY_DeleteExtraVal)))
 
+print("\n")
+
 print("NORMAL_SingleCand min " + str(numpy.amin(NORMAL_SingleCand)) +
       " max " + str(numpy.amax(NORMAL_SingleCand)))
 print("NORMAL_NakedPairs min " + str(numpy.amin(NORMAL_NakedPairs)) +
@@ -158,6 +162,8 @@ print("NORMAL_HidTree min " + str(numpy.amin(NORMAL_HidTree)) +
 print("NORMAL_DeleteExtraVal min " + str(numpy.amin(NORMAL_DeleteExtraVal)) +
       " max " + str(numpy.amax(NORMAL_DeleteExtraVal)))
 
+print("\n")
+
 print("HARD_SingleCand min " + str(numpy.amin(HARD_SingleCand)) +
       " max " + str(numpy.amax(HARD_SingleCand)))
 print("HARD_NakedPairs min " + str(numpy.amin(HARD_NakedPairs)) +
@@ -170,6 +176,8 @@ print("HARD_HidTree min " + str(numpy.amin(HARD_HidTree)) +
       " max " + str(numpy.amax(HARD_HidTree)))
 print("HARD_DeleteExtraVal min " + str(numpy.amin(HARD_DeleteExtraVal)) +
       " max " + str(numpy.amax(HARD_DeleteExtraVal)))
+
+print("\n")
 
 print("EXTREME_SingleCand min " + str(numpy.amin(EXTREME_SingleCand)) +
       " max " + str(numpy.amax(EXTREME_SingleCand)))
